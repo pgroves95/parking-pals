@@ -1,10 +1,11 @@
 const express = require("express");
 const app = express();
+const path = require("path");
 app.use(express.json());
-const PORT = 3000;
+const PORT = process.env.PORT || 3001;
 
 app.get("/api", (req, res) => {
-  res.json({ message: "Hello from server!" });
+  res.json({ message: "AMAZINGGGGGG" });
 });
 
 app.listen(PORT, () => {
