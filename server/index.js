@@ -5,9 +5,9 @@ app.use(express.json());
 const PORT = process.env.PORT || 3001;
 
 app.get("/api", (req, res) => {
-  res.json({ message: "AMAZINGGGGGG" });
+	res.json({ message: "AMAZINGGGGGG!!!" });
 });
 
 app.listen(PORT, () => {
-  console.log(`Server is listening on localhost:${PORT}`);
+	console.log(`Server is listening on localhost:${PORT}`);
 });
