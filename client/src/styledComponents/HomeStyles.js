@@ -45,6 +45,16 @@ export const LandingSection = styled.div`
 	}
 `;
 
+export const LandingSearchInput = styled.input`
+	width: 20rem;
+	height: 2rem;
+	padding-left: 10px;
+	outline: none;
+	border-radius: 10px;
+	border: 1px solid #057dcd;
+	background-color: #fff;
+`;
+
 export const MainButtonDiv = styled.div`
 	color: #057dcd;
 	width: 9.2rem;

@@ -34,14 +34,15 @@ export default function RegisterHost() {
 						type="text"
 						placeholder="Street Address"
 					/>
-					<SignUpFormInput
-						id="apt-suite"
-						type="text"
-						placeholder="Apt/Suite #"
-					/>
 					<SignUpFormInput id="city" type="text" placeholder="City" />
 					<SignUpFormInput id="state" type="text" placeholder="State" />
 					<SignUpFormInput id="zip" type="text" placeholder="Zip Code" />
+					<SignUpFormInput type="number" placeholder="Hourly Parking Rate" />
+					<SignUpFormInput
+						id="description"
+						type="textarea"
+						placeholder="Driveway Description"
+					/>
 					<SignUpButton id="submit-button">Submit Form</SignUpButton>
 				</HostForm>
 			</div>

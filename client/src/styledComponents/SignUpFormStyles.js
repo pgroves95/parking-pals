@@ -10,6 +10,7 @@ export const RegisterDiv = styled.div`
 		background-image: url(${driving});
 		background-size: cover;
 		background-position: center;
+		height: 100vh;
 	}
 `;
 
@@ -33,7 +34,7 @@ export const HostForm = styled.form`
 	@media (min-width: 768px) {
 		display: inline-grid;
 		width: 500px;
-		height: 400px;
+		height: 450px;
 		place-items: center;
 		grid-template-columns: 1fr 1fr;
 		grid-gap: 5px;
