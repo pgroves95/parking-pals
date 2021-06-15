@@ -21,7 +21,6 @@
 .info-card {
   display: flex;
   flex-direction: column;
-  background-color: pink;
   align-items: center;
   padding: 50px;
 }
