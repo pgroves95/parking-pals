@@ -4,7 +4,7 @@ import { FooterDiv } from "../styledComponents/NavbarStyles";
 export default function Footer() {
 	return (
 		<FooterDiv>
-			<p>&copy; 2021 &middot; Calvin Kling</p>
+			<p>&copy; 2021 &middot; Parking Pals</p>
 		</FooterDiv>
 	);
 }

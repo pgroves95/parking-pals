@@ -25,6 +25,21 @@ export default function RegisterUser() {
 						placeholder="Email Address"
 					/>
 					<SignUpFormInput
+						id="email2"
+						type="email"
+						placeholder="Confirm Email Address"
+					/>
+					<SignUpFormInput
+						id="password"
+						type="password"
+						placeholder="Password"
+					/>
+					<SignUpFormInput
+						id="password2"
+						type="password"
+						placeholder="Confirm Password"
+					/>
+					<SignUpFormInput
 						id="street"
 						type="text"
 						placeholder="Street Address"
@@ -38,6 +53,7 @@ export default function RegisterUser() {
 					<SignUpFormInput id="state" type="text" placeholder="State" />
 					<SignUpFormInput id="zip" type="text" placeholder="Zip Code" />
 					<SignUpFormInput type="text" placeholder="License Plate Number" />
+					<SignUpFormInput id="phone" type="text" placeholder="Phone Number" />
 					<SignUpButton id="submit-button">Submit Form</SignUpButton>
 				</HostForm>
 			</div>
