@@ -35,6 +35,7 @@ import {
 	faUsers,
 	faCompass,
 } from "@fortawesome/free-solid-svg-icons";
+import "../css/Landing.css";
 
 const compass = <FontAwesomeIcon icon={faCompass} size="3x" />;
 const car1 = <FontAwesomeIcon icon={faCar} size="3x" />;
@@ -61,7 +62,7 @@ export default function Landing() {
 	// }, [dispatch]);
 	return (
 		<div>
-			<LandingSection>
+			<div id="main-landing">
 				<br />
 				<img src={driveway} alt="driveway" />
 				<LandingSubSection>
@@ -69,22 +70,23 @@ export default function Landing() {
 						Locate a hosted driveway spot on the go or put your unused driveway
 						space to use!
 					</h3>
-					<LandingSearchInput
+					<input
+						id="landing-search-input"
 						type="search"
 						placeholder="Input your destination for nearby driveway parking"
 					/>
 					<SecondaryNavbar>
 						<Link to="/LocateParking">
-							<MainButtonDiv>
+							<div id="main-buttons-section">
 								<h2>{compass}</h2>
 								<h3>Find Parking</h3>
-							</MainButtonDiv>
+							</div>
 						</Link>
 						<Link to="/RegisterHost">
-							<MainButtonDiv>
+							<div id="main-buttons-section">
 								<h2>{car1}</h2>
 								<h3>Host Driveway</h3>
-							</MainButtonDiv>
+							</div>
 						</Link>
 					</SecondaryNavbar>
 					<h3>Become a host and join other active hosts!</h3>
@@ -96,7 +98,7 @@ export default function Landing() {
 						time.
 					</p>
 				</LandingSubSection>
-			</LandingSection>
+			</div>
 			<FeaturesList>
 				<div>
 					<MainFeatures>

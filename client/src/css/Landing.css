@@ -1,0 +1,129 @@
+#main-landing {
+	background-color: #e8eef1;
+	color: #1e3d58;
+	min-height: 50vh;
+}
+
+#main-landing p {
+	margin: 1.2rem;
+	padding: 1.2rem;
+	font-size: 1.2rem;
+}
+
+#main-landing img {
+	margin-top: 2rem;
+	height: 290px;
+	width: 350px;
+}
+
+#landing-search-input {
+	width: 20rem;
+	height: 2rem;
+	padding-left: 10px;
+	outline: none;
+	border-radius: 10px;
+	border: 1px solid #057dcd;
+	background-color: #fff;
+}
+
+#main-buttons-section {
+	color: #057dcd;
+	width: 9.2rem;
+	height: 9.2rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 10px;
+	cursor: pointer;
+}
+#main-buttons-section h2 {
+	margin: 10px;
+}
+
+#main-buttons-section h3 {
+	margin: 10px;
+	font-size: 18px;
+}
+
+#main-buttons-section:hover {
+	color: #fd7f20;
+}
+
+@media screen and (min-width: 768px) {
+	#main-landing img {
+		height: 580px;
+		width: 700px;
+	}
+	#main-landing h3 {
+		margin: 1.5rem;
+	}
+
+	#main-buttons-section {
+		flex-direction: row;
+		justify-content: space-between;
+		padding: 20px;
+		width: 12.2rem;
+		height: 6.2rem;
+		justify-content: space-between;
+	}
+}
+
+@media screen and (min-width: 992px) {
+	#main-landing {
+		background-image: url(../assets/images/driveway.jpg);
+		background-size: cover;
+		background-position: center;
+		height: 85vh;
+		color: #e8eef1;
+	}
+	#main-landing img {
+		display: none;
+	}
+	#main-landing h3 {
+		padding: 1.5rem;
+		font-size: 20px;
+		margin: 0;
+		color: #1e3d58;
+	}
+	#main-buttons-section {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		margin: 0;
+		background-color: #e8eef1;
+		border-radius: 50%;
+		height: 160px;
+		width: 160px;
+		font-size: 12px;
+		border: 1px solid #057dcd;
+		color: #057dcd;
+	}
+	#main-buttons-section h2 {
+		margin: 0;
+		padding: 5px;
+	}
+	#main-buttons-section h3 {
+		margin: 0;
+		padding: 5px;
+	}
+	#main-buttons-section:hover {
+		border: 1px solid #fd7f20;
+	}
+	#main-buttons-section h3:hover {
+		color: #fd7f20;
+	}
+	#secondary-landing {
+		background-color: #e8eef1;
+		width: 500px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		margin-left: 50px;
+		border-radius: 10px;
+	}
+	#secondary-landing p {
+		color: #1e3d58;
+	}
+}

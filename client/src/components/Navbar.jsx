@@ -16,7 +16,7 @@ export default function Navbar() {
 			<Router>
 				<div className="navbar-links">
 					<Link to="/">Home</Link>
-					<Link to="/faq">Features</Link>
+					<Link to="/faq">FAQ</Link>
 					<Link to="/registeruser">User Registration</Link>
 					<Link to="/registerhost">Host Registration</Link>
 					<Link to="/profile">Profile</Link>
