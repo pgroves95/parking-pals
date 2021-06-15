@@ -48,6 +48,10 @@ export default function ProfileUser() {
 				<h4>Your reviews:</h4>
 				<br></br>
 				<p>"Great spot for the big game!"</p>
+				<p>"I felt safe walking from this location."</p>
+				<p>"A bird pooped on my car."</p>
+				<p>"The owner gave me a ride to the stadium!"</p>
+				<p>"Expensive, but worth it."</p>
 			</div>
 			</div>
 			</div>

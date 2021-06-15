@@ -25,6 +25,31 @@
   padding: 50px;
 }
 
+.driveway-pic {
+  width: 225px;
+  height: 120px;
+}
+
+.search-results {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.map-of-spots {
+  width: 500px;
+  height: 400px;
+  margin: auto;
+  margin-right: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+.results-and-map {
+  display: flex;
+  flex-direction: row;
+}
+
 @media screen and (min-width: 768px) {
   .host-wrapper {
     display: flex;
