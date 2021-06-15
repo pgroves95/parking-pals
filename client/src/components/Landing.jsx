@@ -3,9 +3,9 @@ import { LandingSection } from "../styledComponents/HomeStyles";
 import driveway from "../assets/images/driveway.jpg";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
-import { dataFromSupabase } from "../actions/supaBaseData";
+// import { dataFromSupabase } from "../actions/supaBaseData";
 import { useDispatch, useSelector } from "react-redux";
-import { GET_DATA } from "../action-types/supaBase-action-types";
+// import { GET_DATA } from "../action-types/supaBase-action-types";
 import { SecondaryNavbar } from "../styledComponents/NavbarStyles";
 import {
 	MainButtonDiv,
@@ -18,19 +18,19 @@ const compass = <FontAwesomeIcon icon={faCompass} size="3x" />;
 const car = <FontAwesomeIcon icon={faCar} size="3x" />;
 
 export default function Landing() {
-	const dispatch = useDispatch();
-	const supaBaseHostData = useSelector((state) => state.supaBaseHostData);
+	// const dispatch = useDispatch();
+	// const supaBaseHostData = useSelector((state) => state.supaBaseHostData);
 
-	useEffect(() => {
-		const fetchData = async () => {
-			const data = await dataFromSupabase();
-			dispatch({
-				type: GET_DATA,
-				payload: data,
-			});
-		};
-		fetchData();
-	}, [dispatch]);
+	// useEffect(() => {
+	// 	const fetchData = async () => {
+	// 		const data = await dataFromSupabase();
+	// 		dispatch({
+	// 			type: GET_DATA,
+	// 			payload: data,
+	// 		});
+	// 	};
+	// 	fetchData();
+	// }, [dispatch]);
 	return (
 		<div>
 			<LandingSection>
@@ -55,7 +55,7 @@ export default function Landing() {
 						</Link>
 					</SecondaryNavbar>
 					<h3>
-						Become a host and join {supaBaseHostData.length} other active hosts!
+						Become a host and join supaBaseHostData.length other active hosts!
 					</h3>
 
 					<p>
