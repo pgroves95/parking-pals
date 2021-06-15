@@ -2,6 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar';
 import femaleAvatar from "../assets/images/femaleavatar.png"
+import "../App.css"
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -23,6 +24,8 @@ export default function ProfileUser() {
 				<div className={classes.root}>
       <Avatar alt="Remy Sharp" src={femaleAvatar} className={classes.large} />
     			</div>
+	  <h3>Whitney Svoboda</h3>
+	  <p>Grapevine, TX</p>
 			</div>
 			</div>;
 }

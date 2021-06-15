@@ -18,6 +18,13 @@
   margin: 10px;
 }
 
+.info-card {
+  display: flex;
+  flex-direction: column;
+  background-color: pink;
+  align-items: center;
+}
+
 @media screen and (min-width: 768px) {
   .host-wrapper {
     display: flex;
