@@ -23,6 +23,7 @@
   flex-direction: column;
   background-color: pink;
   align-items: center;
+  padding: 50px;
 }
 
 @media screen and (min-width: 768px) {
