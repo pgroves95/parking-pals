@@ -2,8 +2,8 @@ import React from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import emptyDriveway from "../assets/images/emptydriveway.png"
-import { Link } from "react-router-dom";
 import map from "../assets/images/map.PNG"
+import { Link } from "react-router-dom";
 import "../App.css"
 
 const useStyles = makeStyles((theme) => ({
@@ -33,7 +33,7 @@ export default function DrivewayResults() {
 		<br></br>
 		<p>$10 / hour</p>
 		<br></br>
-		<Link to="/">More</Link>
+		<Link to="/result">More</Link>
 	  </Paper>
     </div>
 	<div className={classes.root}>
@@ -44,7 +44,7 @@ export default function DrivewayResults() {
 		<br></br>
 		<p>$5 / hour</p>
 		<br></br>
-		<Link to="/">More</Link>
+		<Link to="/result">More</Link>
 	  </Paper>
     </div>
 	<div className={classes.root}>
@@ -55,7 +55,7 @@ export default function DrivewayResults() {
 		<br></br>
 		<p>$20 / hour</p>
 		<br></br>
-		<Link to="/">More</Link>
+		<Link to="/result">More</Link>
 	  </Paper>
     </div>
 	<div className={classes.root}>
@@ -66,7 +66,7 @@ export default function DrivewayResults() {
 		<br></br>
 		<p>$1 / hour</p>
 		<br></br>
-		<Link to="/">More</Link>
+		<Link to="/result">More</Link>
 	  </Paper>
     </div>
 	</div>
