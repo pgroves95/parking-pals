@@ -1,11 +1,12 @@
 import React from "react";
-import "../App.css";
+import "../css/RegisterUser.css";
 
 export default function RegisterUser() {
 	return (
 		<div id="register-section">
 			<div className="host-wrapper">
 				<h1>Sign Up to Start Parking</h1>
+				<div className="form">
 				<form action="/register" method="POST">
 					<input
 						name="firstName"
@@ -49,8 +50,9 @@ export default function RegisterUser() {
 					<input name="license_plate" type="text" placeholder="License Plate Number" />
 					<input name="phone" id="phone" type="text" placeholder="Phone Number" />
 					<input name="access" value="user" type="hidden"/>
-					<button id="submit-button">Submit Form</button>
+					<button className="register-button" id="submit-button">Submit Form</button>
 				</form>
+				</div>
 			</div>
 		</div>
 	);
