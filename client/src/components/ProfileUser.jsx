@@ -2,7 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar';
 import Paper from '@material-ui/core/Paper';
-import femaleAvatar from "../assets/images/femaleavatar.png"
+import avatar from "../assets/images/avatar.png"
 import "../App.css"
 
 const useStyles = makeStyles((theme) => ({
@@ -35,7 +35,7 @@ export default function ProfileUser() {
 			<div className={classes.rootCard}>
 			<Paper elevation={3} >
 				<div className={classes.root}>
-      <Avatar alt="Remy Sharp" src={femaleAvatar} className={classes.large} />
+      <Avatar alt="Remy Sharp" src={avatar} className={classes.large} />
     			</div>
 	  <h3>Whitney Svoboda</h3>
 	  <p>Grapevine, TX</p>
@@ -44,6 +44,8 @@ export default function ProfileUser() {
 				<h2>Hi, Whitney</h2>
 				<br></br>
 				<p>You have rented 6 driveways!</p>
+				<br></br>
+				<h4>Your Upcoming Reservations:</h4>
 				<br></br>
 				<h4>Your reviews:</h4>
 				<br></br>

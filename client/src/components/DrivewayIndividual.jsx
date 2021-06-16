@@ -33,16 +33,19 @@ export default function DrivewayIndividual() {
 		</div>
 		<div className={classes.root}>
       <Paper elevation={3}>
+		  
 		<h2>$10 / hr</h2>
 		<br></br>
-		<form>
-		<p>Date:</p><input type="date" required/>
-		<p>Drop Off:</p><input type="time" required />
-		<p>Pick Up:</p><input type="time" required/>
+		<form action="/reserve" method="POST">
+		<p>Date:</p><input name="date" type="date" required/>
+		<p>Drop Off:</p><input name="start_request" type="time" required />
+		<p>Pick Up:</p><input name="end_request" type="time" required/>
 		<br></br>
 		<br></br>
 		<p><b>Total:</b> $90</p>
 		<br></br>
+		<input type="hidden" name="driver_id" value="params.driver_id"/>
+		<input type="hidden" name="host_id" value="params.host_id"/>
 		<button>Reserve</button>
 		</form>
 	  </Paper>

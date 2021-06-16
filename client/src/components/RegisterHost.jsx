@@ -12,7 +12,7 @@ export default function RegisterHost() {
 		<RegisterDiv>
 			<div className="host-wrapper">
 				<h1>Register to Host Now</h1>
-				<HostForm>
+				<HostForm action="/driveway" method="POST">
 					<SignUpFormInput
 						id="first-name"
 						type="text"
@@ -25,25 +25,29 @@ export default function RegisterHost() {
 						placeholder="Email Address"
 					/>
 					<SignUpFormInput
+						name="total_spaces"
 						id="spots"
 						type="number"
 						placeholder="Number of Parking Spots"
 					/>
 					<SignUpFormInput
+						name="address"
 						id="street"
 						type="text"
 						placeholder="Street Address"
 					/>
-					<SignUpFormInput id="city" type="text" placeholder="City" />
+					<SignUpFormInput name="city" id="city" type="text" placeholder="City" />
 					<SignUpFormInput id="state" type="text" placeholder="State" />
 					<SignUpFormInput id="zip" type="text" placeholder="Zip Code" />
-					<SignUpFormInput type="number" placeholder="Hourly Parking Rate" />
+					<SignUpFormInput name="rate" type="number" placeholder="Hourly Parking Rate" />
 					<SignUpFormInput
+					name="description"
 						id="description"
 						type="textarea"
 						placeholder="Driveway Description"
 					/>
-					<SignUpButton id="submit-button">Submit Form</SignUpButton>
+					<input name="access" value="host" type="hidden"/>
+					<SignUpButton type="submit" id="submit-button">Submit Form</SignUpButton>
 				</HostForm>
 			</div>
 		</RegisterDiv>

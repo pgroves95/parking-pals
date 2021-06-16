@@ -12,14 +12,16 @@ export default function RegisterUser() {
 		<RegisterDiv>
 			<div className="host-wrapper">
 				<h1>Sign Up to Start Parking</h1>
-				<HostForm>
+				<HostForm action="/register" method="POST">
 					<SignUpFormInput
+						name="name"
 						id="first-name"
 						type="text"
 						placeholder="First Name"
 					/>
 					<SignUpFormInput id="last-name" type="text" placeholder="Last Name" />
 					<SignUpFormInput
+						name="email"
 						id="email"
 						type="email"
 						placeholder="Email Address"
@@ -30,6 +32,7 @@ export default function RegisterUser() {
 						placeholder="Confirm Email Address"
 					/>
 					<SignUpFormInput
+					name="password"
 						id="password"
 						type="password"
 						placeholder="Password"
@@ -52,8 +55,9 @@ export default function RegisterUser() {
 					<SignUpFormInput id="city" type="text" placeholder="City" />
 					<SignUpFormInput id="state" type="text" placeholder="State" />
 					<SignUpFormInput id="zip" type="text" placeholder="Zip Code" />
-					<SignUpFormInput type="text" placeholder="License Plate Number" />
-					<SignUpFormInput id="phone" type="text" placeholder="Phone Number" />
+					<SignUpFormInput name="license_plate" type="text" placeholder="License Plate Number" />
+					<SignUpFormInput name="phone" id="phone" type="text" placeholder="Phone Number" />
+					<input name="access" value="user" type="hidden"/>
 					<SignUpButton id="submit-button">Submit Form</SignUpButton>
 				</HostForm>
 			</div>

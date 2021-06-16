@@ -3,9 +3,7 @@ import { LandingSection } from "../styledComponents/HomeStyles";
 import driveway from "../assets/images/driveway.jpg";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
-// import { dataFromSupabase } from "../actions/supaBaseData";
 import { useDispatch, useSelector } from "react-redux";
-// import { GET_DATA } from "../action-types/supaBase-action-types";
 import { SecondaryNavbar } from "../styledComponents/NavbarStyles";
 import {
 	MainButtonDiv,
@@ -48,18 +46,11 @@ const users = <FontAwesomeIcon icon={faUsers} size="2x" />;
 
 export default function Landing() {
 	// const dispatch = useDispatch();
-	// const supaBaseHostData = useSelector((state) => state.supaBaseHostData);
 
-	// useEffect(() => {
-	// 	const fetchData = async () => {
-	// 		const data = await dataFromSupabase();
-	// 		dispatch({
-	// 			type: GET_DATA,
-	// 			payload: data,
-	// 		});
-	// 	};
-	// 	fetchData();
-	// }, [dispatch]);
+	const getDriveways = async () => {
+		// pull from backend
+	}
+
 	return (
 		<div>
 			<div id="main-landing">
@@ -70,11 +61,14 @@ export default function Landing() {
 						Locate a hosted driveway spot on the go or put your unused driveway
 						space to use!
 					</h3>
+					<div className="search-bar">
 					<input
 						id="landing-search-input"
 						type="search"
 						placeholder="Input your destination for nearby driveway parking"
-					/>
+					onChange={()=>{}}/>
+					<button onClick={()=>{}}>Search</button>
+					</div>
 					<SecondaryNavbar>
 						<Link to="/LocateParking">
 							<div id="main-buttons-section">
