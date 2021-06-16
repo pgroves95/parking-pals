@@ -3,24 +3,17 @@ const app = express();
 const path = require("path");
 const Sequelize = require('sequelize');
 const {Users} = require("../models");
-app.use(express.json());
+const Router = express.Router()
 const PORT = process.env.PORT || 3001;
 const pg = require("pg");
 pg.defaults.ssl = true; 
-// const CONNECTION_STRING = `postgres://dywitnep:vK4LV14zo8VpAIfDWAzBxZX2wtZ3FUNV@batyr.db.elephantsql.com/dywitnep`;
 
-// const client = new pg.Client(CONNECTION_STRING);
-// client.connect(function (err) {
-//   if (err) {
-//     return console.error("could not connect to postgres", err);
-//   }
-//   client.query('SELECT NOW() AS "theTime"', function (err, result) {
-//     if (err) {
-//       return console.error("error running query", err);
-//     }
-//     console.log(result.rows[0].theTime);
-//   });
-// });
+
+app.use(express.json());
+
+
+
+
 
 app.get("/data", (req, res) => {
   res.json({ message: "AMAZINGGGGGG!!!" });
