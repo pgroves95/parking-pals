@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "root",
-    "password": null,
-    "database": "database_development",
-    "host": "127.0.0.1",
+    "username": "fsbjtsqg",
+    "password": "tjy8wuO1TkSN21FzPAl5AHtvDsGf6HHM",
+    "database": "fsbjtsqg",
+    "host": "batyr.db.elephantsql.com",
     "dialect": "postgres"
   },
   "test": {
@@ -11,13 +11,13 @@
     "password": null,
     "database": "database_test",
     "host": "127.0.0.1",
-    "dialect": "postgres"
+    "dialect": "mysql"
   },
   "production": {
     "username": "root",
     "password": null,
     "database": "database_production",
     "host": "127.0.0.1",
-    "dialect": "postgres"
+    "dialect": "mysql"
   }
 }

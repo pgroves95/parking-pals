@@ -3,7 +3,7 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class driveways extends Model {
+  class Driveways extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -13,8 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   };
-  driveways.init({
-    id:DataTypes.INTEGER,
+  Driveways.init({
     total_spaces: DataTypes.INTEGER,
     address: DataTypes.STRING,
     description: DataTypes.STRING,
@@ -23,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
     open_spaces: DataTypes.INTEGER
   }, {
     sequelize,
-    modelName: 'driveways',
+    modelName: 'Driveways',
   });
-  return driveways;
+  return Driveways;
 };
