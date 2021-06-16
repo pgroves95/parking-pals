@@ -1,0 +1,1 @@
+module.exports = `postgres://dywitnep:vK4LV14zo8VpAIfDWAzBxZX2wtZ3FUNV@batyr.db.elephantsql.com/dywitnep`;
