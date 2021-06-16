@@ -9,12 +9,11 @@ export default function Login() {
 		<div>
 			<div id="login-section">
 				<br />
-				<form id="login-form" action="/login" method="GET">
-					<h1>Log In To Find Parking</h1>
+				<form class="login-form" action="/login" method="GET">
+					<h1 class="login-header">Log In To Find Parking</h1>
 					<img id="dog-icon" src={dog} alt="dog" />
 					<input class="login-input-1" type="email" placeholder="Email" />
 					<input class="login-input-2" type="password" placeholder="Password" />
-
 					<button class="login-button" type="submit">
 						Log In
 					</button>
