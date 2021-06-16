@@ -1,6 +1,10 @@
 const express = require("express");
 const app = express();
 const path = require("path");
+const Sequelize = require('sequelize');
+const {users} = require("../models/users");
+const {driveways} = require("../models/driveways");
+const {reservations} = require("../models/reservations");
 app.use(express.json());
 const PORT = process.env.PORT || 3001;
 const pg = require("pg");
