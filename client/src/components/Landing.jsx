@@ -1,27 +1,10 @@
 import React from "react";
-import { LandingSection } from "../styledComponents/HomeStyles";
 import driveway from "../assets/images/driveway.jpg";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { SecondaryNavbar } from "../styledComponents/NavbarStyles";
-import {
-	MainButtonDiv,
-	LandingSubSection,
-	LandingSearchInput,
-} from "../styledComponents/HomeStyles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-	FeaturesList,
-	MainFeatures,
-	MainFeaturesReverse,
-	FeatureInfo,
-	FeatureIcon,
-	FeatureIconReverse,
-	FeatureIconLeft,
-	MapsIMG,
-	PhoneMap,
-} from "../styledComponents/FeaturesStyles";
 import phoneMap from "../assets/images/phoneMap.jpg";
 import maps from "../assets/images/maps.jpg";
 import {
@@ -56,7 +39,7 @@ export default function Landing() {
 			<div id="main-landing">
 				<br />
 				<img src={driveway} alt="driveway" />
-				<LandingSubSection>
+				<div id="secondary-landing">
 					<h3>
 						Locate a hosted driveway spot on the go or put your unused driveway
 						space to use!
@@ -91,65 +74,65 @@ export default function Landing() {
 						night out, sporting events or more! Book immediately or ahead of
 						time.
 					</p>
-				</LandingSubSection>
+				</div>
 			</div>
-			<FeaturesList>
+			<div class="features-list">
 				<div>
-					<MainFeatures>
-						<FeatureIconLeft>{car}</FeatureIconLeft>
-						<FeatureInfo>
+					<div class="main-features">
+						<div class="features-icon-reverse">{car}</div>
+						<div class="features-info">
 							<h1>Quick and Easy Parking</h1>
 							<p>Book ahead or while you're on your way</p>
-						</FeatureInfo>
-						<FeatureIcon>{car}</FeatureIcon>
-					</MainFeatures>
-					<MainFeatures>
-						<FeatureIconLeft>{clock}</FeatureIconLeft>
-						<FeatureInfo>
+						</div>
+						<div class="features-icon">{car}</div>
+					</div>
+					<div class="main-features">
+						<div class="features-icon-reverse">{clock}</div>
+						<div class="features-info">
 							<h1>Park on your time</h1>
 							<p>Select how long you need it for and it's all yours</p>
-						</FeatureInfo>
-						<FeatureIcon>{clock}</FeatureIcon>
-					</MainFeatures>
-					<MainFeatures>
-						<FeatureIconLeft>{directions}</FeatureIconLeft>
-						<FeatureInfo>
+						</div>
+						<div class="features-icon">{clock}</div>
+					</div>
+					<div class="main-features">
+						<div class="features-icon-reverse">{directions}</div>
+						<div class="features-info">
 							<h1>Navigate to your spot</h1>
 							<p>Once selected you will be directed to your reserved spot</p>
-						</FeatureInfo>
-						<FeatureIcon>{directions}</FeatureIcon>
-					</MainFeatures>
+						</div>
+						<div class="features-icon">{directions}</div>
+					</div>
 				</div>
 				<div>
-					<MapsIMG src={maps} alt="phone maps" />
+					<img id="map-img" src={maps} alt="phone maps" />
 				</div>
 				<div>
-					<MainFeaturesReverse>
-						<FeatureIconReverse>{star}</FeatureIconReverse>
-						<FeatureInfo>
+					<div class="main-features-reverse">
+						<div class="features-icon-right">{star}</div>
+						<div class="features-info">
 							<h1>Rate and Review</h1>
 							<p>Review driveway ratings and rate after parking</p>
-						</FeatureInfo>
-					</MainFeaturesReverse>
-					<MainFeaturesReverse>
-						<FeatureIconReverse>{creditCard}</FeatureIconReverse>
-						<FeatureInfo>
+						</div>
+					</div>
+					<div class="main-features-reverse">
+						<div class="features-icon-right">{creditCard}</div>
+						<div class="features-info">
 							<h1>Pay by card</h1>
 							<p>
 								Create an account and store your card information for easy use
 							</p>
-						</FeatureInfo>
-					</MainFeaturesReverse>
-					<MainFeaturesReverse>
-						<FeatureIconReverse>{users}</FeatureIconReverse>
-						<FeatureInfo>
+						</div>
+					</div>
+					<div class="main-features-reverse">
+						<div class="features-icon-right">{users}</div>
+						<div class="features-info">
 							<h1>Parking Pal support</h1>
 							<p>Let us know if you have any questions or feedback</p>
-						</FeatureInfo>
-					</MainFeaturesReverse>
+						</div>
+					</div>
 				</div>
-				<PhoneMap src={phoneMap} alt="maps" />
-			</FeaturesList>
+				<img id="phone-map" src={phoneMap} alt="maps" />
+			</div>
 		</div>
 	);
 }

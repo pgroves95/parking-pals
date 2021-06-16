@@ -1,0 +1,74 @@
+#register-section h1 {
+	margin-bottom: 2rem;
+}
+
+#register-host-form {
+	display: grid;
+	place-items: center;
+	justify-content: center;
+}
+
+#register-host-form input {
+	outline: none;
+	width: 200px;
+}
+
+#register-host-form h1 {
+	margin: 2rem;
+}
+
+#register-host-form h3 {
+	margin: 1rem;
+}
+
+.register-input {
+	height: 2.2rem;
+	width: 9rem;
+	border-radius: 3px;
+	padding-left: 20px;
+	margin-bottom: 1rem;
+	outline: none;
+}
+
+.register-button {
+	background-color: #1e3d58;
+	width: 160px;
+	height: 40px;
+	color: #e8eef1;
+	font-family: sans-serif;
+	font-size: 1.1rem;
+	border-radius: 3px;
+	border: 0;
+	cursor: pointer;
+}
+
+.register-button:hover {
+	background-color: #fd7f20;
+	border: 1px solid #1e3d58;
+	color: #1e3d58;
+}
+
+@media screen and (min-width: 768px) {
+	#register-section {
+		background-image: url(../assets/images/driving.jpg);
+		background-size: cover;
+		background-position: center;
+		height: 100vh;
+	}
+	#register-host-form {
+		display: inline-grid;
+		width: 500px;
+		height: 450px;
+		place-items: center;
+		grid-template-columns: 1fr 1fr;
+		grid-gap: 5px;
+		border: 1px solid #1e3d58;
+		border-radius: 5px;
+		padding: 20px;
+		margin-bottom: 50px;
+		background-color: #057dcd70;
+	}
+	#register-host-form input {
+		width: 200px;
+	}
+}

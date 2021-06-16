@@ -12,16 +12,30 @@ import "../App.css";
 
 export default function Navbar() {
 	return (
-		<div>
+		<div id="main-navbar">
 			<Router>
 				<div className="navbar-links">
-					<Link to="/">Home</Link>
-					<Link to="/faq">FAQ</Link>
-					<Link to="/registeruser">User Registration</Link>
-					<Link to="/registerhost">Host Registration</Link>
-					<Link to="/profile">Profile</Link>
-					<Link to="/searchresults">SearchResults</Link>
-					<Link to="/result">OneDriveway</Link>
+					<Link class="main-link" to="/">
+						Home
+					</Link>
+					<Link class="main-link" to="/faq">
+						FAQ
+					</Link>
+					<Link class="main-link" to="/registeruser">
+						User Registration
+					</Link>
+					<Link class="main-link" to="/registerhost">
+						Host Registration
+					</Link>
+					<Link class="main-link" to="/profile">
+						Profile
+					</Link>
+					<Link class="main-link" to="/searchresults">
+						SearchResults
+					</Link>
+					<Link class="main-link" to="/result">
+						OneDriveway
+					</Link>
 				</div>
 				<Switch>
 					<Route exact path="/" component={Landing} />
