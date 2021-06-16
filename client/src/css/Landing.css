@@ -18,6 +18,13 @@
 	width: 350px;
 }
 
+.search-bar {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
 #landing-search-input {
 	width: 20rem;
 	height: 2rem;
@@ -26,6 +33,7 @@
 	border-radius: 10px;
 	border: 1px solid #057dcd;
 	background-color: #fff;
+	margin: 1rem;
 }
 
 #main-buttons-section {

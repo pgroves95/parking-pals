@@ -7,8 +7,9 @@ export default function RegisterHost() {
 		<div id="register-section">
 			<div className="host-wrapper">
 				<h1>Register to Host Now</h1>
-				<div className="form">
+
 				<form id="register-host-form" action="/register" method="POST">
+
 					<input
 						name="firstName"
 						class="register-input"
@@ -52,7 +53,9 @@ export default function RegisterHost() {
 					/>
 					<input
 						class="register-input"
-    					name="city"
+
+						name="city"
+
 						id="city"
 						type="text"
 						placeholder="City"
@@ -71,16 +74,18 @@ export default function RegisterHost() {
 						type="text"
 						placeholder="Zip Code"
 					/>
+
 					<input name="phone" 
 					class="register-input"id="phone" type="text" placeholder="Phone Number" />
 
 					<input name="access" value="host" type="hidden"/>
 
+
 					<button class="register-button" type="submit" id="submit-button">
 						Submit Form
 					</button>
 				</form>
-				</div>
+
 			</div>
 		</div>
 	);

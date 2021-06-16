@@ -9,6 +9,9 @@ import DrivewayResults from "./DrivewayResults";
 import DrivewayIndividual from "./DrivewayIndividual";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import "../App.css";
+import RegisterDriveway from "./RegisterDriveway";
+import Login from "./Login";
+// import "../css/Navbar.css";
 
 export default function Navbar() {
 	return (
@@ -27,6 +30,9 @@ export default function Navbar() {
 					<Link class="main-link" to="/registerhost">
 						Host Registration
 					</Link>
+					<Link class="main-link" to="/registerdriveway">
+						Register Driveway
+					</Link>
 					<Link class="main-link" to="/profile">
 						Profile
 					</Link>
@@ -36,12 +42,17 @@ export default function Navbar() {
 					<Link class="main-link" to="/result">
 						OneDriveway
 					</Link>
+					<Link class="main-link" to="/login">
+						Log In
+					</Link>
 				</div>
 				<Switch>
 					<Route exact path="/" component={Landing} />
 					<Route path="/faq" component={FAQ} />
+					<Route path="/login" component={Login} />
 					<Route path="/registeruser" component={RegisterUser} />
 					<Route path="/registerhost" component={RegisterHost} />
+					<Route path="/registerdriveway" component={RegisterDriveway} />
 					<Route path="/profile" component={ProfileUser} />
 					<Route path="/searchresults" component={DrivewayResults} />
 					<Route path="/result" component={DrivewayIndividual} />
