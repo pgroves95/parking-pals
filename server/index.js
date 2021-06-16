@@ -5,7 +5,8 @@ const Sequelize = require('sequelize');
 const {Users} = require("../models");
 app.use(express.json());
 const PORT = process.env.PORT || 3001;
-// const pg = require("pg");
+const pg = require("pg");
+pg.defaults.ssl = true; 
 // const CONNECTION_STRING = `postgres://dywitnep:vK4LV14zo8VpAIfDWAzBxZX2wtZ3FUNV@batyr.db.elephantsql.com/dywitnep`;
 
 // const client = new pg.Client(CONNECTION_STRING);

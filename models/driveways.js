@@ -5,7 +5,7 @@ const {
 module.exports = (sequelize, DataTypes) => {
   class Driveways extends Model {
     /**
-     * Helper metdhod for defining associations.
+     * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   };
-  driveways.init({
+  Driveways.init({
     total_spaces: DataTypes.INTEGER,
     address: DataTypes.STRING,
     description: DataTypes.STRING,

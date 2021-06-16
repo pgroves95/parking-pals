@@ -1,25 +1,23 @@
 {
-
   "development": {
-    "username": "vrptnfps",
-    "password": "4Qg3g1jMCpJc6qwxTSyFhX9_KmwdgEZz",
-    "database": "vrptnfps",
-    "host": "batyr.db.elephantsql.com",
-    "dialect": "postgres"
+    "username": "root",
+    "password": null,
+    "database": "database_development",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
   },
-  
   "test": {
     "username": "root",
     "password": null,
     "database": "database_test",
     "host": "127.0.0.1",
-    "dialect": "postgres"
+    "dialect": "mysql"
   },
   "production": {
-    "username": "dywitnep",
-    "password": "vK4LV14zo8VpAIfDWAzBxZX2wtZ3FUNV@batyr",
+    "username": "root",
+    "password": null,
     "database": "database_production",
     "host": "127.0.0.1",
-    "dialect": "postgres"
+    "dialect": "mysql"
   }
 }

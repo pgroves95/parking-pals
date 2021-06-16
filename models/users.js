@@ -1,8 +1,4 @@
 'use strict';
-
-// const {driveways} = require("../models/driveways");
-// const {reservations} = require("../models/reservations");
-
 const {
   Model
 } = require('sequelize');
@@ -17,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   };
-  users.init({
+  Users.init({
     name: DataTypes.STRING,
     email: DataTypes.STRING,
     stripe_acct: DataTypes.STRING,
