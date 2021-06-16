@@ -1,6 +1,6 @@
 #main-error-div {
 	height: 85vh;
-	background-image: url(${error});
+	background-image: url(../assets/images/error.jpg);
 	background-size: cover;
 	background-position: center;
 	display: flex;

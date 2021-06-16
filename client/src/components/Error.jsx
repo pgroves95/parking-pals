@@ -1,20 +1,19 @@
 import React from "react";
-import { ErrorDiv, ErrorSection } from "../styledComponents/ErrorStyles";
-import { SignUpButton } from "../styledComponents/SignUpFormStyles";
 import { Link } from "react-router-dom";
+import "../css/Error.css";
 
 export default function Error() {
 	return (
 		<div>
-			<ErrorDiv>
-				<ErrorSection>
+			<div id="main-error-div">
+				<div id="error-section">
 					<h3>Error 404 - Not Found</h3>
 					<h3>Woah, I think a wrong turn was made!</h3>
 					<Link to="/">
-						<SignUpButton>Return Home</SignUpButton>
+						<button>Return Home</button>
 					</Link>
-				</ErrorSection>
-			</ErrorDiv>
+				</div>
+			</div>
 		</div>
 	);
 }

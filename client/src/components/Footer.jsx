@@ -1,10 +1,10 @@
 import React from "react";
-import { FooterDiv } from "../styledComponents/NavbarStyles";
+import "../css/Footer.css";
 
 export default function Footer() {
 	return (
-		<FooterDiv>
+		<div id="footer-div">
 			<p>&copy; 2021 &middot; Parking Pals</p>
-		</FooterDiv>
+		</div>
 	);
 }

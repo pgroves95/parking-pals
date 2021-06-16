@@ -3,7 +3,6 @@ import driveway from "../assets/images/driveway.jpg";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { SecondaryNavbar } from "../styledComponents/NavbarStyles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import phoneMap from "../assets/images/phoneMap.jpg";
 import maps from "../assets/images/maps.jpg";
@@ -16,7 +15,9 @@ import {
 	faUsers,
 	faCompass,
 } from "@fortawesome/free-solid-svg-icons";
+import Footer from "./Footer";
 import "../css/Landing.css";
+import "../css/Navbar.css";
 
 const compass = <FontAwesomeIcon icon={faCompass} size="3x" />;
 const car1 = <FontAwesomeIcon icon={faCar} size="3x" />;
@@ -32,7 +33,7 @@ export default function Landing() {
 
 	const getDriveways = async () => {
 		// pull from backend
-	}
+	};
 
 	return (
 		<div>
@@ -45,14 +46,15 @@ export default function Landing() {
 						space to use!
 					</h3>
 					<div className="search-bar">
-					<input
-						id="landing-search-input"
-						type="search"
-						placeholder="Input your destination for nearby driveway parking"
-					onChange={()=>{}}/>
-					<button onClick={()=>{}}>Search</button>
+						<input
+							id="landing-search-input"
+							type="search"
+							placeholder="Input your destination for nearby driveway parking"
+							onChange={() => {}}
+						/>
+						<button onClick={() => {}}>Search</button>
 					</div>
-					<SecondaryNavbar>
+					<div id="secondary-navbar">
 						<Link to="/LocateParking">
 							<div id="main-buttons-section">
 								<h2>{compass}</h2>
@@ -65,7 +67,7 @@ export default function Landing() {
 								<h3>Host Driveway</h3>
 							</div>
 						</Link>
-					</SecondaryNavbar>
+					</div>
 					<h3>Become a host and join other active hosts!</h3>
 
 					<p>
@@ -133,6 +135,7 @@ export default function Landing() {
 				</div>
 				<img id="phone-map" src={phoneMap} alt="maps" />
 			</div>
+			<Footer />
 		</div>
 	);
 }
