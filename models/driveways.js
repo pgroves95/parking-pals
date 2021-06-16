@@ -11,8 +11,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      // Driveways.belongsTo(Users, {forgeignKey: host_id})
-      // Driveways.hasMany(Reservations, {foreignKey: driveway_id})
+      models.Driveways.belongsTo(models.Users, {forgeignKey: "host_id"})
+      models.Driveways.hasMany(models.Reservations, {foreignKey: "driveway_id"})
     }
   };
   Driveways.init({
