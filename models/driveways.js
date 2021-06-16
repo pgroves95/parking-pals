@@ -11,15 +11,17 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      // Driveways.belongsTo(Users, {forgeignKey: host_id})
+      // Driveways.hasMany(Reservations, {foreignKey: driveway_id})
     }
   };
   Driveways.init({
     total_spaces: DataTypes.INTEGER,
+    open_spaces: DataTypes.INTEGER,
     address: DataTypes.STRING,
     description: DataTypes.STRING,
     rate: DataTypes.INTEGER,
-    host_id: DataTypes.INTEGER,
-    open_spaces: DataTypes.INTEGER
+    host_id: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Driveways',

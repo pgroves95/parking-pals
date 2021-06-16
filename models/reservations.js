@@ -10,10 +10,13 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
+      // Reservations.belongsTo(Driveways,{foreignKey:driveway_id})
+      // Reservations.belongsTo(Users,{foreignKey:driver_id})
+      // Reservations.belongsTo(Users, {foreignKey: host_id})
       // define association here
     }
   };
-  reservations.init({
+  Reservations.init({
     driver_id: DataTypes.INTEGER,
     driveway_id: DataTypes.INTEGER,
     host_id: DataTypes.INTEGER,
@@ -22,7 +25,6 @@ module.exports = (sequelize, DataTypes) => {
     end_request: DataTypes.TIME,
     distance: DataTypes.INTEGER,
     stripe_payment: DataTypes.INTEGER,
-    date_created: DataTypes.DATE
   }, {
     sequelize,
     modelName: 'Reservations',
