@@ -10,35 +10,48 @@ pg.defaults.ssl = true;
 
 
 app.use(express.json());
+app.use()
+
+// // import and user routes
+// const userRouter = require("./userRoutes");
+// app.use("/api/users", userRouter);
 
 
+// // userRoutes.js
+// const router = express();
 
+// router.get("/", async (req, res) => {
+//   const data = await Users.findAll();
+//   res.json(data);
+// });
 
+// module.exports = userRouter;
+// // end userRouter.js
 
 app.get("/data", (req, res) => {
   res.json({ message: "AMAZINGGGGGG!!!" });
 });
 
 app.get("/users", async (req,res) => {
-  data = await Users.findAll()
+  const data = await Users.findAll()
   res.json(data)
 })
 
-app.get("/data/users/:id", (req, res) => {
-  const { id } = req.params;
-  client.query(
-    "SELECT name FROM users WHERE id = $1",
-    [id],
-    function (err, result) {
-      if (err) {
-        return console.error("error running query", err);
-      }
-      res.send(result.rows[0]);
+// app.get("/data/users/:id", (req, res) => {
+//   const { id } = req.params;
+//   client.query(
+//     "SELECT name FROM users WHERE id = $1",
+//     [id],
+//     function (err, result) {
+//       if (err) {
+//         return console.error("error running query", err);
+//       }
+//       res.send(result.rows[0]);
 
-      client.end();
-    }
-  );
-});
+//       client.end();
+//     }
+//   );
+// });
 
 // app.post("/data/adduser/", (req,res) => {
 //   const {name, email, stripe_acct,password,phone,access,date_created,license_plate} = req.body.newUser
