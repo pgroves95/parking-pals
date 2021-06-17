@@ -1,12 +1,14 @@
 import React from "react";
 import "../css/RegisterHost.css";
+import bone from "../assets/images/bone.png";
 
 export default function RegisterHost() {
 	return (
 		<div id="register-section">
 				<div className="form">
+				<form id="host-form" action="/register" method="POST">
 				<h1 className="login-header">Register to Host Now</h1>
-				<form action="/register" method="POST">
+				<img id="bone-icon" src={bone} alt="bone" />
 
 					<input
 						name="firstName"
@@ -68,7 +70,7 @@ export default function RegisterHost() {
 					<input name="access" value="host" type="hidden"/>
 
 
-					<button class="register-button" type="submit" id="submit-button">
+					<button id="submit-host" type="submit">
 						Submit Form
 					</button>
 				</form>

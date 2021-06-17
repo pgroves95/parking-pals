@@ -5,7 +5,7 @@ import paw from "../assets/images/paw.png"
 export default function RegisterDriveway() {
 	return (
 		<div id="register-section">
-				<div className="form">
+				<div id="driveway-form">
 				<h1 className="login-header">Register Your Driveway</h1>
 				<img id="paw-icon" src={paw} alt="paw" />
 				<form action="/driveway" method="POST">
@@ -58,7 +58,7 @@ export default function RegisterDriveway() {
 						placeholder="Driveway Description"
 					/>
 					<input name="access" value="host" type="hidden" />
-					<button className="register-button" type="submit" id="submit-button">
+					<button id="register-button" type="submit">
 						Submit Form
 					</button>
 				</form>
