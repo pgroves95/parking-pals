@@ -1,59 +1,59 @@
 import React from "react";
 import "../css/RegisterUser.css";
+import dog1 from "../assets/images/dog1.png"
 
 export default function RegisterUser() {
 	return (
-		<div id="register-section">
-			<div className="host-wrapper">
-				<h1>Sign Up to Start Parking</h1>
-				<div className="form">
+		<div id="register-section">	
+		<div id="user-form">
+				<h1 className="login-header">Sign Up to Start Parking</h1>
+				<img id="dog1-icon" src={dog1} alt="dog" />
 				<form action="/register" method="POST">
 					<input
 						name="firstName"
-						id="first-name"
+						id="top-input"
 						type="text"
 						placeholder="First Name"
 					/>
-					<input name="lastName" id="last-name" type="text" placeholder="Last Name" />
+					<input name="lastName" id="register-input" type="text" placeholder="Last Name" />
 					<input
 						name="email"
-						id="email"
+						id="register-input"
 						type="email"
 						placeholder="Email Address"
 					/>
 					<input
 						name="password"
-						id="password"
+						id="register-input"
 						type="password"
 						placeholder="Password"
 					/>
 					<input
-						id="password2"
+						id="register-input"
 						type="password"
 						placeholder="Confirm Password"
 					/>
 					<input
 						name="street"
-						id="street"
+						id="register-input"
 						type="text"
 						placeholder="Street Address"
 					/>
 					<input
 						name="apt"
-						id="apt-suite"
+						id="register-input"
 						type="text"
 						placeholder="Apt/Suite #"
 					/>
-					<input name="city" id="city" type="text" placeholder="City" />
-					<input name="state" id="state" type="text" placeholder="State" />
-					<input name="zip" id="zip" type="text" placeholder="Zip Code" />
-					<input name="license_plate" type="text" placeholder="License Plate Number" />
-					<input name="phone" id="phone" type="text" placeholder="Phone Number" />
+					<input name="city" id="register-input" type="text" placeholder="City" />
+					<input name="state" id="register-input" type="text" placeholder="State" />
+					<input name="zip" id="register-input" type="text" placeholder="Zip Code" />
+					<input name="license_plate" id="register-input" type="text" placeholder="License Plate Number" />
+					<input name="phone" id="bottom-input" type="text" placeholder="Phone Number" />
 					<input name="access" value="user" type="hidden"/>
 					<button className="register-button" id="submit-button">Submit Form</button>
 				</form>
 				</div>
-			</div>
-		</div>
+				</div>
 	);
 }

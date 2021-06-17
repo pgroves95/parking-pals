@@ -1,85 +1,95 @@
 #register-section {
-  background-image: url(../assets/images/driving.jpg);
-  background-size: cover;
-  background-position: center;
-  height: 100vh;
-}
-.form {
+  min-height: 90vh;
   display: flex;
-  width: 500px;
-  height: 440px;
-  border: 1px solid #1e3d58;
-  border-radius: 5px;
-  padding: 20px;
-  margin-bottom: 50px;
-  background-color: #057dcd70;
-}
-.form input {
-  width: 200px;
-  padding: 10px;
-  margin: 10px;
-  border-radius: 1px;
-  border: 1px solid grey;
+  flex-direction: column;
+  align-items: center;
+  background-color: #e8eef1;
 }
 
-.driveway {
-  width: 420px !important;
+#driveway-form {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #e8eef1;
+  height: 34rem;
+  width: 25rem;
+  padding: 2rem;
+  border-radius: 10px;
+  border: 1px solid black;
 }
 
-.description {
-  width: 420px !important;
-  height: 100px;
-}
-
-#street {
-  width: 420px;
-}
-
-.textarea-input {
-  width: 90%;
-  height: 10%;
-}
-
-.register-button {
-  background-color: #1e3d58;
-  width: 160px;
-  height: 40px;
-  color: #e8eef1;
-  font-family: sans-serif;
-  font-size: 1.1rem;
-  border-radius: 3px;
-  border: 0;
-  cursor: pointer;
-  margin-top: 5px;
-}
-
-.register-button:hover {
-  background-color: #fd7f20;
-  border: 1px solid #1e3d58;
+.login-header {
+  font-size: 1.5rem;
   color: #1e3d58;
 }
 
+#register-input {
+  width: 22rem;
+  height: 2.25rem;
+  border-radius: 0;
+  border: solid black;
+  border-width: 1px 1px 0 1px;
+  margin: 0 5px;
+  padding-left: 10px;
+  outline: none;
+  font-size: 15px;
+}
+
+#top-input {
+  width: 22rem;
+  height: 2.25rem;
+  border-radius: 10px 10px 0px 0px;
+  border: solid black;
+  border-width: 1px 1px 0 1px;
+  margin: 10px 5px 0px 5px;
+  padding-left: 10px;
+  outline: none;
+  font-size: 15px;
+}
+
+#bottom-input {
+  width: 22rem;
+  height: 2.25rem;
+  border-radius: 0px 0px 10px 10px;
+  border: 1px solid black;
+  margin: 0px 5px 10px 5px;
+  padding-left: 10px;
+  outline: none;
+  font-size: 15px;
+}
+
+#register-button {
+  width: 22rem;
+  height: 2.25rem;
+  margin: 1.2rem 0.5rem;
+  border-radius: 10px;
+  border: 1px solid black;
+  background-color: #1e3d58;
+  color: #e8eef1;
+  font-size: 18px;
+}
+
+#register-button:hover {
+  cursor: pointer;
+  background-color: #fd7f20;
+  border: 1px solid #fd7f20;
+  color: #1e3d58;
+}
+
+#paw-icon {
+  height: 80px;
+  width: 80px;
+  margin: 10px;
+}
+
 @media screen and (max-width: 768px) {
-  #register-section {
-    display: flex;
-    justify-content: center;
-    background-image: none;
-    background-color: #e8eef1;
-  }
-
-  #register-section h1 {
-    margin: 20px 0 0 0;
-  }
-
   .form {
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
-    background-color: transparent;
-    border: none;
+    flex-wrap: nowrap;
   }
-
-  .form input {
-    width: 300px !important;
+  .login-header {
+    margin: 0 !important;
   }
 }
