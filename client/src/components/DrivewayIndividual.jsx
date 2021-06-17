@@ -23,7 +23,7 @@ export default function DrivewayIndividual() {
 	const classes = useStyles();
 	return <div>
 		<div className="title">
-		<h1>Close to Everything</h1>
+		<h1>Address</h1>
 		<p>1000ft from destination</p>
 		</div>
 		<div className="info-and-reserve">

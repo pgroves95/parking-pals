@@ -7,7 +7,7 @@ export default function RegisterHost() {
 		<div id="register-section">
 				<div className="form">
 				<form id="host-form" action="/register" method="POST">
-				<h1 className="login-header">Register to Host Now</h1>
+				<h1 className="host-header">Register to Host Now</h1>
 				<img id="bone-icon" src={bone} alt="bone" />
 
 					<input
