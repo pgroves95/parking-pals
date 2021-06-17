@@ -42,9 +42,6 @@ export default function DrivewayResults() {
 	
 	return <div>
 		<h1>Search Results</h1>
-		<div className="map-div">
-	<div ref={mapContainer} className="map-container" />
-	</div>
 		<div className="results-and-map">
 		<div className="search-results">
 		<div className={classes.root}>
@@ -91,8 +88,8 @@ export default function DrivewayResults() {
 		<Link to="/result">More</Link>
 	  </Paper>
     </div>
-	
 	</div>
+	<div ref={mapContainer} className="map-container" />
 	</div>
 	</div>
 }

@@ -77,6 +77,7 @@
 }
 
 .map-container {
-  height: 400px;
+  margin: auto;
+  height: 500px;
   width: 70%;
 }
