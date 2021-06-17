@@ -1,11 +1,13 @@
 import React from "react";
 import "../css/RegisterDriveway.css"
+import paw from "../assets/images/paw.png"
 
 export default function RegisterDriveway() {
 	return (
 		<div id="register-section">
 				<div className="form">
 				<h1 className="login-header">Register Your Driveway</h1>
+				<img id="paw-icon" src={paw} alt="paw" />
 				<form action="/driveway" method="POST">
 					<input
 						name="driveway-name"

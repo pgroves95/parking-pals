@@ -10,7 +10,7 @@
   flex-direction: column;
   align-items: center;
   background-color: #e8eef1;
-  height: 35rem;
+  height: 33rem;
   width: 25rem;
   padding: 2rem;
   border-radius: 10px;
@@ -24,7 +24,7 @@
 
 #register-input {
   width: 22rem;
-  height: 3rem;
+  height: 2.25rem;
   border-radius: 0;
   border: solid black;
   border-width: 1px 1px 0 1px;
@@ -36,7 +36,7 @@
 
 #top-input {
   width: 22rem;
-  height: 3rem;
+  height: 2.25rem;
   border-radius: 10px 10px 0px 0px;
   border: solid black;
   border-width: 1px 1px 0 1px;
@@ -48,7 +48,7 @@
 
 #bottom-input {
   width: 22rem;
-  height: 3rem;
+  height: 2.25rem;
   border-radius: 0px 0px 10px 10px;
   border: 1px solid black;
   margin: 0px 5px 10px 5px;
@@ -74,6 +74,12 @@
   background-color: #fd7f20;
   border: 1px solid #1e3d58;
   color: #1e3d58;
+}
+
+#paw-icon {
+  height: 80px;
+  width: 80px;
+  margin: 10px;
 }
 
 @media screen and (max-width: 768px) {
