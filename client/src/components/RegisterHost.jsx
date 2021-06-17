@@ -84,7 +84,7 @@ export default function RegisterHost() {
 						Submit Form
 					</button>
 				</form>
-</div>
+				</div>
 			</div>
 		</div>
 	);
