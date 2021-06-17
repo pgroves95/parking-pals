@@ -77,6 +77,7 @@
 	}
 	.main-link {
 		color: #e8eef1;
+		text-decoration: none;
 	}
 	.navbar-links a:hover {
 		color: #e8eef1;
