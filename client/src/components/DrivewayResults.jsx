@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import emptyDriveway from "../assets/images/emptydriveway.png"
@@ -25,9 +26,21 @@ const useStyles = makeStyles((theme) => ({
 export default function DrivewayResults() {
 	const mapContainer = useRef(null);
 	const map = useRef(null);
-	const [lng, setLng] = useState(-70.9);
-	const [lat, setLat] = useState(42.35);
-	const [zoom, setZoom] = useState(9);
+	const [lng, setLng] = useState(-95.62);
+	const [lat, setLat] = useState(30.10);
+	const [zoom, setZoom] = useState(12);
+	const dispatch = useDispatch()
+	const drivewaySearch = useSelector(state=>state.drivewaySearch)
+
+	// const getDrivewayData = async () => {
+	// 	const response = await fetch(DATABASEURL);
+	// 	const parsedData = await response.json()
+	// 	drivewayResults(dispatch, parsedData)
+	// }
+
+	// useEffect(() => {
+    //     getDrivewayData()
+    // }, [])
 	
 	useEffect(() => {
 		if (map.current) return; // initialize map only once

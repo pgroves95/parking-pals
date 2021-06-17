@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useEffect} from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar';
 import Paper from '@material-ui/core/Paper';
@@ -30,6 +31,19 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ProfileUser() {
 	const classes = useStyles();
+	const dispatch = useDispatch()
+	const profileData = useSelector(state=>state.profileData)
+
+	// const getUserData = async () => {
+	// 	const response = await fetch(DATABASEURL);
+	// 	const parsedData = await response.json()
+	// 	getUserData(dispatch, parsedData)
+	// }
+
+	// useEffect(() => {
+    //     getUserData()
+    // }, [])
+
 	return 	<div>
 		<div className="info-card">
 			<div className={classes.rootCard}>
