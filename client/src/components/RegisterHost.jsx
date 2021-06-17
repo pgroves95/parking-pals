@@ -1,5 +1,4 @@
 import React from "react";
-import "../App.css";
 import "../css/RegisterHost.css";
 
 export default function RegisterHost() {
@@ -7,8 +6,8 @@ export default function RegisterHost() {
 		<div id="register-section">
 			<div className="host-wrapper">
 				<h1>Register to Host Now</h1>
-
-				<form id="register-host-form" action="/register" method="POST">
+				<div className="form">
+				<form action="/register" method="POST">
 
 					<input
 						name="firstName"
@@ -85,7 +84,7 @@ export default function RegisterHost() {
 						Submit Form
 					</button>
 				</form>
-
+</div>
 			</div>
 		</div>
 	);

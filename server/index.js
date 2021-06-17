@@ -1,28 +1,23 @@
 const express = require("express");
 const app = express();
 const path = require("path");
-const Sequelize = require('sequelize');
-const {Users} = require("../models");
-const Router = express.Router()
+const Sequelize = require("sequelize");
+const { Users } = require("../models");
+const Router = express.Router();
 const PORT = process.env.PORT || 3001;
 const pg = require("pg");
-pg.defaults.ssl = true; 
-
+pg.defaults.ssl = true;
 
 app.use(express.json());
-
-
-
-
 
 app.get("/data", (req, res) => {
   res.json({ message: "AMAZINGGGGGG!!!" });
 });
 
-app.get("/users", async (req,res) => {
-  data = await Users.findAll()
-  res.json(data)
-})
+app.get("/users", async (req, res) => {
+  data = await Users.findAll();
+  res.json(data);
+});
 
 app.get("/data/users/:id", (req, res) => {
   const { id } = req.params;
