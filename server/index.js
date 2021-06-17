@@ -3,13 +3,15 @@ const app = express();
 const path = require("path");
 const Sequelize = require("sequelize");
 const { Users } = require("../models");
-const Router = express.Router();
+const router = express.Router();
 const PORT = process.env.PORT || 3001;
 const pg = require("pg");
 pg.defaults.ssl = true;
 
+
+const drivewayRoutes = require("./Routes/drivewayRoutes")
 app.use(express.json());
-app.use()
+app.use("/api/driveways", drivewayRoutes)
 
 // // import and user routes
 // const userRouter = require("./userRoutes");
