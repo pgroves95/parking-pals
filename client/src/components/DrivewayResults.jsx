@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useRef, useEffect, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import emptyDriveway from "../assets/images/emptydriveway.png"
-import map from "../assets/images/map.PNG"
 import { Link } from "react-router-dom";
 import "../App.css"
+import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
+
+mapboxgl.accessToken = 'pk.eyJ1Ijoid3N2b2JvZGEiLCJhIjoiY2txMTE1cGl2MDVmZzJvcXVibjViMGliaCJ9.13cxlIO8hYUtM1rQuvlbBw';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -19,8 +21,25 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+
 export default function DrivewayResults() {
+	const mapContainer = useRef(null);
+	const map = useRef(null);
+	const [lng, setLng] = useState(-70.9);
+	const [lat, setLat] = useState(42.35);
+	const [zoom, setZoom] = useState(9);
+	
+	useEffect(() => {
+		if (map.current) return; // initialize map only once
+		map.current = new mapboxgl.Map({
+		container: mapContainer.current,
+		style: 'mapbox://styles/mapbox/streets-v11',
+		center: [lng, lat],
+		zoom: zoom
+		});
+		});
 	const classes = useStyles();
+	
 	return <div>
 		<h1>Search Results</h1>
 		<div className="results-and-map">
@@ -28,7 +47,7 @@ export default function DrivewayResults() {
 		<div className={classes.root}>
       <Paper elevation={3}>
 		<img className="driveway-pic" src={emptyDriveway} alt="driveway"/>
-		<h2>Close to everything</h2>
+		<h2>Address</h2>
 		<p>1000ft from destination</p>
 		<br></br>
 		<p>$10 / hour</p>
@@ -39,7 +58,7 @@ export default function DrivewayResults() {
 	<div className={classes.root}>
       <Paper elevation={3}>
 		<img className="driveway-pic" src={emptyDriveway} alt="driveway"/>
-		<h2>Enjoy the game</h2>
+		<h2>Address</h2>
 		<p>1.5 miles from destination</p>
 		<br></br>
 		<p>$5 / hour</p>
@@ -50,7 +69,7 @@ export default function DrivewayResults() {
 	<div className={classes.root}>
       <Paper elevation={3}>
 		<img className="driveway-pic" src={emptyDriveway} alt="driveway"/>
-		<h2>You're in good hands</h2>
+		<h2>Address</h2>
 		<p>500ft from destination</p>
 		<br></br>
 		<p>$20 / hour</p>
@@ -61,7 +80,7 @@ export default function DrivewayResults() {
 	<div className={classes.root}>
       <Paper elevation={3}>
 		<img className="driveway-pic" src={emptyDriveway} alt="driveway"/>
-		<h2>Free carwash included</h2>
+		<h2>Address</h2>
 		<p>3 miles from destination</p>
 		<br></br>
 		<p>$1 / hour</p>
@@ -70,7 +89,7 @@ export default function DrivewayResults() {
 	  </Paper>
     </div>
 	</div>
-	<img className="map-of-spots" src={map} alt="map"/>
+	<div ref={mapContainer} className="map-container" />
 	</div>
 	</div>
 }

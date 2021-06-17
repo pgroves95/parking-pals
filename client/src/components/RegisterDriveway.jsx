@@ -10,26 +10,8 @@ export default function RegisterDriveway() {
 				<img id="paw-icon" src={paw} alt="paw" />
 				<form action="/driveway" method="POST">
 					<input
-						name="driveway-name"
 						id="top-input"
-						type="text"
-						placeholder="Driveway Title"
-					/>
-					<input
-						name="parking-spots"
-						id="register-input"
-						type="number"
-						placeholder="Number of Parking Spots"
-					/>
-					<input
-						name="rate"
-						id="register-input"
-						type="number"
-						placeholder="Rate"
-					/>
-					<input
-						id="register-input"
-						name="address"
+						name="street"
 						type="text"
 						placeholder="Street Address"
 					/>
@@ -52,12 +34,23 @@ export default function RegisterDriveway() {
 						name="zip"
 					/>
 					<input
+						name="total_spaces"
+						id="register-input"
+						type="number"
+						placeholder="Number of Parking Spots"
+					/>
+					<input
+						name="rate"
+						id="register-input"
+						type="number"
+						placeholder="Rate"
+					/>
+					<input
 						id="bottom-input"
 						name="description"
 						type="textarea"
 						placeholder="Driveway Description"
 					/>
-					<input name="access" value="host" type="hidden" />
 					<button id="register-button" type="submit">
 						Submit Form
 					</button>

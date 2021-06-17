@@ -70,3 +70,14 @@
   height: 220px;
   width: 410px;
 }
+
+.map-div {
+  display: flex;
+  justify-content: center;
+}
+
+.map-container {
+  margin: auto;
+  height: 500px;
+  width: 70%;
+}
