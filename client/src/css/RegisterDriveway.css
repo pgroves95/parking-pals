@@ -1,0 +1,85 @@
+#register-section {
+  background-image: url(../assets/images/driving.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
+.form {
+  display: flex;
+  width: 500px;
+  height: 440px;
+  border: 1px solid #1e3d58;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 50px;
+  background-color: #057dcd70;
+}
+.form input {
+  width: 200px;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 1px;
+  border: 1px solid grey;
+}
+
+.driveway {
+  width: 420px !important;
+}
+
+.description {
+  width: 420px !important;
+  height: 100px;
+}
+
+#street {
+  width: 420px;
+}
+
+.textarea-input {
+  width: 90%;
+  height: 10%;
+}
+
+.register-button {
+  background-color: #1e3d58;
+  width: 160px;
+  height: 40px;
+  color: #e8eef1;
+  font-family: sans-serif;
+  font-size: 1.1rem;
+  border-radius: 3px;
+  border: 0;
+  cursor: pointer;
+  margin-top: 5px;
+}
+
+.register-button:hover {
+  background-color: #fd7f20;
+  border: 1px solid #1e3d58;
+  color: #1e3d58;
+}
+
+@media screen and (max-width: 768px) {
+  #register-section {
+    display: flex;
+    justify-content: center;
+    background-image: none;
+    background-color: #e8eef1;
+  }
+
+  #register-section h1 {
+    margin: 20px 0 0 0;
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    background-color: transparent;
+    border: none;
+  }
+
+  .form input {
+    width: 300px !important;
+  }
+}

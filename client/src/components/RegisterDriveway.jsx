@@ -1,14 +1,16 @@
 import React from "react";
+import "../css/RegisterDriveway.css"
 
 export default function RegisterDriveway() {
 	return (
 		<div id="register-section">
 			<div className="host-wrapper">
 				<h1>Register your Driveway</h1>
-				<form id="register-host-form" action="/driveway" method="POST">
+				<div className="form">
+				<form action="/driveway" method="POST">
 					<input
 						name="driveway-name"
-						class="register-input"
+						class="driveway"
 						type="text"
 						placeholder="Driveway Title"
 					/>
@@ -50,7 +52,7 @@ export default function RegisterDriveway() {
 						name="zip"
 					/>
 					<input
-						class="register-input"
+						class="description"
 						name="description"
 						type="textarea"
 						placeholder="Driveway Description"
@@ -60,6 +62,7 @@ export default function RegisterDriveway() {
 						Submit Form
 					</button>
 				</form>
+				</div>
 			</div>
 		</div>
 	);
