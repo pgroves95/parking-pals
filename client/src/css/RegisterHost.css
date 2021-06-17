@@ -1,18 +1,21 @@
 #register-section {
-  background-image: url(../assets/images/driving.jpg);
-  background-size: cover;
-  background-position: center;
-  height: 100vh;
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #e8eef1;
 }
 .form {
+  margin-top: 30px;
   display: flex;
-  width: 500px;
-  height: 380px;
-  border: 1px solid #1e3d58;
-  border-radius: 5px;
-  padding: 20px;
-  margin-bottom: 50px;
-  background-color: #057dcd70;
+  flex-direction: column;
+  align-items: center;
+  background-color: #e8eef1;
+  height: 30rem;
+  width: 25rem;
+  padding: 2rem;
+  border-radius: 10px;
+  border: 1px solid black;
 }
 .form input {
   width: 200px;

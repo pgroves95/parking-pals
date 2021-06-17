@@ -5,8 +5,8 @@ export default function RegisterUser() {
 	return (
 		<div id="register-section">
 			<div className="host-wrapper">
-				<h1>Sign Up to Start Parking</h1>
 				<div className="form">
+				<h1>Sign Up to Start Parking</h1>
 				<form action="/register" method="POST">
 					<input
 						name="firstName"

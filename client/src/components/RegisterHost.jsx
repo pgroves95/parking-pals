@@ -5,8 +5,8 @@ export default function RegisterHost() {
 	return (
 		<div id="register-section">
 			<div className="host-wrapper">
-				<h1>Register to Host Now</h1>
 				<div className="form">
+				<h1>Register to Host Now</h1>
 				<form action="/register" method="POST">
 
 					<input

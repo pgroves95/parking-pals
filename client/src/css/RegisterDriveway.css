@@ -1,43 +1,60 @@
 #register-section {
-  background-image: url(../assets/images/driving.jpg);
+  background-color: #e8eef1;
   background-size: cover;
   background-position: center;
   height: 100vh;
 }
+
 .form {
   display: flex;
-  width: 500px;
-  height: 440px;
-  border: 1px solid #1e3d58;
-  border-radius: 5px;
-  padding: 20px;
-  margin-bottom: 50px;
-  background-color: #057dcd70;
-}
-.form input {
-  width: 200px;
-  padding: 10px;
-  margin: 10px;
-  border-radius: 1px;
-  border: 1px solid grey;
+  flex-direction: column;
+  align-items: center;
+  background-color: #e8eef1;
+  height: 35rem;
+  width: 25rem;
+  padding: 2rem;
+  border-radius: 10px;
+  border: 1px solid black;
 }
 
-.driveway {
-  width: 420px !important;
+.login-header {
+  font-size: 1.5rem;
+  color: #1e3d58;
 }
 
-.description {
-  width: 420px !important;
-  height: 100px;
+#register-input {
+  width: 22rem;
+  height: 3rem;
+  border-radius: 0;
+  border: solid black;
+  border-width: 1px 1px 0 1px;
+  margin: 0 5px;
+  padding-left: 10px;
+  outline: none;
+  font-size: 15px;
 }
 
-#street {
-  width: 420px;
+#top-input {
+  width: 22rem;
+  height: 3rem;
+  border-radius: 10px 10px 0px 0px;
+  border: solid black;
+  border-width: 1px 1px 0 1px;
+  margin: 10px 5px 0px 5px;
+  padding-left: 10px;
+  outline: none;
+  font-size: 15px;
 }
 
-.textarea-input {
-  width: 90%;
-  height: 10%;
+#bottom-input {
+  width: 22rem;
+  height: 3rem;
+  border-radius: 0px 0px 10px 10px;
+  border: 1px solid black;
+  margin: 0px 5px 10px 5px;
+  padding-left: 10px;
+  outline: none;
+  font-size: 15px;
 }
 
 .register-button {
@@ -60,26 +77,12 @@
 }
 
 @media screen and (max-width: 768px) {
-  #register-section {
-    display: flex;
-    justify-content: center;
-    background-image: none;
-    background-color: #e8eef1;
-  }
-
-  #register-section h1 {
-    margin: 20px 0 0 0;
-  }
-
   .form {
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
-    background-color: transparent;
-    border: none;
+    flex-wrap: nowrap;
   }
-
-  .form input {
-    width: 300px !important;
+  .login-header {
+    margin: 0 !important;
   }
 }

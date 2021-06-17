@@ -7,11 +7,10 @@ import ProfileUser from "./ProfileUser";
 import RegisterUser from "./RegisterUser";
 import DrivewayResults from "./DrivewayResults";
 import DrivewayIndividual from "./DrivewayIndividual";
+import Login from "./Login";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import "../App.css";
 import RegisterDriveway from "./RegisterDriveway";
-import Login from "./Login";
-// import "../css/Navbar.css";
 
 export default function Navbar() {
 	return (
