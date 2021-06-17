@@ -8,6 +8,7 @@ const router = express.Router();
 
 // needs bcrypt
 router.post("/adduser", async (req,res) => {
+    console.log(req.body)
     const {
         first_name,
         last_name,
@@ -17,7 +18,7 @@ router.post("/adduser", async (req,res) => {
         phone,
         access,
         license_plate
-    } = req.body.newUser
+    } = req.body
 
 const user = await Users.create({
     first_name: first_name,
@@ -29,7 +30,7 @@ const user = await Users.create({
     access: access,
     license_plate: license_plate
 })
-console.log(user.id, user.firstName)
+console.log(user.id, user.first_name)
 })
 // replace with req.session.id
 router.get("/:id", async (req, res) => {
