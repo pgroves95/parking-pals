@@ -8,14 +8,18 @@ export default function RegisterUser() {
 		<div id="user-form">
 				<h1 className="login-header">Sign Up to Start Parking</h1>
 				<img id="dog1-icon" src={dog1} alt="dog" />
-				<form action="/register" method="POST">
+				<form action="localhost:3001/api/users/adduser" method="POST">
 					<input
-						name="firstName"
+						name="first_name"
 						id="top-input"
 						type="text"
 						placeholder="First Name"
 					/>
-					<input name="lastName" id="register-input" type="text" placeholder="Last Name" />
+					<input 
+						name="last_name"
+						id="register-input"
+						type="text"
+						placeholder="Last Name" />
 					<input
 						name="email"
 						id="register-input"
@@ -33,7 +37,7 @@ export default function RegisterUser() {
 						type="password"
 						placeholder="Confirm Password"
 					/>
-					<input
+					{/* <input
 						name="street"
 						id="register-input"
 						type="text"
@@ -47,10 +51,10 @@ export default function RegisterUser() {
 					/>
 					<input name="city" id="register-input" type="text" placeholder="City" />
 					<input name="state" id="register-input" type="text" placeholder="State" />
-					<input name="zip" id="register-input" type="text" placeholder="Zip Code" />
+					<input name="zip" id="register-input" type="text" placeholder="Zip Code" /> */}
 					<input name="license_plate" id="register-input" type="text" placeholder="License Plate Number" />
 					<input name="phone" id="bottom-input" type="text" placeholder="Phone Number" />
-					<input name="access" value="user" type="hidden"/>
+					<input name="access" value="driver" type="hidden"/>
 					<button className="register-button" id="submit-button">Submit Form</button>
 				</form>
 				</div>
