@@ -48,6 +48,9 @@ export default function Navbar() {
 					<Link className="main-link" to="/login">
 						Log In
 					</Link>
+					<Link className="main-link" to="/">
+						Log Out
+					</Link>
 				</div>
 				<Switch>
 					<Route exact path="/" component={Landing} />

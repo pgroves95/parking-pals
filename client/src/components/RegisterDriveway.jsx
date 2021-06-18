@@ -1,11 +1,11 @@
 import React from "react";
-import "../css/RegisterDriveway.css"
-import paw from "../assets/images/paw.png"
+import "../css/RegisterDriveway.css";
+import paw from "../assets/images/paw.png";
 
 export default function RegisterDriveway() {
 	return (
 		<div id="register-section">
-				<div id="driveway-form">
+			<div id="driveway-form">
 				<h1 className="login-header">Register Your Driveway</h1>
 				<img id="paw-icon" src={paw} alt="paw" />
 				<form action="/driveway" method="POST">
@@ -38,12 +38,15 @@ export default function RegisterDriveway() {
 						className="register-input"
 						type="number"
 						placeholder="Number of Parking Spots"
+						min="1"
+						max="5"
 					/>
 					<input
 						name="rate"
 						className="register-input"
 						type="number"
-						placeholder="Rate"
+						placeholder="Rate ($)"
+						min="5"
 					/>
 					<input
 						id="bottom-input"
@@ -55,7 +58,7 @@ export default function RegisterDriveway() {
 						Submit Form
 					</button>
 				</form>
-				</div>
 			</div>
+		</div>
 	);
 }
