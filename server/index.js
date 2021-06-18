@@ -6,7 +6,6 @@ const PORT = process.env.PORT || 3001;
 const pg = require("pg");
 pg.defaults.ssl = true;
 const cookieSession = require("cookie-session");
-const cors = require("cors");
 const bcrypt = require("bcrypt");
 app.use(cors());
 
