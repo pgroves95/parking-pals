@@ -5,25 +5,24 @@ import "../css/RegisterHost.css";
 import dog from "../assets/images/dog.png";
 
 export default function Login() {
-  const [email, setEmail] = React.useState("");
-  const [password, setPassword] = React.useState("");
+	const [email, setEmail] = React.useState("");
+	const [password, setPassword] = React.useState("");
 
-  const sendForm = (e) => {
-    e.preventDefault();
+	const sendForm = (e) => {
+		e.preventDefault();
 
-    fetch("http://localhost:3001/api/users/login", {
-      method: "POST",
-      body: JSON.stringify({ email, password }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((res) => res.json())
-      .then(console.log);
+		fetch("http://localhost:3001/api/users/login", {
+			method: "POST",
+			body: JSON.stringify({ email, password }),
+			headers: {
+				"Content-Type": "application/json",
+			},
+		})
+			.then((res) => res.json())
+			.then(console.log);
 
-    return false;
-  };
-
+		return false;
+	};
   return (
     <div>
       <div id="login-section">
@@ -54,4 +53,5 @@ export default function Login() {
       </div>
     </div>
   );
+
 }
