@@ -1,14 +1,21 @@
 import React from "react";
 import "../css/RegisterUser.css";
 import dog1 from "../assets/images/dog1.png";
+import { useHistory } from "react-router-dom";
 
 export default function RegisterUser() {
+	const history = useHistory();
+
 	return (
 		<div id="register-section">
 			<div id="user-form">
 				<h1 className="login-header">Sign Up to Start Parking</h1>
 				<img id="dog1-icon" src={dog1} alt="dog" />
-				<form action="http://localhost:3001/api/users/register" method="POST">
+				<form
+					// onSubmit={(e) => e.preventDefault()}
+					action="http://localhost:3001/api/users/register"
+					method="POST"
+				>
 					<input
 						name="first_name"
 						id="top-input"
@@ -48,7 +55,11 @@ export default function RegisterUser() {
 						pattern="[a-zA-Z0-9!@#$%^*_|]{0,10}"
 					/>
 					<input name="access" value="driver" type="hidden" />
-					<button className="register-button" id="submit-button">
+					<button
+						// onClick={() => history.push("/login")}
+						className="register-button"
+						id="submit-button"
+					>
 						Submit Form
 					</button>
 				</form>
