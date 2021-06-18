@@ -1,5 +1,5 @@
 import React from "react";
-import driveway from "../assets/images/driveway.jpg";
+import passengerdog from "../assets/images/passengerdog.jpg";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import phoneMap from "../assets/images/phoneMap.jpg";
@@ -11,14 +11,11 @@ import {
 	faStar,
 	faCreditCard,
 	faUsers,
-	faCompass,
 } from "@fortawesome/free-solid-svg-icons";
 import Footer from "./Footer";
 import "../css/Landing.css";
 import "../css/Navbar.css";
 
-const compass = <FontAwesomeIcon icon={faCompass} size="3x" />;
-const car1 = <FontAwesomeIcon icon={faCar} size="3x" />;
 const car = <FontAwesomeIcon icon={faCar} size="2x" />;
 const clock = <FontAwesomeIcon icon={faClock} size="2x" />;
 const directions = <FontAwesomeIcon icon={faDirections} size="2x" />;
@@ -32,7 +29,7 @@ export default function Landing() {
 		<div>
 			<div id="main-landing">
 				<br />
-				<img src={driveway} alt="driveway" />
+				<img src={passengerdog} alt="dog-passenger" />
 				<div id="secondary-landing">
 					<h3>
 						Locate a hosted driveway spot on the go or put your unused driveway
@@ -45,24 +42,13 @@ export default function Landing() {
 							placeholder="Input your destination for nearby driveway parking"
 							onChange={() => {}}
 						/>
-						<button onClick={() => {}}>Search</button>
+						<button id="main-search-button" onClick={() => {}}>
+							Search
+						</button>
 					</div>
-					<div id="secondary-navbar">
-						<Link to="/LocateParking">
-							<div id="main-buttons-section">
-								<h2>{compass}</h2>
-								<h3>Find Parking</h3>
-							</div>
-						</Link>
-						<Link to="/RegisterHost">
-							<div id="main-buttons-section">
-								<h2>{car1}</h2>
-								<h3>Host Driveway</h3>
-							</div>
-						</Link>
-					</div>
-					<h3>Become a host and join other active hosts!</h3>
-
+					<Link id="become-a-host" to="/RegisterHost">
+						<h3>Become a host and join other active hosts!</h3>
+					</Link>
 					<p>
 						Perfect for those close to popular areas where parking is becoming
 						increasingly difficult to find. Whether it's during concerts, a
@@ -71,62 +57,65 @@ export default function Landing() {
 					</p>
 				</div>
 			</div>
-			<div className="features-list">
-				<div>
-					<div className="main-features">
-						<div className="features-icon-reverse">{car}</div>
-						<div className="features-info">
-							<h1>Quick and Easy Parking</h1>
-							<p>Book ahead or while you're on your way</p>
+			<div class="features-div">
+				<h1 id="features-title">Features</h1>
+				<div class="features-section">
+					<div>
+						<div class="main-features">
+							<div class="features-icon-reverse">{car}</div>
+							<div class="features-info">
+								<h1>Quick and Easy Parking</h1>
+								<p>Book ahead or while you're on your way</p>
+							</div>
+							<div class="features-icon">{car}</div>
 						</div>
-						<div className="features-icon">{car}</div>
-					</div>
-					<div className="main-features">
-						<div className="features-icon-reverse">{clock}</div>
-						<div className="features-info">
-							<h1>Park on your time</h1>
-							<p>Select how long you need it for and it's all yours</p>
+						<div class="main-features">
+							<div class="features-icon-reverse">{clock}</div>
+							<div class="features-info">
+								<h1>Park on your time</h1>
+								<p>Select how long you need it for and it's all yours</p>
+							</div>
+							<div class="features-icon">{clock}</div>
 						</div>
-						<div className="features-icon">{clock}</div>
-					</div>
-					<div className="main-features">
-						<div className="features-icon-reverse">{directions}</div>
-						<div className="features-info">
-							<h1>Navigate to your spot</h1>
-							<p>Once selected you will be directed to your reserved spot</p>
+						<div class="main-features">
+							<div class="features-icon-reverse">{directions}</div>
+							<div class="features-info">
+								<h1>Navigate to your spot</h1>
+								<p>Once selected you will be directed to your reserved spot</p>
+							</div>
+							<div class="features-icon">{directions}</div>
 						</div>
-						<div className="features-icon">{directions}</div>
 					</div>
+					<div>
+						<img id="map-img" src={maps} alt="phone maps" />
+					</div>
+					<div>
+						<div class="main-features-reverse">
+							<div class="features-icon-right">{star}</div>
+							<div class="features-info">
+								<h1>Rate and Review</h1>
+								<p>Review driveway ratings and rate after parking</p>
+							</div>
+						</div>
+						<div class="main-features-reverse">
+							<div class="features-icon-right">{creditCard}</div>
+							<div class="features-info">
+								<h1>Pay by card</h1>
+								<p>
+									Create an account and store your card information for easy use
+								</p>
+							</div>
+						</div>
+						<div class="main-features-reverse">
+							<div class="features-icon-right">{users}</div>
+							<div class="features-info">
+								<h1>Parking Pal support</h1>
+								<p>Let us know if you have any questions or feedback</p>
+							</div>
+						</div>
+					</div>
+					<img id="phone-map" src={phoneMap} alt="maps" />
 				</div>
-				<div>
-					<img id="map-img" src={maps} alt="phone maps" />
-				</div>
-				<div>
-					<div className="main-features-reverse">
-						<div className="features-icon-right">{star}</div>
-						<div className="features-info">
-							<h1>Rate and Review</h1>
-							<p>Review driveway ratings and rate after parking</p>
-						</div>
-					</div>
-					<div className="main-features-reverse">
-						<div className="features-icon-right">{creditCard}</div>
-						<div className="features-info">
-							<h1>Pay by card</h1>
-							<p>
-								Create an account and store your card information for easy use
-							</p>
-						</div>
-					</div>
-					<div className="main-features-reverse">
-						<div className="features-icon-right">{users}</div>
-						<div className="features-info">
-							<h1>Parking Pal support</h1>
-							<p>Let us know if you have any questions or feedback</p>
-						</div>
-					</div>
-				</div>
-				<img id="phone-map" src={phoneMap} alt="maps" />
 			</div>
 			<Footer />
 		</div>

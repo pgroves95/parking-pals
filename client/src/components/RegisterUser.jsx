@@ -1,6 +1,6 @@
 import React from "react";
 import "../css/RegisterUser.css";
-import dog1 from "../assets/images/dog1.png"
+import dog1 from "../assets/images/dog1.png";
 
 export default function RegisterUser() {
 	return (
@@ -40,4 +40,5 @@ export default function RegisterUser() {
 				</div>
 				</div>
 	);
+
 }

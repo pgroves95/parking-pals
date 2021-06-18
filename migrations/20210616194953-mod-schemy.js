@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
@@ -8,23 +8,23 @@ module.exports = {
      * Example:
      * await queryInterface.createTable('users', { id: Sequelize.INTEGER });
      */
-      return Promise.all([
-        queryInterface.addColumn('Users', 'access', {
-          type: Sequelize.STRING,
-          allowNull: false,
-        }),
-        queryInterface.addColumn('Users', 'first_name', {
-          type: Sequelize.STRING,
-          allowNull: false,
-        }),
-        queryInterface.addColumn('Users', 'last_name', {
-          type: Sequelize.STRING,
-          allowNull: false,
-        })
-      ]);
+    return Promise.all([
+      queryInterface.addColumn("Users", "access", {
+        type: Sequelize.STRING,
+        allowNull: false,
+      }),
+      queryInterface.addColumn("Users", "first_name", {
+        type: Sequelize.STRING,
+        allowNull: false,
+      }),
+      queryInterface.addColumn("Users", "last_name", {
+        type: Sequelize.STRING,
+        allowNull: false,
+      }),
+    ]);
   },
 
   down: async (queryInterface, Sequelize) => {
-     return await queryInterface.removeColumn('Users', 'name')
-  }
+    return await queryInterface.removeColumn("Users", "name");
+  },
 };

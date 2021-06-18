@@ -1,9 +1,9 @@
 #register-section {
-  min-height: 90vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #e8eef1;
+	min-height: 90vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: #e8eef1;
 }
 
 #user-form {
@@ -19,14 +19,14 @@
 }
 
 #dog1-icon {
-  height: 100px;
-  width: 120px;
-  margin: 10px;
+	height: 100px;
+	width: 120px;
+	margin: 10px;
 }
 
 .login-header {
-  font-size: 1.5rem;
-  color: #1e3d58;
+	font-size: 1.5rem;
+	color: #1e3d58;
 }
 
 .register-input {
@@ -42,26 +42,26 @@
 }
 
 #top-input {
-  width: 22rem;
-  height: 3rem;
-  border-radius: 10px 10px 0px 0px;
-  border: solid black;
-  border-width: 1px 1px 0 1px;
-  margin: 10px 5px 0px 5px;
-  padding-left: 10px;
-  outline: none;
-  font-size: 15px;
+	width: 22rem;
+	height: 3rem;
+	border-radius: 10px 10px 0px 0px;
+	border: solid black;
+	border-width: 1px 1px 0 1px;
+	margin: 10px 5px 0px 5px;
+	padding-left: 10px;
+	outline: none;
+	font-size: 15px;
 }
 
 #bottom-input {
-  width: 22rem;
-  height: 3rem;
-  border-radius: 0px 0px 10px 10px;
-  border: 1px solid black;
-  margin: 0px 5px 10px 5px;
-  padding-left: 10px;
-  outline: none;
-  font-size: 15px;
+	width: 22rem;
+	height: 3rem;
+	border-radius: 0px 0px 10px 10px;
+	border: 1px solid black;
+	margin: 0px 5px 10px 5px;
+	padding-left: 10px;
+	outline: none;
+	font-size: 15px;
 }
 
 .register-button {
@@ -76,19 +76,19 @@
 }
 
 .register-button:hover {
-  cursor: pointer;
-  background-color: #fd7f20;
-  border: 1px solid #fd7f20;
-  color: #1e3d58;
+	cursor: pointer;
+	background-color: #fd7f20;
+	border: 1px solid #fd7f20;
+	color: #1e3d58;
 }
 
 @media screen and (max-width: 768px) {
-  .form {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-  }
-  .login-header {
-    margin: 0 !important;
-  }
+	.form {
+		display: flex;
+		flex-direction: column;
+		flex-wrap: nowrap;
+	}
+	.login-header {
+		margin: 0 !important;
+	}
 }
