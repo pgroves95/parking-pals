@@ -1,7 +1,6 @@
 import React from "react";
 import Landing from "./Landing";
 import FAQ from "./FAQ";
-import RegisterHost from "./RegisterHost";
 import Error from "./Error";
 import ProfileUser from "./ProfileUser";
 import RegisterUser from "./RegisterUser";
@@ -10,7 +9,6 @@ import DrivewayIndividual from "./DrivewayIndividual";
 import Login from "./Login";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import "../App.css";
-import RegisterDriveway from "./RegisterDriveway";
 import Payment from "./Payment";
 
 export default function Navbar() {
@@ -26,12 +24,6 @@ export default function Navbar() {
 					</Link>
 					<Link className="main-link" to="/registeruser">
 						User Registration
-					</Link>
-					<Link className="main-link" to="/registerhost">
-						Host Registration
-					</Link>
-					<Link className="main-link" to="/registerdriveway">
-						Register Driveway
 					</Link>
 					<Link className="main-link" to="/profile">
 						Profile
@@ -57,8 +49,6 @@ export default function Navbar() {
 					<Route path="/faq" component={FAQ} />
 					<Route path="/login" component={Login} />
 					<Route path="/registeruser" component={RegisterUser} />
-					<Route path="/registerhost" component={RegisterHost} />
-					<Route path="/registerdriveway" component={RegisterDriveway} />
 					<Route path="/profile" component={ProfileUser} />
 					<Route path="/payment" component={Payment} />
 					<Route path="/searchresults" component={DrivewayResults} />
