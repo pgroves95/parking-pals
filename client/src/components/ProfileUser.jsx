@@ -70,3 +70,28 @@ export default function ProfileUser() {
 		</div>
 	);
 }
+
+// 	return (
+// 		<div>
+// 			<div className="info-card">
+// 				<div className={classes.rootCard}>
+// 					<Paper elevation={3}>
+// 						<div className={classes.root}>
+// 							<Avatar alt="Remy Sharp" src={avatar} className={classes.large} />
+// 						</div>
+// 						<h3>
+// 							{profileData.first_name} {profileData.last_name}
+// 						</h3>
+// 						<p>{profileData.email}</p>
+// 						<p>{profileData.access}</p>
+// 						<p>{profileData.license_plate}</p>
+// 						<p>{profileData.phone}</p>
+// 					</Paper>
+// 					<div className="history">
+// 						<h2>Hi, {profileData.first_name}</h2>
+// 					</div>
+// 				</div>
+// 			</div>
+// 		</div>
+// 	);
+// }
