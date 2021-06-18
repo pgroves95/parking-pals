@@ -1,14 +1,17 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import "../css/Login.css";
 import "../css/RegisterHost.css";
 import dog from "../assets/images/dog.png";
 import { getLoginStatus } from "../actions/login-actions.js";
+import { useDispatch } from "react-redux";
 
 export default function Login() {
 	const [email, setEmail] = React.useState("");
 	const [password, setPassword] = React.useState("");
 	// const [error, setError] = useState("");
+	const history = useHistory();
+	const dispatch = useDispatch();
 
 	const sendForm = (e) => {
 		e.preventDefault();
@@ -21,10 +24,11 @@ export default function Login() {
 			},
 		})
 			.then((res) => res.json())
-			.then((data) => console.log(data));
-
+			.then((data) => getLoginStatus(dispatch, data));
+		history.push("/");
 		return false;
 	};
+
 	return (
 		<div>
 			<div id="login-section">
