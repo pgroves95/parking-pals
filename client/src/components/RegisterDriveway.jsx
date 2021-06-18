@@ -16,32 +16,32 @@ export default function RegisterDriveway() {
 						placeholder="Street Address"
 					/>
 					<input
-						id="register-input"
+						className="register-input"
 						name="city"
 						type="text"
 						placeholder="City"
 					/>
 					<input
 						name="state"
-						id="register-input"
+						className="register-input"
 						type="text"
 						placeholder="State"
 					/>
 					<input
-						id="register-input"
+						className="register-input"
 						type="text"
 						placeholder="Zip Code"
 						name="zip"
 					/>
 					<input
 						name="total_spaces"
-						id="register-input"
+						className="register-input"
 						type="number"
 						placeholder="Number of Parking Spots"
 					/>
 					<input
 						name="rate"
-						id="register-input"
+						className="register-input"
 						type="number"
 						placeholder="Rate"
 					/>

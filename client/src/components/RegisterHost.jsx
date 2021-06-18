@@ -18,48 +18,48 @@ export default function RegisterHost() {
 					/>
 					<input
 						name="lastName"
-						id="register-input"
+						className="register-input"
 						type="text"
 						placeholder="Last Name"
 					/>
 					<input
 						name="email"
-						id="register-input"
+						className="register-input"
 						type="email"
 						placeholder="Email Address"
 					/>
 					<input
 						name="password"
-						id="register-input"
+						className="register-input"
 						type="password"
 						placeholder="Password"
 					/>
 					<input
-						id="register-input"
+						className="register-input"
 						type="password"
 						placeholder="Confirm Password"
 					/>
 					<input
-						id="register-input"
+						className="register-input"
 						name="street"
 						type="text"
 						placeholder="Street Address"
 					/>
 					<input
-						id="register-input"
+						className="register-input"
 						name="city"
 						type="text"
 						placeholder="City"
 					/>
 					<input
 						name="state"
-						id="register-input"
+						className="register-input"
 						type="text"
 						placeholder="State"
 					/>
 					<input
 						name="zip"
-						id="register-input"
+						className="register-input"
 						type="text"
 						placeholder="Zip Code"
 					/>

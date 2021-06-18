@@ -18,34 +18,34 @@ export default function Navbar() {
 		<div id="main-navbar">
 			<Router>
 				<div className="navbar-links">
-					<Link class="main-link" to="/">
+					<Link className="main-link" to="/">
 						Home
 					</Link>
-					<Link class="main-link" to="/faq">
+					<Link className="main-link" to="/faq">
 						FAQ
 					</Link>
-					<Link class="main-link" to="/registeruser">
+					<Link className="main-link" to="/registeruser">
 						User Registration
 					</Link>
-					<Link class="main-link" to="/registerhost">
+					<Link className="main-link" to="/registerhost">
 						Host Registration
 					</Link>
-					<Link class="main-link" to="/registerdriveway">
+					<Link className="main-link" to="/registerdriveway">
 						Register Driveway
 					</Link>
-					<Link class="main-link" to="/profile">
+					<Link className="main-link" to="/profile">
 						Profile
 					</Link>
-					<Link class="main-link" to="/searchresults">
+					<Link className="main-link" to="/searchresults">
 						SearchResults
 					</Link>
-					<Link class="main-link" to="/result">
+					<Link className="main-link" to="/result">
 						OneDriveway
 					</Link>
-					<Link class="main-link" to="/payment">
+					<Link className="main-link" to="/payment">
 						Make Payment
 					</Link>
-					<Link class="main-link" to="/login">
+					<Link className="main-link" to="/login">
 						Log In
 					</Link>
 				</div>

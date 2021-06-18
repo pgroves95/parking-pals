@@ -1,8 +1,6 @@
 import React from "react";
 import passengerdog from "../assets/images/passengerdog.jpg";
 import { Link } from "react-router-dom";
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import phoneMap from "../assets/images/phoneMap.jpg";
 import maps from "../assets/images/maps.jpg";
@@ -26,11 +24,6 @@ const creditCard = <FontAwesomeIcon icon={faCreditCard} size="2x" />;
 const users = <FontAwesomeIcon icon={faUsers} size="2x" />;
 
 export default function Landing() {
-	// const dispatch = useDispatch();
-
-	const getDriveways = async () => {
-		// pull from backend
-	};
 
 	return (
 		<div>

@@ -9,7 +9,6 @@ const { Users } = require("../../models");
 const router = express.Router();
 
 // needs bcrypt
-
 router.post("/login", async (req, res) => {
   const userLogin = await Users.findOne({
     where: {
@@ -47,8 +46,8 @@ router.post("/register", async (req, res) => {
     license_plate,
   } = req.body;
 
-  const hashedPassword = await bcrypt.hash(password, 10);
 
+  const hashedPassword = await bcrypt.hash(password, 10);
   const newUser = await Users.create({
     first_name: first_name,
     last_name: last_name,

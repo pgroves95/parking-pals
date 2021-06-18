@@ -6,9 +6,9 @@ export default function FAQ() {
 	return (
 		<div>
 			<div id="main-faq-div">
-				<h1 class="faq-header">Frequently Asked Questions</h1>
-				<div class="faq-section">
-					<div class="faq-sub-section">
+				<h1 className="faq-header">Frequently Asked Questions</h1>
+				<div className="faq-section">
+					<div className="faq-sub-section">
 						<h3>How to request a driveway?</h3>
 						<p>
 							Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil
@@ -16,7 +16,7 @@ export default function FAQ() {
 							ducimus impedit accusantium?
 						</p>
 					</div>
-					<div class="faq-sub-section">
+					<div className="faq-sub-section">
 						<h3>How is the pricing calculated?</h3>
 						<p>
 							Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolores
@@ -24,7 +24,7 @@ export default function FAQ() {
 							doloremque numquam!
 						</p>
 					</div>
-					<div class="faq-sub-section">
+					<div className="faq-sub-section">
 						<h3>Can I cancel a request?</h3>
 						<p>
 							Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae
@@ -32,7 +32,7 @@ export default function FAQ() {
 							aliquid laudantium eligendi?
 						</p>
 					</div>
-					<div class="faq-sub-section">
+					<div className="faq-sub-section">
 						<h3>What is the cancellation fee?</h3>
 						<p>
 							Lorem ipsum dolor sit, amet consectetur adipisicing elit.
@@ -40,7 +40,7 @@ export default function FAQ() {
 							Dolorum dolor obcaecati ipsum in!
 						</p>
 					</div>
-					<div class="faq-sub-section">
+					<div className="faq-sub-section">
 						<h3>How can I pay for the driveway?</h3>
 						<p>
 							Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit
