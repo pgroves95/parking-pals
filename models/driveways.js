@@ -9,7 +9,6 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      models.Driveways.belongsTo(models.Users, { forgeignKey: "host_id" });
       models.Driveways.hasMany(models.Reservations, {
         foreignKey: "driveway_id",
       });
@@ -17,12 +16,10 @@ module.exports = (sequelize, DataTypes) => {
   }
   Driveways.init(
     {
-      total_spaces: DataTypes.INTEGER,
-      open_spaces: DataTypes.INTEGER,
+      is_open: DataTypes.BOOLEAN,
       address: DataTypes.STRING,
-      description: DataTypes.STRING,
-      rate: DataTypes.INTEGER,
-      host_id: DataTypes.INTEGER,
+      description: DataTypes.STRING(500),
+      rate: DataTypes.FLOAT,
     },
     {
       sequelize,
