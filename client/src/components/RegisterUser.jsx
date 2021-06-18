@@ -8,7 +8,7 @@ export default function RegisterUser() {
 		<div id="user-form">
 				<h1 className="login-header">Sign Up to Start Parking</h1>
 				<img id="dog1-icon" src={dog1} alt="dog" />
-				<form action="http://localhost:3001/api/users/adduser" method="POST">
+				<form action="http://localhost:3001/api/users/register" method="POST">
 					<input
 						name="first_name"
 						id="top-input"
