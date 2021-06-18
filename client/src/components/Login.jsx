@@ -27,27 +27,27 @@ export default function Login() {
   return (
     <div>
       <div id="login-section">
-        <form class="login-form" onSubmit={(e) => sendForm(e)}>
-          <h1 class="login-header">Log In to Find Parking</h1>
+        <form className="login-form" onSubmit={(e) => sendForm(e)}>
+          <h1 className="login-header">Log In to Find Parking</h1>
           <img id="dog-icon" src={dog} alt="dog" />
           <input
-            class="login-input-1"
+            className="login-input-1"
             type="email"
             placeholder="Email"
             onChange={(e) => setEmail(e.target.value)}
             value={email}
           />
           <input
-            class="login-input-2"
+            className="login-input-2"
             type="password"
             placeholder="Password"
             onChange={(e) => setPassword(e.target.value)}
             value={password}
           />
-          <button class="login-button" type="submit">
+          <button className="login-button" type="submit">
             Log In
           </button>
-          <Link class="register-link" to="/RegisterUser">
+          <Link className="register-link" to="/RegisterUser">
             <p>Not signed up? Click here to make an account!</p>
           </Link>
         </form>
