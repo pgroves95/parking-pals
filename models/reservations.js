@@ -11,21 +11,18 @@ module.exports = (sequelize, DataTypes) => {
       models.Reservations.belongsTo(models.Driveways, {
         foreignKey: "driveway_id",
       });
-      models.Reservations.belongsTo(models.Users, { foreignKey: "driver_id" });
-      models.Reservations.belongsTo(models.Users, { foreignKey: "host_id" });
+      models.Reservations.belongsTo(models.Users, { foreignKey: "user_id" });
       // define association here
     }
   }
   Reservations.init(
     {
-      driver_id: DataTypes.INTEGER,
+      user_id: DataTypes.INTEGER,
       driveway_id: DataTypes.INTEGER,
-      host_id: DataTypes.INTEGER,
       date: DataTypes.DATE,
       start_request: DataTypes.TIME,
       end_request: DataTypes.TIME,
-      distance: DataTypes.INTEGER,
-      stripe_payment: DataTypes.INTEGER,
+      stripe_charge_id: DataTypes.STRING,
     },
     {
       sequelize,
