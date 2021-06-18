@@ -48,7 +48,7 @@ export default function ProfileUser() {
 		getUserInfo()
     }, [])
 
-	return 	<div>
+	return 	(<div>
 		<div className="info-card">
 			<div className={classes.rootCard}>
 			<Paper elevation={3} >
@@ -68,5 +68,5 @@ export default function ProfileUser() {
 
 			</div>
 		</div>
-	;
+	);
 }
