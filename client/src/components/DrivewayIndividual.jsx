@@ -49,7 +49,7 @@ export default function DrivewayIndividual() {
 							<p>Drop Off:</p>
 							<input step="900" name="start_request" type="time" required />
 							<p>Pick Up:</p>
-							<input name="end_request" type="time" required />
+							<input step="900" name="end_request" type="time" required />
 							<br></br>
 							<br></br>
 							<p>

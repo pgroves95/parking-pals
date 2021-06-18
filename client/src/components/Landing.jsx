@@ -24,17 +24,13 @@ const creditCard = <FontAwesomeIcon icon={faCreditCard} size="2x" />;
 const users = <FontAwesomeIcon icon={faUsers} size="2x" />;
 
 export default function Landing() {
-
 	return (
 		<div>
 			<div id="main-landing">
 				<br />
 				<img src={passengerdog} alt="dog-passenger" />
 				<div id="secondary-landing">
-					<h3>
-						Locate a hosted driveway spot on the go or put your unused driveway
-						space to use!
-					</h3>
+					<h3>Parking Puppy</h3>
 					<div className="search-bar">
 						<input
 							id="landing-search-input"
@@ -47,7 +43,10 @@ export default function Landing() {
 						</button>
 					</div>
 					<Link id="become-a-host" to="/RegisterHost">
-						<h3>Become a host and join other active hosts!</h3>
+						<h3>
+							Click here to sign up and start parking or host your unused
+							driveway space!
+						</h3>
 					</Link>
 					<p>
 						Perfect for those close to popular areas where parking is becoming
