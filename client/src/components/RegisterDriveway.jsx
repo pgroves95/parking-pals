@@ -45,7 +45,7 @@ export default function RegisterDriveway() {
 						name="rate"
 						className="register-input"
 						type="number"
-						placeholder="Rate ($)"
+						placeholder="Hourly Rate ($)"
 						min="5"
 					/>
 					<input

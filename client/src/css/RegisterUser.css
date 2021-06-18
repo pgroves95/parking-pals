@@ -7,15 +7,15 @@
 }
 
 #user-form {
-  margin-top: 30px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #e8eef1;
-  width: 25rem;
-  padding: 2rem;
-  border-radius: 10px;
-  border: 1px solid black;
+	margin-top: 30px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: #e8eef1;
+	width: 25rem;
+	padding: 2rem;
+	border-radius: 10px;
+	border: 1px solid black;
 }
 
 #dog1-icon {
@@ -30,15 +30,15 @@
 }
 
 .register-input {
-  width: 22rem;
-  height: 3rem;
-  border-radius: 0;
-  border: solid black;
-  border-width: 1px 1px 0 1px;
-  margin: 0 5px;
-  padding-left: 10px;
-  outline: none;
-  font-size: 15px;
+	width: 22rem;
+	height: 3rem;
+	border-radius: 0;
+	border: solid black;
+	border-width: 1px 1px 0 1px;
+	margin: 0 5px;
+	padding-left: 10px;
+	outline: none;
+	font-size: 15px;
 }
 
 #top-input {
@@ -65,14 +65,14 @@
 }
 
 .register-button {
-  width: 22rem;
-  height: 2rem;
-  margin: 1.2rem 0.5rem 0 0.5rem;
-  border-radius: 10px;
-  border: 1px solid black;
-  background-color: #1e3d58;
-  color: #e8eef1;
-  font-size: 18px;
+	width: 22rem;
+	height: 2rem;
+	margin: 1.2rem 0.5rem 0 0.5rem;
+	border-radius: 10px;
+	border: 1px solid black;
+	background-color: #1e3d58;
+	color: #e8eef1;
+	font-size: 18px;
 }
 
 .register-button:hover {
@@ -80,6 +80,14 @@
 	background-color: #fd7f20;
 	border: 1px solid #fd7f20;
 	color: #1e3d58;
+}
+
+#license-plate {
+	text-transform: uppercase;
+}
+
+::placeholder {
+	text-transform: none;
 }
 
 @media screen and (max-width: 768px) {
