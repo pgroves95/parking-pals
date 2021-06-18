@@ -39,7 +39,7 @@ export default function ProfileUser() {
 
 
 	const getUserInfo = async () => {
-		const response = await fetch(`http://localhost:3001/api/users/6`)
+		const response = await fetch(`http://localhost:3001/api/users/2`)
 		const parsedData = await response.json()
 		getUserData(dispatch, parsedData)
 	}
@@ -48,34 +48,24 @@ export default function ProfileUser() {
 		getUserInfo()
     }, [])
 
+	return 	<div>
+		<div className="info-card">
+			<div className={classes.rootCard}>
+			<Paper elevation={3} >
+				<div className={classes.root}>
+      <Avatar alt="Remy Sharp" src={avatar} className={classes.large} />
+    			</div>
+	  <h3>{profileData.first_name} {profileData.last_name}</h3>
+	  <p>{profileData.email}</p>
+	  <p>{profileData.access}</p>
+	  <p>{profileData.license_plate}</p>
+	  <p>{profileData.phone}</p>
+			</Paper>
+			<div className="history">
+				<h2>Hi, {profileData.first_name}</h2>
+			</div>
+			</div>
 
-	return (
-		<div>
-			<div className="info-card">
-				<div className={classes.rootCard}>
-					<Paper elevation={3}>
-						<div className={classes.root}>
-							<Avatar alt="Remy Sharp" src={avatar} className={classes.large} />
-						</div>
-						<h3>Whitney Svoboda</h3>
-						<p>Grapevine, TX</p>
-					</Paper>
-					<div className="history">
-						<h2>Hi, Whitney</h2>
-						<br></br>
-						<p>You have rented 6 driveways!</p>
-						<br></br>
-						<h4>Your Upcoming Reservations:</h4>
-						<br></br>
-						<h4>Your reviews:</h4>
-						<br></br>
-						<p>"Great spot for the big game!"</p>
-						<p>"I felt safe walking from this location."</p>
-						<p>"A bird pooped on my car."</p>
-						<p>"The owner gave me a ride to the stadium!"</p>
-						<p>"Expensive, but worth it."</p>
-					</div>
-				</div>
 			</div>
 		</div>
 	);
