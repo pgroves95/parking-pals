@@ -17,22 +17,22 @@ export default function RegisterUser() {
 					/>
 					<input 
 						name="last_name"
-						id="register-input"
+						className="register-input"
 						type="text"
 						placeholder="Last Name" />
 					<input
 						name="email"
-						id="register-input"
+						className="register-input"
 						type="email"
 						placeholder="Email Address"
 					/>
 					<input
 						name="password"
-						id="register-input"
+						className="register-input"
 						type="password"
 						placeholder="Password"
 					/>
-					<input name="license_plate" id="register-input" type="text" placeholder="License Plate Number" />
+					<input name="license_plate" className="register-input" type="text" placeholder="License Plate Number" />
 					<input name="phone" id="bottom-input" type="text" placeholder="Phone Number" />
 					<input name="access" value="driver" type="hidden"/>
 					<button className="register-button" id="submit-button">Submit Form</button>

@@ -12,7 +12,6 @@
   flex-direction: column;
   align-items: center;
   background-color: #e8eef1;
-  height: 45rem;
   width: 25rem;
   padding: 2rem;
   border-radius: 10px;
@@ -30,7 +29,7 @@
   color: #1e3d58;
 }
 
-#register-input {
+.register-input {
   width: 22rem;
   height: 3rem;
   border-radius: 0;
@@ -68,7 +67,7 @@
 .register-button {
   width: 22rem;
   height: 2rem;
-  margin: 1.2rem 0.5rem;
+  margin: 1.2rem 0.5rem 0 0.5rem;
   border-radius: 10px;
   border: 1px solid black;
   background-color: #1e3d58;

@@ -36,13 +36,15 @@ export default function ProfileUser() {
 	const profileData = useSelector(state=>state.profileData)
 
 	// const getUserData = async () => {
-	// 	const response = await fetch(DATABASEURL);
+	// 	const response = await fetch(`http://localhost:3001/api/users/6`)
 	// 	const parsedData = await response.json()
 	// 	getUserData(dispatch, parsedData)
+	// 	console.log(parsedData)
 	// }
 
 	// useEffect(() => {
-    //     getUserData()
+	// 	console.log(profileData)
+	// 	getUserData()
     // }, [])
 
 	return 	<div>

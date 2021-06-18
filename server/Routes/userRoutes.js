@@ -2,25 +2,25 @@
 
 const express = require("express");
 
-const {Users} = require("../../models");
+const { Users } = require("../../models");
 
 const router = express.Router();
 
 // needs bcrypt
-router.post("/adduser", async (req,res) => {
-    console.log(req.body)
-    const {
-        first_name,
-        last_name,
-        email,
-        stripe_acct,
-        password,
-        phone,
-        access,
-        license_plate
-    } = req.body
+router.post("/adduser", async (req, res) => {
+  console.log(req.body);
+  const {
+    first_name,
+    last_name,
+    email,
+    stripe_acct,
+    password,
+    phone,
+    access,
+    license_plate,
+  } = req.body;
 
-const user = await Users.create({
+  const user = await Users.create({
     first_name: first_name,
     last_name: last_name,
     email: email,
@@ -28,20 +28,20 @@ const user = await Users.create({
     password: password,
     phone: phone,
     access: access,
-    license_plate: license_plate
-})
-console.log(user.id, user.first_name)
-})
+    license_plate: license_plate,
+  });
+  console.log(user.id, user.first_name);
+});
 // replace with req.session.id
 router.get("/:id", async (req, res) => {
-    const { id } = req.params;
-    const userData = await Users.findByPk(id)
-    if(userData === null){
-        return res.send("user not found")
-    } else {
-        return res.json(userData)
-    }
-})
+  const { id } = req.params;
+  const userData = await Users.findByPk(id);
+  if (userData === null) {
+    return res.send("user not found");
+  } else {
+    return res.json(userData);
+  }
+});
 
 // /updateuser (PUT) route needs:
 // * conditionals for grabbing form-fields (if changed, update, else (aka "") don't)
@@ -50,7 +50,6 @@ router.get("/:id", async (req, res) => {
 // * if license_plate added for host-user, update access and profile
 // to "both"
 // * can the "both" type user undo driveway or license_plate and become single-access user?
-// * 
+// *
 
-module.exports = router
-
+module.exports = router;

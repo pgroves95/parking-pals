@@ -1,7 +1,7 @@
 import { combineReducers } from "redux";
-import userReducer from "./userReducer";
-import searchReducer from "./searchReducer";
+import profileData from "./userReducer";
+import drivewaySearch from "./searchReducer";
 
-const rootReducer = combineReducers({ userReducer, searchReducer });
+const rootReducer = combineReducers({ profileData, drivewaySearch });
 
 export default rootReducer;
