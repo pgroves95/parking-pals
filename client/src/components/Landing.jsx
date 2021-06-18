@@ -57,58 +57,58 @@ export default function Landing() {
 					</p>
 				</div>
 			</div>
-			<div class="features-div">
+			<div className="features-div">
 				<h1 id="features-title">Features</h1>
-				<div class="features-section">
+				<div className="features-section">
 					<div>
-						<div class="main-features">
-							<div class="features-icon-reverse">{car}</div>
-							<div class="features-info">
+						<div className="main-features">
+							<div className="features-icon-reverse">{car}</div>
+							<div className="features-info">
 								<h1>Quick and Easy Parking</h1>
 								<p>Book ahead or while you're on your way</p>
 							</div>
-							<div class="features-icon">{car}</div>
+							<div className="features-icon">{car}</div>
 						</div>
-						<div class="main-features">
-							<div class="features-icon-reverse">{clock}</div>
-							<div class="features-info">
+						<div className="main-features">
+							<div className="features-icon-reverse">{clock}</div>
+							<div className="features-info">
 								<h1>Park on your time</h1>
 								<p>Select how long you need it for and it's all yours</p>
 							</div>
-							<div class="features-icon">{clock}</div>
+							<div className="features-icon">{clock}</div>
 						</div>
-						<div class="main-features">
-							<div class="features-icon-reverse">{directions}</div>
-							<div class="features-info">
+						<div className="main-features">
+							<div className="features-icon-reverse">{directions}</div>
+							<div className="features-info">
 								<h1>Navigate to your spot</h1>
 								<p>Once selected you will be directed to your reserved spot</p>
 							</div>
-							<div class="features-icon">{directions}</div>
+							<div className="features-icon">{directions}</div>
 						</div>
 					</div>
 					<div>
 						<img id="map-img" src={maps} alt="phone maps" />
 					</div>
 					<div>
-						<div class="main-features-reverse">
-							<div class="features-icon-right">{star}</div>
-							<div class="features-info">
+						<div className="main-features-reverse">
+							<div className="features-icon-right">{star}</div>
+							<div className="features-info">
 								<h1>Rate and Review</h1>
 								<p>Review driveway ratings and rate after parking</p>
 							</div>
 						</div>
-						<div class="main-features-reverse">
-							<div class="features-icon-right">{creditCard}</div>
-							<div class="features-info">
+						<div className="main-features-reverse">
+							<div className="features-icon-right">{creditCard}</div>
+							<div className="features-info">
 								<h1>Pay by card</h1>
 								<p>
 									Create an account and store your card information for easy use
 								</p>
 							</div>
 						</div>
-						<div class="main-features-reverse">
-							<div class="features-icon-right">{users}</div>
-							<div class="features-info">
+						<div className="main-features-reverse">
+							<div className="features-icon-right">{users}</div>
+							<div className="features-info">
 								<h1>Parking Pal support</h1>
 								<p>Let us know if you have any questions or feedback</p>
 							</div>

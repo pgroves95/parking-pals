@@ -1,10 +1,12 @@
-import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { makeStyles } from "@material-ui/core/styles";
-import Avatar from "@material-ui/core/Avatar";
-import Paper from "@material-ui/core/Paper";
-import avatar from "../assets/images/avatar.png";
-import "../App.css";
+import React, {useEffect} from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { makeStyles } from '@material-ui/core/styles';
+import {getUserData} from "../actions/profile-actions"
+import Avatar from '@material-ui/core/Avatar';
+import Paper from '@material-ui/core/Paper';
+import avatar from "../assets/images/avatar.png"
+import "../App.css"
+
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -35,17 +37,17 @@ export default function ProfileUser() {
 	const dispatch = useDispatch();
 	const profileData = useSelector((state) => state.profileData);
 
-	// const getUserData = async () => {
-	// 	const response = await fetch(`http://localhost:3001/api/users/6`);
-	// 	const parsedData = await response.json();
-	// 	getUserData(dispatch, parsedData);
-	// 	console.log(parsedData);
-	// };
 
-	// useEffect(() => {
-	// 	console.log(profileData);
-	// 	getUserData();
-	// }, []);
+	const getUserInfo = async () => {
+		const response = await fetch(`http://localhost:3001/api/users/6`)
+		const parsedData = await response.json()
+		getUserData(dispatch, parsedData)
+	}
+
+	useEffect(() => {
+		getUserInfo()
+    }, [])
+
 
 	return (
 		<div>
