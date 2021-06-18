@@ -7,34 +7,36 @@ import Paper from '@material-ui/core/Paper';
 import avatar from "../assets/images/avatar.png"
 import "../App.css"
 
+
 const useStyles = makeStyles((theme) => ({
 	root: {
-	  display: 'flex',
-	  '& > *': {
-		margin: "auto",
-	  },
+		display: "flex",
+		"& > *": {
+			margin: "auto",
+		},
 	},
 	large: {
-	  width: theme.spacing(9),
-	  height: theme.spacing(9),
-	  padding: 4
+		width: theme.spacing(9),
+		height: theme.spacing(9),
+		padding: 4,
 	},
 	rootCard: {
-		display: 'flex',
-		flexWrap: 'wrap',
-		'& > *': {
-		  margin: theme.spacing(1),
-		  width: theme.spacing(32),
-		  height: theme.spacing(56),
-		  paddingTop: "5%"
+		display: "flex",
+		flexWrap: "wrap",
+		"& > *": {
+			margin: theme.spacing(1),
+			width: theme.spacing(32),
+			height: theme.spacing(56),
+			paddingTop: "5%",
 		},
-	  },
-  }));
+	},
+}));
 
 export default function ProfileUser() {
 	const classes = useStyles();
-	const dispatch = useDispatch()
-	const profileData = useSelector(state=>state.profileData)
+	const dispatch = useDispatch();
+	const profileData = useSelector((state) => state.profileData);
+
 
 	const getUserInfo = async () => {
 		const response = await fetch(`http://localhost:3001/api/users/2`)
@@ -63,6 +65,8 @@ export default function ProfileUser() {
 				<h2>Hi, {profileData.first_name}</h2>
 			</div>
 			</div>
+
 			</div>
-			</div>;
+		</div>
+	);
 }

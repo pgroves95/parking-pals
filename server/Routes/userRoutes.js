@@ -29,6 +29,7 @@ router.post("/login", async (req, res) => {
   }
   res.status(401).send({ message: "Unauthenticated" });
 });
+
 router.post("/register", async (req, res) => {
   if (await Users.findOne({ email: req.body.email })) {
     res.send({ message: "email in use" });
@@ -72,6 +73,10 @@ router.get("/:id", async (req, res) => {
     return res.json(userData);
   }
 });
+router.get("/", async (req, res) => {
+  req.session.id === null;
+  res.send("logged out")
+})
 
 // /updateuser (PUT) route needs:
 // * conditionals for grabbing form-fields (if changed, update, else (aka "") don't)
