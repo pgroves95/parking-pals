@@ -31,8 +31,9 @@ router.post("/login", async (req, res) => {
 });
 
 router.post("/register", async (req, res) => {
-	if (await Users.findOne({ email: req.body.email })) {
+	if (await Users.findOne({ where: { email: req.body.email } })) {
 		res.send({ message: "email in use" });
+		return;
 	}
 
 	console.log(req.body);
@@ -56,8 +57,8 @@ router.post("/register", async (req, res) => {
 		phone: phone,
 		license_plate: license_plate,
 	});
+	console.log(newUser.id, newUser.first_name);
 	res.send(newUser);
-	console.log(user.id, user.first_name);
 });
 
 // replace with req.session.id
@@ -70,7 +71,7 @@ router.get("/:id", async (req, res) => {
 		return res.json(userData);
 	}
 });
-router.get("/", async (req, res) => {
+router.get("/logout", async (req, res) => {
 	req.session.id === null;
 	res.send("logged out");
 });
