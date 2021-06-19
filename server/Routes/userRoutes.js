@@ -61,7 +61,12 @@ router.post("/register", async (req, res) => {
 	res.send(newUser);
 });
 
-// replace with req.session.id
+router.get("/logout", (req, res) => {
+	req.session.id = null;
+	res.send("logged out");
+});
+
+
 router.get("/:id", async (req, res) => {
 	const { id } = req.params;
 	const userData = await Users.findByPk(id);
@@ -70,10 +75,6 @@ router.get("/:id", async (req, res) => {
 	} else {
 		return res.json(userData);
 	}
-});
-router.get("/logout", async (req, res) => {
-	req.session.id === null;
-	res.send("logged out");
 });
 
 // /updateuser (PUT) route needs:
