@@ -3,7 +3,6 @@
 const bcrypt = require("bcrypt");
 const express = require("express");
 const db = require("../../models");
-
 const { Users } = require("../../models");
 
 const router = express.Router();
@@ -66,15 +65,21 @@ router.get("/logout", (req, res) => {
   res.send("logged out");
 });
 
-// replace with req.session.id
+router.get("/logout", (req, res) => {
+	req.session.id = null;
+	res.send("logged out");
+});
+
+
 router.get("/:id", async (req, res) => {
-  const { id } = req.params;
-  const userData = await Users.findByPk(id);
-  if (userData === null) {
-    return res.send("user not found");
-  } else {
-    return res.json(userData);
-  }
+	const { id } = req.params;
+	const userData = await Users.findByPk(id);
+	if (userData === null) {
+		return res.send("user not found");
+	} else {
+		return res.json(userData);
+	}
+
 });
 
 // /updateuser (PUT) route needs:

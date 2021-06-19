@@ -20,10 +20,12 @@ app.use(
 app.use(express.json());
 
 const drivewayRoutes = require("./Routes/drivewayRoutes");
-app.use(express.json());
 app.use("/api/driveways", drivewayRoutes);
 
-// // import and user routes
+const reservationRoutes = require("./Routes/reservationRoutes");
+app.use("/api/reservations", reservationRoutes);
+
+// import and user routes
 const userRoutes = require("./Routes/userRoutes");
 app.use("/api/users", userRoutes);
 
