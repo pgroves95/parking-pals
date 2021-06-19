@@ -71,7 +71,7 @@ router.get("/:id", async (req, res) => {
 		return res.json(userData);
 	}
 });
-router.get("/", async (req, res) => {
+router.get("/logout", async (req, res) => {
 	req.session.id === null;
 	res.send("logged out");
 });
