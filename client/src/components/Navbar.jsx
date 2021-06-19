@@ -8,10 +8,12 @@ import DrivewayResults from "./DrivewayResults";
 import DrivewayIndividual from "./DrivewayIndividual";
 import Login from "./Login";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 import "../App.css";
 import Payment from "./Payment";
 
 export default function Navbar() {
+	const profileData = useSelector((state) => state.profileData);
 	return (
 		<div id="main-navbar">
 			<Router>
@@ -22,13 +24,18 @@ export default function Navbar() {
 					<Link className="main-link" to="/faq">
 						FAQ
 					</Link>
-					<Link className="main-link" to="/registeruser">
-						User Registration
-					</Link>
-					<Link className="main-link" to="/profile">
+					{profileData.id ? <div><Link className="main-link" to="/profile">
 						Profile
-					</Link>
-					<Link className="main-link" to="/searchresults">
+					</Link><Link className="main-link" to="/">
+						Log Out
+					</Link></div>:<div><Link className="main-link" to="/registeruser">
+						User Registration
+					</Link><Link className="main-link" to="/login">
+						Log In
+					</Link></div>}
+					
+					
+					{/* <Link className="main-link" to="/searchresults">
 						SearchResults
 					</Link>
 					<Link className="main-link" to="/result">
@@ -36,13 +43,9 @@ export default function Navbar() {
 					</Link>
 					<Link className="main-link" to="/payment">
 						Make Payment
-					</Link>
-					<Link className="main-link" to="/login">
-						Log In
-					</Link>
-					<Link className="main-link" to="/">
-						Log Out
-					</Link>
+					</Link> */}
+					
+					
 				</div>
 				<Switch>
 					<Route exact path="/" component={Landing} />
