@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import passengerdog from "../assets/images/passengerdog.jpg";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -24,6 +24,27 @@ const creditCard = <FontAwesomeIcon icon={faCreditCard} size="2x" />;
 const users = <FontAwesomeIcon icon={faUsers} size="2x" />;
 
 export default function Landing() {
+	const [search, setSearch] = useState("");
+
+	const getLocation = async () => {
+		const response = await fetch(
+			`https://api.mapbox.com/geocoding/v5/mapbox.places/${search}.json?&access_token=${process.env.REACT_APP_API_KEY}`,
+			{
+				headers: { Accept: "application/json" },
+			}
+		);
+		const json = await response.json();
+		const coords = json.features[0].center;
+		console.log(json);
+		console.log(coords);
+		return coords;
+	};
+	const submitLocation = (e) => {
+		e.preventDefault();
+		getLocation();
+		setSearch("");
+	};
+
 	return (
 		<div>
 			<div id="main-landing">
@@ -31,17 +52,19 @@ export default function Landing() {
 				<img src={passengerdog} alt="dog-passenger" />
 				<div id="secondary-landing">
 					<h3>Parking Puppy</h3>
-					<div className="search-bar">
+					<form onSubmit={submitLocation} className="search-bar">
 						<input
 							id="landing-search-input"
 							type="search"
-							placeholder="Input your destination for nearby driveway parking"
-							onChange={() => {}}
+							placeholder="Input destination"
+							value={search}
+							onChange={(e) => setSearch(e.target.value)}
+							required
 						/>
 						<button id="main-search-button" onClick={() => {}}>
 							Search
 						</button>
-					</div>
+					</form>
 					<Link id="become-a-host" to="/RegisterHost">
 						<h3>
 							Click here to sign up and start parking or host your unused
