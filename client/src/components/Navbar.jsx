@@ -8,12 +8,16 @@ import DrivewayResults from "./DrivewayResults";
 import DrivewayIndividual from "./DrivewayIndividual";
 import Login from "./Login";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { getUserData } from "../actions/profile-actions";
 import "../App.css";
 import Payment from "./Payment";
 
 export default function Navbar() {
+	const dispatch = useDispatch();
 	const profileData = useSelector((state) => state.profileData);
+
+	const logout = () => {getUserData(dispatch, {})} 
 	return (
 		<div id="main-navbar">
 			<Router>
@@ -26,8 +30,8 @@ export default function Navbar() {
 					</Link>
 					{profileData.id ? <div><Link className="main-link" to="/profile">
 						Profile
-					</Link><Link className="main-link" to="/">
-						Log Out
+					</Link><Link className="main-link" to="/" onClick={()=>{logout()}}>
+						Log Out 
 					</Link></div>:<div><Link className="main-link" to="/registeruser">
 						User Registration
 					</Link><Link className="main-link" to="/login">
