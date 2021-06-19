@@ -17,7 +17,16 @@ export default function Navbar() {
 	const dispatch = useDispatch();
 	const profileData = useSelector((state) => state.profileData);
 
-	const logout = () => {getUserData(dispatch, {})} 
+	const logout = () => {
+		fetch("http://localhost:3001/api/users/logout", {
+			method: "GET",
+			headers: {
+				"Content-Type": "application/json",
+			},
+		}).then((res) => res.json())
+		.then((data) => console.log(data))
+		getUserData(dispatch, {});;
+	}
 	return (
 		<div id="main-navbar">
 			<Router>

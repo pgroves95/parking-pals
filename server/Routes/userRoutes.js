@@ -10,70 +10,71 @@ const router = express.Router();
 
 // needs bcrypt
 router.post("/login", async (req, res) => {
-	const userLogin = await Users.findOne({
-		where: {
-			email: req.body.email,
-		},
-	});
-	console.log(req.body.password, userLogin);
-	if (userLogin) {
-		const passedAuth = await bcrypt.compare(
-			req.body.password,
-			userLogin.password
-		);
-		if (passedAuth) {
-			req.session.id = userLogin.id;
-			res.send(userLogin);
-			return;
-		}
-	}
-	res.status(401).send({ message: "Unauthenticated" });
+  const userLogin = await Users.findOne({
+    where: {
+      email: req.body.email,
+    },
+  });
+  console.log(req.body.password, userLogin);
+  if (userLogin) {
+    const passedAuth = await bcrypt.compare(
+      req.body.password,
+      userLogin.password
+    );
+    if (passedAuth) {
+      req.session.id = userLogin.id;
+      res.send(userLogin);
+      return;
+    }
+  }
+  res.status(401).send({ message: "Unauthenticated" });
 });
 
 router.post("/register", async (req, res) => {
-	if (await Users.findOne({ where: { email: req.body.email } })) {
-		res.send({ message: "email in use" });
-		return;
-	}
+  if (await Users.findOne({ where: { email: req.body.email } })) {
+    res.send({ message: "email in use" });
+    return;
+  }
 
-	console.log(req.body);
-	const {
-		first_name,
-		last_name,
-		email,
-		stripe_acct,
-		password,
-		phone,
-		license_plate,
-	} = req.body;
+  console.log(req.body);
+  const {
+    first_name,
+    last_name,
+    email,
+    stripe_acct,
+    password,
+    phone,
+    license_plate,
+  } = req.body;
 
-	const hashedPassword = await bcrypt.hash(password, 10);
-	const newUser = await Users.create({
-		first_name: first_name,
-		last_name: last_name,
-		email: email,
-		stripe_customer_id: stripe_acct,
-		password: hashedPassword,
-		phone: phone,
-		license_plate: license_plate,
-	});
-	console.log(newUser.id, newUser.first_name);
-	res.send(newUser);
+  const hashedPassword = await bcrypt.hash(password, 10);
+  const newUser = await Users.create({
+    first_name: first_name,
+    last_name: last_name,
+    email: email,
+    stripe_customer_id: stripe_acct,
+    password: hashedPassword,
+    phone: phone,
+    license_plate: license_plate,
+  });
+  console.log(newUser.id, newUser.first_name);
+  res.send(newUser);
+});
+
+router.get("/logout", (req, res) => {
+  req.session.id = null;
+  res.send("logged out");
 });
 
 // replace with req.session.id
 router.get("/:id", async (req, res) => {
-	const { id } = req.params;
-	const userData = await Users.findByPk(id);
-	if (userData === null) {
-		return res.send("user not found");
-	} else {
-		return res.json(userData);
-	}
-});
-router.get("/logout", async (req, res) => {
-	req.session.id === null;
-	res.send("logged out");
+  const { id } = req.params;
+  const userData = await Users.findByPk(id);
+  if (userData === null) {
+    return res.send("user not found");
+  } else {
+    return res.json(userData);
+  }
 });
 
 // /updateuser (PUT) route needs:
