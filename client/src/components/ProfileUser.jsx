@@ -36,15 +36,15 @@ export default function ProfileUser() {
 	const dispatch = useDispatch();
 	const profileData = useSelector((state) => state.profileData);
 
-	const getUserInfo = async () => {
-		const response = await fetch(`http://localhost:3001/api/users/2`);
-		const parsedData = await response.json();
-		getUserData(dispatch, parsedData);
-	};
+	// const getUserInfo = async () => {
+	// 	const response = await fetch(`http://localhost:3001/api/users/${profileId.id}`);
+	// 	const parsedData = await response.json();
+	// 	getUserData(dispatch, parsedData);
+	// };
 
-	useEffect(() => {
-		getUserInfo();
-	}, []);
+	// useEffect(() => {
+	// 	getUserInfo();
+	// }, []);
 
 	return (
 		<div>
@@ -52,7 +52,7 @@ export default function ProfileUser() {
 				<div className={classes.rootCard}>
 					<Paper elevation={3}>
 						<div className={classes.root}>
-							<Avatar alt="Remy Sharp" src={avatar} className={classes.large} />
+							<Avatar alt="avatar" src={avatar} className={classes.large} />
 						</div>
 						<h3>
 							{profileData.first_name} {profileData.last_name}
