@@ -34,13 +34,15 @@ export default function Landing() {
 			}
 		);
 		const json = await response.json();
+		const coords = json.features[0].center;
 		console.log(json);
-		// getLocation(json.Search);
+		console.log(coords);
+		return coords;
 	};
-
 	const submitLocation = (e) => {
 		e.preventDefault();
 		getLocation();
+		setSearch("");
 	};
 
 	return (
@@ -55,7 +57,9 @@ export default function Landing() {
 							id="landing-search-input"
 							type="search"
 							placeholder="Input destination"
+							value={search}
 							onChange={(e) => setSearch(e.target.value)}
+							required
 						/>
 						<button id="main-search-button" onClick={() => {}}>
 							Search
