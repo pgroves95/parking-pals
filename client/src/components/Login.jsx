@@ -25,7 +25,7 @@ export default function Login() {
 		})
 			.then((res) => res.json())
 			.then((data) => getUserData(dispatch, data));
-		history.push("/profile");
+		history.push("/");
 		return false;
 	};
 
