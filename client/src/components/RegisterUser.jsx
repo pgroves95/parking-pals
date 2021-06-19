@@ -1,10 +1,34 @@
-import React from "react";
+import  {React, useState} from "react";
 import "../css/RegisterUser.css";
 import dog1 from "../assets/images/dog1.png";
 import { useHistory } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { getUserData } from "../actions/profile-actions.js";
 
 export default function RegisterUser() {
+	const [first_name, setFirstName] = useState("");
+	const [last_name, setLastName] = useState("");
+	const [email, setEmail] = useState("");
+	const [password, setPassword] = useState("");
+	const [license_plate, setLicense] = useState("");
+	const [phone, setPhone] = useState("");
 	const history = useHistory();
+	const dispatch = useDispatch();
+
+	const sendForm = (e) => {
+		e.preventDefault();
+		fetch("http://localhost:3001/api/users/register", {
+			method: "POST",
+			body: JSON.stringify({ first_name, last_name, email, password, license_plate, phone }),
+			headers: {
+				"Content-Type": "application/json",
+			},
+		})
+			.then((res) => res.json())
+			.then((data) => getUserData(dispatch, data));
+		history.push("/login");
+		return false;
+	};
 
 	return (
 		<div id="register-section">
@@ -12,33 +36,35 @@ export default function RegisterUser() {
 				<h1 className="login-header">Sign Up to Start Parking</h1>
 				<img id="dog1-icon" src={dog1} alt="dog" />
 				<form
-					// onSubmit={(e) => e.preventDefault()}
-					action="http://localhost:3001/api/users/register"
-					method="POST"
+					onSubmit={(e) => sendForm(e)}
 				>
 					<input
 						name="first_name"
 						id="top-input"
 						type="text"
 						placeholder="First Name"
+						onChange={(e) => setFirstName(e.target.value)}
 					/>
 					<input
 						name="last_name"
 						className="register-input"
 						type="text"
 						placeholder="Last Name"
+						onChange={(e) => setLastName(e.target.value)}
 					/>
 					<input
 						name="email"
 						className="register-input"
 						type="email"
 						placeholder="Email Address"
+						onChange={(e) => setEmail(e.target.value)}
 					/>
 					<input
 						name="password"
 						className="register-input"
 						type="password"
 						placeholder="Password"
+						onChange={(e) => setPassword(e.target.value)}
 					/>
 					<input
 						id="license-plate"
@@ -46,6 +72,7 @@ export default function RegisterUser() {
 						className="register-input"
 						type="text"
 						placeholder="License Plate Number"
+						onChange={(e) => setLicense(e.target.value)}
 					/>
 					<input
 						name="phone"
@@ -53,10 +80,10 @@ export default function RegisterUser() {
 						type="text"
 						placeholder="Phone Number"
 						pattern="[a-zA-Z0-9!@#$%^*_|]{0,10}"
+						onChange={(e) => setPhone(e.target.value)}
 					/>
 					<input name="access" value="driver" type="hidden" />
 					<button
-						// onClick={() => history.push("/login")}
 						className="register-button"
 						id="submit-button"
 					>

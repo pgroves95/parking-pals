@@ -3,8 +3,8 @@ import { Link, useHistory } from "react-router-dom";
 import "../css/Login.css";
 import "../css/RegisterHost.css";
 import dog from "../assets/images/dog.png";
-import { getLoginStatus } from "../actions/login-actions.js";
 import { useDispatch } from "react-redux";
+import { getUserData } from "../actions/profile-actions";
 
 export default function Login() {
 	const [email, setEmail] = React.useState("");
@@ -24,8 +24,8 @@ export default function Login() {
 			},
 		})
 			.then((res) => res.json())
-			.then((data) => getLoginStatus(dispatch, data));
-		history.push("/");
+			.then((data) => getUserData(dispatch, data));
+		history.push("/profile");
 		return false;
 	};
 
