@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import passengerdog from "../assets/images/passengerdog.jpg";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import phoneMap from "../assets/images/phoneMap.jpg";
 import maps from "../assets/images/maps.jpg";
@@ -25,16 +25,17 @@ const users = <FontAwesomeIcon icon={faUsers} size="2x" />;
 
 export default function Landing() {
 	const [search, setSearch] = useState("");
+	const history = useHistory();
 
 	const getLocation = async () => {
 		const response = await fetch(
-			`https://api.mapbox.com/geocoding/v5/mapbox.places/${search}.json?&access_token=${process.env.REACT_APP_API_KEY}`,
+			`https://api.mapbox.com/geocoding/v5/mapbox.places/${search}.json?&access_token=pk.eyJ1Ijoid3N2b2JvZGEiLCJhIjoiY2txMTE1cGl2MDVmZzJvcXVibjViMGliaCJ9.13cxlIO8hYUtM1rQuvlbBw`,
 			{
 				headers: { Accept: "application/json" },
 			}
 		);
 		const json = await response.json();
-		const coords = json.features[0].center;
+		const coords = json.features[0].center.reverse();
 		console.log(json);
 		console.log(coords);
 		return coords;
@@ -43,6 +44,7 @@ export default function Landing() {
 		e.preventDefault();
 		getLocation();
 		setSearch("");
+		history.push("/searchresults")
 	};
 
 	return (
@@ -61,7 +63,7 @@ export default function Landing() {
 							onChange={(e) => setSearch(e.target.value)}
 							required
 						/>
-						<button id="main-search-button" onClick={() => {}}>
+						<button id="main-search-button">
 							Search
 						</button>
 					</form>

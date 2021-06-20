@@ -26,8 +26,8 @@ const useStyles = makeStyles((theme) => ({
 export default function DrivewayResults() {
 	const mapContainer = useRef(null);
 	const map = useRef(null);
-	const [lng, setLng] = useState(-95.62);
-	const [lat, setLat] = useState(30.1);
+	const [lng, setLng] = useState(-84.40);
+	const [lat, setLat] = useState(33.755);
 	const [zoom, setZoom] = useState(12);
 	const dispatch = useDispatch();
 	const drivewaySearch = useSelector((state) => state.drivewaySearch);
@@ -50,10 +50,10 @@ export default function DrivewayResults() {
 			zoom: zoom,
 		});
 		let marker1 = new mapboxgl.Marker()
-			.setLngLat([-95.62, 30.1])
+			.setLngLat([-84.4, 33.78])
 			.addTo(map.current);
 		let marker2 = new mapboxgl.Marker()
-			.setLngLat([-95.62, 30.12])
+			.setLngLat([-84.36, 33.75])
 			.addTo(map.current);
 	}, []);
 
