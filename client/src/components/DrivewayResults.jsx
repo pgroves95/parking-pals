@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import emptyDriveway from "../assets/images/emptydriveway.png";
@@ -26,11 +26,10 @@ const useStyles = makeStyles((theme) => ({
 export default function DrivewayResults() {
 	const mapContainer = useRef(null);
 	const map = useRef(null);
+	const drivewaySearch = useSelector((state) => state.drivewaySearch);
 	const [lng, setLng] = useState(-84.40);
 	const [lat, setLat] = useState(33.755);
-	const [zoom, setZoom] = useState(12);
-	const dispatch = useDispatch();
-	const drivewaySearch = useSelector((state) => state.drivewaySearch);
+	const [zoom, setZoom] = useState(14);
 
 	// const getDrivewayData = async () => {
 	// 	const response = await fetch(DATABASEURL);
@@ -43,18 +42,25 @@ export default function DrivewayResults() {
 	// }, [])
 
 	useEffect(() => {
+	if (drivewaySearch[1] )	{
 		map.current = new mapboxgl.Map({
+			container: mapContainer.current,
+			style: "mapbox://styles/mapbox/streets-v11",
+			center: [drivewaySearch[1], drivewaySearch[0]],
+			zoom: zoom,
+		});
+		let marker1 = new mapboxgl.Marker()
+			.setLngLat([drivewaySearch[1], drivewaySearch[0]])
+			.addTo(map.current);;}
+		else {map.current = new mapboxgl.Map({
 			container: mapContainer.current,
 			style: "mapbox://styles/mapbox/streets-v11",
 			center: [lng, lat],
 			zoom: zoom,
-		});
-		let marker1 = new mapboxgl.Marker()
-			.setLngLat([-84.4, 33.78])
-			.addTo(map.current);
+		})
 		let marker2 = new mapboxgl.Marker()
-			.setLngLat([-84.36, 33.75])
-			.addTo(map.current);
+			.setLngLat([-84.4008875, 33.755288])
+			.addTo(map.current);}
 	}, []);
 
 	const classes = useStyles();

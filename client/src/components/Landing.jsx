@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import passengerdog from "../assets/images/passengerdog.jpg";
 import { Link, useHistory } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { drivewayResults } from "../actions/search-actions";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import phoneMap from "../assets/images/phoneMap.jpg";
 import maps from "../assets/images/maps.jpg";
@@ -26,6 +28,7 @@ const users = <FontAwesomeIcon icon={faUsers} size="2x" />;
 export default function Landing() {
 	const [search, setSearch] = useState("");
 	const history = useHistory();
+	const dispatch = useDispatch();
 
 	const getLocation = async () => {
 		const response = await fetch(
@@ -36,15 +39,14 @@ export default function Landing() {
 		);
 		const json = await response.json();
 		const coords = json.features[0].center.reverse();
+		drivewayResults(dispatch, coords)
 		console.log(json);
 		console.log(coords);
-		return coords;
+		history.push("/searchresults")
 	};
 	const submitLocation = (e) => {
 		e.preventDefault();
 		getLocation();
-		setSearch("");
-		history.push("/searchresults")
 	};
 
 	return (
