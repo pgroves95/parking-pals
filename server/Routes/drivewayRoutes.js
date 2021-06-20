@@ -8,8 +8,8 @@ router.get("/", async (req, res) => {
   try {
     const drivewaysData = await Driveways.findAll();
     res.send(drivewaysData);
-  } catch(err) {
-    console.log(err);
+  } catch(e) {
+    res.status(400).json({ message: e.message })
   }
 });
 
@@ -17,8 +17,8 @@ router.post("/", async (req, res) => {
   try {
     const createDriveway = await Driveways.create(req.body);
     res.json(createDriveway);
-  } catch(err) {
-    console.log(err);
+  } catch(e) {
+    res.status(400).json({ message: e.message })
   }
 });
 
@@ -31,8 +31,8 @@ router.put("/:id", async (req, res) => {
     { where: { id: id } }
   );
     res.json(updateDriveway);
-  } catch(err) {
-    console.log(err);
+  } catch(e) {
+    res.status(400).json({ message: e.message })
   }
 });
 
@@ -42,8 +42,8 @@ router.delete("/:id", async (req, res) => {
     const id = req.params.id;
     const deleteDriveway = await Driveways.destroy({ where: { id: id } });
     res.json(deleteDriveway);
-  } catch(err) {
-    console.log(err);
+  } catch(e) {
+    res.status(400).json({ message: e.message })
   }
 });
 
