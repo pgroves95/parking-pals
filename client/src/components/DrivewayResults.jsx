@@ -125,67 +125,7 @@ export default function DrivewayResults() {
 							<br></br>
 							<Link to="/result">More</Link>
 						</Paper>
-					</div>)) : <p>No results! IDIOT!</p>}
-					{/* <div className={classes.root}>
-						<Paper elevation={3}>
-							<img
-								className="driveway-pic"
-								src={emptyDriveway}
-								alt="driveway"
-							/>
-							<h2>Address</h2>
-							<p>1000ft from destination</p>
-							<br></br>
-							<p>$10 / hour</p>
-							<br></br>
-							<Link to="/result">More</Link>
-						</Paper>
-					</div>
-					<div className={classes.root}>
-						<Paper elevation={3}>
-							<img
-								className="driveway-pic"
-								src={emptyDriveway}
-								alt="driveway"
-							/>
-							<h2>Address</h2>
-							<p>1.5 miles from destination</p>
-							<br></br>
-							<p>$5 / hour</p>
-							<br></br>
-							<Link to="/result">More</Link>
-						</Paper>
-					</div>
-					<div className={classes.root}>
-						<Paper elevation={3}>
-							<img
-								className="driveway-pic"
-								src={emptyDriveway}
-								alt="driveway"
-							/>
-							<h2>Address</h2>
-							<p>500ft from destination</p>
-							<br></br>
-							<p>$20 / hour</p>
-							<br></br>
-							<Link to="/result">More</Link>
-						</Paper>
-					</div>
-					<div className={classes.root}>
-						<Paper elevation={3}>
-							<img
-								className="driveway-pic"
-								src={emptyDriveway}
-								alt="driveway"
-							/>
-							<h2>Address</h2>
-							<p>3 miles from destination</p>
-							<br></br>
-							<p>$1 / hour</p>
-							<br></br>
-							<Link to="/result">More</Link>
-						</Paper>
-					</div> */}
+					</div>)) : <p>No results!</p>}
 				</div>
 				<div ref={mapContainer} className="map-container" />
 			</div>
