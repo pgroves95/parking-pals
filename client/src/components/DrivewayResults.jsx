@@ -111,7 +111,22 @@ export default function DrivewayResults() {
 			<h1>Search Results</h1>
 			<div className="results-and-map">
 				<div className="search-results">
-					<div className={classes.root}>
+					{dbDrivewayList.length > 1 ? dbDrivewayList.map((driveway) => (
+<div className={classes.root}>
+						<Paper elevation={3}>
+							<img
+								className="driveway-pic"
+								src={emptyDriveway}
+								alt="driveway"
+							/>
+							<h2>{driveway.address}</h2>
+							<br></br>
+							<p>${driveway.rate} / hour</p>
+							<br></br>
+							<Link to="/result">More</Link>
+						</Paper>
+					</div>)) : <p>No results! IDIOT!</p>}
+					{/* <div className={classes.root}>
 						<Paper elevation={3}>
 							<img
 								className="driveway-pic"
@@ -170,7 +185,7 @@ export default function DrivewayResults() {
 							<br></br>
 							<Link to="/result">More</Link>
 						</Paper>
-					</div>
+					</div> */}
 				</div>
 				<div ref={mapContainer} className="map-container" />
 			</div>
