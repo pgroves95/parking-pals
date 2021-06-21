@@ -3,6 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import "../App.css";
 import emptyDriveway from "../assets/images/emptydriveway.png";
+import Footer from "./Footer";
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -63,6 +64,7 @@ export default function DrivewayIndividual() {
 					</Paper>
 				</div>
 			</div>
+			<Footer />
 		</div>
 	);
 }

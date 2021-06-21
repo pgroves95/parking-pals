@@ -1,11 +1,13 @@
 import React, { useRef, useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import emptyDriveway from "../assets/images/emptydriveway.png";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import mapboxgl from "!mapbox-gl"; // eslint-disable-line import/no-webpack-loader-syntax
 import "../css/DrivewayResults.css";
+import { drivewayResults } from "../actions/search-actions";
+import Footer from "./Footer";
 
 mapboxgl.accessToken =
 	"pk.eyJ1Ijoid3N2b2JvZGEiLCJhIjoiY2txMTE1cGl2MDVmZzJvcXVibjViMGliaCJ9.13cxlIO8hYUtM1rQuvlbBw";
@@ -27,9 +29,13 @@ export default function DrivewayResults() {
 	const mapContainer = useRef(null);
 	const map = useRef(null);
 	const drivewaySearch = useSelector((state) => state.drivewaySearch);
-	const [lng, setLng] = useState(-84.40);
+	const [lng, setLng] = useState(-84.4);
 	const [lat, setLat] = useState(33.755);
 	const [zoom, setZoom] = useState(14);
+	const [search, setSearch] = useState("");
+	const dispatch = useDispatch();
+	const classes = useStyles();
+	const history = useHistory();
 
 	// const getDrivewayData = async () => {
 	// 	const response = await fetch(DATABASEURL);
@@ -41,32 +47,66 @@ export default function DrivewayResults() {
 	//     getDrivewayData()
 	// }, [])
 
-	useEffect(() => {
-	if (drivewaySearch[1] )	{
-		map.current = new mapboxgl.Map({
-			container: mapContainer.current,
-			style: "mapbox://styles/mapbox/streets-v11",
-			center: [drivewaySearch[1], drivewaySearch[0]],
-			zoom: zoom,
-		});
-		let marker1 = new mapboxgl.Marker()
-			.setLngLat([drivewaySearch[1], drivewaySearch[0]])
-			.addTo(map.current);;}
-		else {map.current = new mapboxgl.Map({
-			container: mapContainer.current,
-			style: "mapbox://styles/mapbox/streets-v11",
-			center: [lng, lat],
-			zoom: zoom,
-		})
-		let marker2 = new mapboxgl.Marker()
-			.setLngLat([-84.4008875, 33.755288])
-			.addTo(map.current);}
-	}, []);
+	const getLocation = async () => {
+		const response = await fetch(
+			`https://api.mapbox.com/geocoding/v5/mapbox.places/${search}.json?&access_token=pk.eyJ1Ijoid3N2b2JvZGEiLCJhIjoiY2txMTE1cGl2MDVmZzJvcXVibjViMGliaCJ9.13cxlIO8hYUtM1rQuvlbBw`,
+			{
+				headers: { Accept: "application/json" },
+			}
+		);
+		const json = await response.json();
+		const coords = json.features[0].center.reverse();
+		drivewayResults(dispatch, coords);
+		console.log(coords);
+	};
+	const submitNewLocation = (e) => {
+		e.preventDefault();
+		getLocation();
+		newLocation();
+		setSearch("");
+	};
 
-	const classes = useStyles();
+	const newLocation = () => {
+		if (drivewaySearch[1]) {
+			map.current = new mapboxgl.Map({
+				container: mapContainer.current,
+				style: "mapbox://styles/mapbox/streets-v11",
+				center: [drivewaySearch[1], drivewaySearch[0]],
+				zoom: zoom,
+			});
+			let marker1 = new mapboxgl.Marker()
+				.setLngLat([drivewaySearch[1], drivewaySearch[0]])
+				.addTo(map.current);
+		} else {
+			map.current = new mapboxgl.Map({
+				container: mapContainer.current,
+				style: "mapbox://styles/mapbox/streets-v11",
+				center: [lng, lat],
+				zoom: zoom,
+			});
+			let marker2 = new mapboxgl.Marker()
+				.setLngLat([-84.4008875, 33.755288])
+				.addTo(map.current);
+		}
+	};
+
+	useEffect(() => {
+		newLocation();
+	}, [drivewaySearch]);
 
 	return (
 		<div>
+			<form onSubmit={submitNewLocation} className="search-bar">
+				<input
+					id="landing-search-input"
+					type="search"
+					placeholder="Input new destination"
+					value={search}
+					onChange={(e) => setSearch(e.target.value)}
+					required
+				/>
+				<button id="main-search-button">Search</button>
+			</form>
 			<h1>Search Results</h1>
 			<div className="results-and-map">
 				<div className="search-results">
@@ -133,6 +173,7 @@ export default function DrivewayResults() {
 				</div>
 				<div ref={mapContainer} className="map-container" />
 			</div>
+			<Footer />
 		</div>
 	);
 }

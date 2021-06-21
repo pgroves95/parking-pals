@@ -6,6 +6,7 @@ import Avatar from "@material-ui/core/Avatar";
 import Paper from "@material-ui/core/Paper";
 import avatar from "../assets/images/avatar.png";
 import "../App.css";
+import Footer from "./Footer";
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -67,6 +68,7 @@ export default function ProfileUser() {
 					</div>
 				</div>
 			</div>
+			<Footer />
 		</div>
 	);
 }

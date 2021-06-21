@@ -18,6 +18,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+import Footer from "./Footer";
+
 
 export default function RegisterUser() {
 	const [first_name, setFirstName] = useState("");
@@ -35,7 +37,14 @@ export default function RegisterUser() {
 		e.preventDefault();
 		fetch("http://localhost:3001/api/users/register", {
 			method: "POST",
-			body: JSON.stringify({ first_name, last_name, email, password, license_plate, phone }),
+			body: JSON.stringify({
+				first_name,
+				last_name,
+				email,
+				password,
+				license_plate,
+				phone,
+			}),
 			headers: {
 				"Content-Type": "application/json",
 			},
@@ -133,6 +142,7 @@ export default function RegisterUser() {
 					</Link>
 				</form>
 			</div>
+			<Footer />
 		</div>
 	);
 }

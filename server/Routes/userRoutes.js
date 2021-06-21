@@ -9,12 +9,14 @@ const router = express.Router();
 
 // needs bcrypt
 router.post("/login", async (req, res) => {
-  const userLogin = await Users.findOne({
-    where: {
-      email: req.body.email,
+
+    const userLogin = await Users.findOne({
+      where: {
+        email: req.body.email,
     },
   });
-  console.log(req.body.password, userLogin);
+  
+  
   if (userLogin) {
     const passedAuth = await bcrypt.compare(
       req.body.password,
@@ -27,7 +29,7 @@ router.post("/login", async (req, res) => {
     }
   }
   res.status(401).send({ message: "Unauthenticated" });
-});
+})
 
 router.post("/register", async (req, res) => {
   if (await Users.findOne({ where: { email: req.body.email } })) {
@@ -35,7 +37,6 @@ router.post("/register", async (req, res) => {
     return;
   }
 
-  console.log(req.body);
   const {
     first_name,
     last_name,
@@ -46,18 +47,22 @@ router.post("/register", async (req, res) => {
     license_plate,
   } = req.body;
 
-  const hashedPassword = await bcrypt.hash(password, 10);
-  const newUser = await Users.create({
-    first_name: first_name,
-    last_name: last_name,
-    email: email,
-    stripe_customer_id: stripe_acct,
-    password: hashedPassword,
-    phone: phone,
-    license_plate: license_plate,
-  });
-  console.log(newUser.id, newUser.first_name);
-  res.send(newUser);
+  try {
+    const hashedPassword = await bcrypt.hash(password, 10);
+    const newUser = await Users.create({
+      first_name: first_name,
+      last_name: last_name,
+      email: email,
+      stripe_customer_id: stripe_acct,
+      password: hashedPassword,
+      phone: phone,
+      license_plate: license_plate,
+    });
+    console.log(newUser.id, newUser.first_name);
+    res.send(newUser);
+  } catch(e) {
+    res.status(400).json({ message: e.message })
+  }
 });
 
 router.get("/logout", (req, res) => {
