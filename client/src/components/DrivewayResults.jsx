@@ -6,7 +6,7 @@ import emptyDriveway from "../assets/images/emptydriveway.png";
 import { Link, useHistory } from "react-router-dom";
 import mapboxgl from "!mapbox-gl"; // eslint-disable-line import/no-webpack-loader-syntax
 import "../css/DrivewayResults.css";
-import { drivewayResults } from "../actions/search-actions";
+import { searchCoordinates } from "../actions/search-actions";
 import Footer from "./Footer";
 
 mapboxgl.accessToken =
@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
 export default function DrivewayResults() {
 	const mapContainer = useRef(null);
 	const map = useRef(null);
-	const drivewaySearch = useSelector((state) => state.drivewaySearch);
+	const searchCoordinates = useSelector((state) => state.searchCoordinates);
 	const [lng, setLng] = useState(-84.4);
 	const [lat, setLat] = useState(33.755);
 	const [zoom, setZoom] = useState(14);
@@ -40,7 +40,7 @@ export default function DrivewayResults() {
 	// const getDrivewayData = async () => {
 	// 	const response = await fetch(DATABASEURL);
 	// 	const parsedData = await response.json()
-	// 	drivewayResults(dispatch, parsedData)
+	// 	searchCoordinates(dispatch, parsedData)
 	// }
 
 	// useEffect(() => {
@@ -56,7 +56,7 @@ export default function DrivewayResults() {
 		);
 		const json = await response.json();
 		const coords = json.features[0].center.reverse();
-		drivewayResults(dispatch, coords);
+		searchCoordinates(dispatch, coords);
 		console.log(coords);
 	};
 	const submitNewLocation = (e) => {
@@ -67,15 +67,15 @@ export default function DrivewayResults() {
 	};
 
 	const newLocation = () => {
-		if (drivewaySearch[1]) {
+		if (searchCoordinates[1]) {
 			map.current = new mapboxgl.Map({
 				container: mapContainer.current,
 				style: "mapbox://styles/mapbox/streets-v11",
-				center: [drivewaySearch[1], drivewaySearch[0]],
+				center: [searchCoordinates[1], searchCoordinates[0]],
 				zoom: zoom,
 			});
 			let marker1 = new mapboxgl.Marker()
-				.setLngLat([drivewaySearch[1], drivewaySearch[0]])
+				.setLngLat([searchCoordinates[1], searchCoordinates[0]])
 				.addTo(map.current);
 		} else {
 			map.current = new mapboxgl.Map({
@@ -92,7 +92,7 @@ export default function DrivewayResults() {
 
 	useEffect(() => {
 		newLocation();
-	}, [drivewaySearch]);
+	}, [searchCoordinates]);
 
 	return (
 		<div>

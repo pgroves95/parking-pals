@@ -1,11 +1,11 @@
 import { combineReducers } from "redux";
 import profileData from "./userReducer";
-import drivewaySearch from "./searchReducer";
+import searchCoordinates from "./searchReducer";
 import loginStatus from "./loginReducer";
 
 const rootReducer = combineReducers({
   profileData,
-  drivewaySearch,
+  searchCoordinates,
   loginStatus,
 });
 
