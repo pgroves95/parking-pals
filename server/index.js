@@ -16,10 +16,10 @@ app.use(
     maxAge: 24 * 60 * 60 * 1000,
   })
 );
-app.use((error, req, res, next) => {
-console.error(error);
-res.status(500).json({message: e.message});
-});
+// app.use((error, req, res, next) => {
+// console.error(error);
+// res.status(500).json({message: e.message});
+// }); // if we are adventorous a error handling middle wear otherwise we will just do try catches everywhere
 
 app.use(express.json());
 
