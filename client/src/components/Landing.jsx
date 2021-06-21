@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import passengerdog from "../assets/images/passengerdog.jpg";
 import { Link, useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { drivewayResults } from "../actions/search-actions";
+import { searchCoordinates } from "../actions/search-actions";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import phoneMap from "../assets/images/phoneMap.jpg";
 import maps from "../assets/images/maps.jpg";
@@ -40,7 +40,7 @@ export default function Landing() {
 		);
 		const json = await response.json();
 		const coords = json.features[0].center.reverse();
-		drivewayResults(dispatch, coords);
+		searchCoordinates(dispatch, coords);
 		console.log(json);
 		console.log(coords);
 		history.push("/searchresults");

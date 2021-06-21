@@ -1,5 +1,5 @@
-import { GET_DRIVEWAY_RESULTS } from "../action-types/search-action-types";
+import { GET_SEARCH_COORDINATES } from "../action-types/search-action-types";
 
-export const drivewayResults = (dispatch, coords) => {
-  return dispatch({ type: GET_DRIVEWAY_RESULTS, payload: coords });
+export const searchCoordinates = (dispatch, coords) => {
+  return dispatch({ type: GET_SEARCH_COORDINATES, payload: coords });
 };
