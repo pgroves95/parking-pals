@@ -4,8 +4,9 @@ const { Driveways } = require("../../models");
 
 const router = express.Router();
 
-router.get("/", async (req, res) => {
+router.get("/search", async (req, res) => {
   const drivewaysData = await Driveways.findAll();
+  
   res.send(drivewaysData);
 });
 
