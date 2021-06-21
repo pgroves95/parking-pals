@@ -7,6 +7,7 @@ import { Link, useHistory } from "react-router-dom";
 import mapboxgl from "!mapbox-gl"; // eslint-disable-line import/no-webpack-loader-syntax
 import "../css/DrivewayResults.css";
 import { setSearchCoordinates } from "../actions/search-actions";
+import {dbDriveways} from "../actions/db-driveways-actions"
 import Footer from "./Footer";
 
 mapboxgl.accessToken =
@@ -29,6 +30,7 @@ export default function DrivewayResults() {
 	const mapContainer = useRef(null);
 	const map = useRef(null);
 	const searchCoordinates = useSelector((state) => state.searchCoordinates);
+	const dbDrivewayList = useSelector((state) => state.dbDrivewayList)
 	const [lng, setLng] = useState(-84.4);
 	const [lat, setLat] = useState(33.755);
 	const [zoom, setZoom] = useState(14);
@@ -37,15 +39,13 @@ export default function DrivewayResults() {
 	const classes = useStyles();
 	const history = useHistory();
 
-	// const getDrivewayData = async () => {
-	// 	const response = await fetch(DATABASEURL);
-	// 	const parsedData = await response.json()
-	// 	searchCoordinates(dispatch, parsedData)
-	// }
-
-	// useEffect(() => {
-	//     getDrivewayData()
-	// }, [])
+	const getDrivewayData = async () => {
+		const response= await fetch("http://localhost:3001/api/driveways", {
+			method: "GET",
+			})
+		const parsedData = await response.json()
+		dbDriveways(dispatch, parsedData)
+	}
 
 	const getLocation = async () => {
 		const response = await fetch(
@@ -92,6 +92,7 @@ export default function DrivewayResults() {
 
 	useEffect(() => {
 		newLocation();
+		getDrivewayData()
 	}, [searchCoordinates]);
 
 	return (
