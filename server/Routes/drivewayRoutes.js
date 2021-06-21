@@ -14,19 +14,29 @@ router.post("/", async (req, res) => {
   res.json(createDriveway);
 });
 
+// not available client side
 router.put("/:id", async (req, res) => {
-  const id = req.params.id;
-  const updateDriveway = await Driveways.update(
+  try {
+    const id = req.params.id;
+    const updateDriveway = await Driveways.update(
     { description: req.body.description },
     { where: { id: id } }
   );
-  res.json(updateDriveway);
+    res.json(updateDriveway);
+  } catch(e) {
+    res.status(400).json({ message: e.message })
+  }
 });
 
+//not available client side
 router.delete("/:id", async (req, res) => {
-  const id = req.params.id;
-  const deleteDriveway = await Driveways.destroy({ where: { id: id } });
-  res.json(deleteDriveway);
+  try {  
+    const id = req.params.id;
+    const deleteDriveway = await Driveways.destroy({ where: { id: id } });
+    res.json(deleteDriveway);
+  } catch(e) {
+    res.status(400).json({ message: e.message })
+  }
 });
 
 module.exports = router;

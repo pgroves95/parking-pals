@@ -59,7 +59,7 @@ export default function ProfileUser() {
 						</h3>
 						<p>{profileData.email}</p>
 						<p>{profileData.access}</p>
-						<p>{profileData.license_plate}</p>
+						<p>{profileData.license_plate.toUpperCase()}</p>
 						<p>{profileData.phone}</p>
 					</Paper>
 					<div className="history">
