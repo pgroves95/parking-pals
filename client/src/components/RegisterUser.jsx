@@ -43,6 +43,7 @@ export default function RegisterUser() {
 						id="top-input"
 						type="text"
 						placeholder="First Name"
+						required
 						onChange={(e) => setFirstName(e.target.value)}
 					/>
 					<input
@@ -50,6 +51,7 @@ export default function RegisterUser() {
 						className="register-input"
 						type="text"
 						placeholder="Last Name"
+						required
 						onChange={(e) => setLastName(e.target.value)}
 					/>
 					<input
@@ -57,6 +59,7 @@ export default function RegisterUser() {
 						className="register-input"
 						type="email"
 						placeholder="Email Address"
+						required
 						onChange={(e) => setEmail(e.target.value)}
 					/>
 					<input
@@ -64,6 +67,7 @@ export default function RegisterUser() {
 						className="register-input"
 						type="password"
 						placeholder="Password"
+						required
 						onChange={(e) => setPassword(e.target.value)}
 					/>
 					<input
@@ -72,6 +76,9 @@ export default function RegisterUser() {
 						className="register-input"
 						type="text"
 						placeholder="License Plate Number"
+						pattern="[a-zA-Z0-9!@#$%^*_|]{0,8}"
+						maxlength="8"
+						required
 						onChange={(e) => setLicense(e.target.value)}
 					/>
 					<input
@@ -79,7 +86,9 @@ export default function RegisterUser() {
 						id="bottom-input"
 						type="text"
 						placeholder="Phone Number"
-						pattern="[a-zA-Z0-9!@#$%^*_|]{0,10}"
+						pattern="[0-9!@#$%^*_|]{0,10}"
+						maxlength="10"
+						required
 						onChange={(e) => setPhone(e.target.value)}
 					/>
 					<input name="access" value="driver" type="hidden" />

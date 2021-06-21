@@ -5,17 +5,30 @@ import "../css/RegisterHost.css";
 import dog from "../assets/images/dog.png";
 import { useDispatch } from "react-redux";
 import { getUserData } from "../actions/profile-actions";
+import { makeStyles } from '@material-ui/core/styles';
+import Alert from '@material-ui/lab/Alert';
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    width: '30%',
+	marginTop: "30px",
+    '& > * + *': {
+      marginTop: theme.spacing(2),
+    },
+  },
+}));
 
 export default function Login() {
 	const [email, setEmail] = React.useState("");
 	const [password, setPassword] = React.useState("");
+	const [loginMessage, setLoginMessage] = React.useState("")
 	// const [error, setError] = useState("");
 	const history = useHistory();
 	const dispatch = useDispatch();
+	const classes = useStyles();
 
 	const sendForm = (e) => {
 		e.preventDefault();
-
 		fetch("http://localhost:3001/api/users/login", {
 			method: "POST",
 			body: JSON.stringify({ email, password }),
@@ -24,14 +37,25 @@ export default function Login() {
 			},
 		})
 			.then((res) => res.json())
-			.then((data) => getUserData(dispatch, data));
-		history.push("/");
+			.then((data) => {
+				if (data.message) {
+				setLoginMessage(data.message)
+				setPassword("")
+				history.push("/login")
+			} else 
+			{getUserData(dispatch, data); 
+				history.push("/");}});
 		return false;
 	};
 
 	return (
 		<div>
 			<div id="login-section">
+			{loginMessage ? <div className={classes.root}>
+      <Alert severity="error">
+        Unable to login. Please check your credentials and try again!
+      </Alert>
+    </div>:<div></div>}
 				<form className="login-form" onSubmit={(e) => sendForm(e)}>
 					<h1 className="login-header">Log In to Find Parking</h1>
 					<img id="dog-icon" src={dog} alt="dog" />
