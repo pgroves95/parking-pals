@@ -6,7 +6,8 @@ import emptyDriveway from "../assets/images/emptydriveway.png";
 import { Link, useHistory } from "react-router-dom";
 import mapboxgl from "!mapbox-gl"; // eslint-disable-line import/no-webpack-loader-syntax
 import "../css/DrivewayResults.css";
-import { searchCoordinates } from "../actions/search-actions";
+import { setSearchCoordinates } from "../actions/search-actions";
+import {dbDriveways} from "../actions/db-driveways-actions"
 import Footer from "./Footer";
 
 mapboxgl.accessToken =
@@ -29,6 +30,7 @@ export default function DrivewayResults() {
 	const mapContainer = useRef(null);
 	const map = useRef(null);
 	const searchCoordinates = useSelector((state) => state.searchCoordinates);
+	const dbDrivewayList = useSelector((state) => state.dbDrivewayList)
 	const [lng, setLng] = useState(-84.4);
 	const [lat, setLat] = useState(33.755);
 	const [zoom, setZoom] = useState(14);
@@ -37,15 +39,13 @@ export default function DrivewayResults() {
 	const classes = useStyles();
 	const history = useHistory();
 
-	// const getDrivewayData = async () => {
-	// 	const response = await fetch(DATABASEURL);
-	// 	const parsedData = await response.json()
-	// 	searchCoordinates(dispatch, parsedData)
-	// }
-
-	// useEffect(() => {
-	//     getDrivewayData()
-	// }, [])
+	const getDrivewayData = async () => {
+		const response= await fetch("http://localhost:3001/api/driveways", {
+			method: "GET",
+			})
+		const parsedData = await response.json()
+		dbDriveways(dispatch, parsedData)
+	}
 
 	const getLocation = async () => {
 		const response = await fetch(
@@ -56,7 +56,7 @@ export default function DrivewayResults() {
 		);
 		const json = await response.json();
 		const coords = json.features[0].center.reverse();
-		searchCoordinates(dispatch, coords);
+		setSearchCoordinates(dispatch, coords);
 		console.log(coords);
 	};
 	const submitNewLocation = (e) => {
@@ -92,6 +92,7 @@ export default function DrivewayResults() {
 
 	useEffect(() => {
 		newLocation();
+		getDrivewayData()
 	}, [searchCoordinates]);
 
 	return (
@@ -110,7 +111,22 @@ export default function DrivewayResults() {
 			<h1>Search Results</h1>
 			<div className="results-and-map">
 				<div className="search-results">
-					<div className={classes.root}>
+					{dbDrivewayList.length > 1 ? dbDrivewayList.map((driveway) => (
+<div className={classes.root}>
+						<Paper elevation={3}>
+							<img
+								className="driveway-pic"
+								src={emptyDriveway}
+								alt="driveway"
+							/>
+							<h2>{driveway.address}</h2>
+							<br></br>
+							<p>${driveway.rate} / hour</p>
+							<br></br>
+							<Link to="/result">More</Link>
+						</Paper>
+					</div>)) : <p>No results! IDIOT!</p>}
+					{/* <div className={classes.root}>
 						<Paper elevation={3}>
 							<img
 								className="driveway-pic"
@@ -169,7 +185,7 @@ export default function DrivewayResults() {
 							<br></br>
 							<Link to="/result">More</Link>
 						</Paper>
-					</div>
+					</div> */}
 				</div>
 				<div ref={mapContainer} className="map-container" />
 			</div>
