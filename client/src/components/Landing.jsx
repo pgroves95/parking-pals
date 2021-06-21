@@ -70,18 +70,17 @@ export default function Landing() {
 							Search
 						</button>
 					</form>
-					<Link id="become-a-host" to="/registeruser">
+					{profileData.id ? <div><h3>Thanks for being a loyal customer!</h3></div>:<div><Link id="become-a-host" to="/registeruser">
 						<h3>
 							Click here to sign up and start parking or host your unused
 							driveway space!
 						</h3>
-					</Link>
-					<p>
+					</Link><p>
 						Perfect for those close to popular areas where parking is becoming
 						increasingly difficult to find. Whether it's during concerts, a
 						night out, sporting events or more! Book immediately or ahead of
 						time.
-					</p>
+					</p></div>}
 				</div>
 			</div>
 			<div className="features-div">

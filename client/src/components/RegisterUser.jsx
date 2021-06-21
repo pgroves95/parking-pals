@@ -1,4 +1,5 @@
 import  {React, useState} from "react";
+import { Link } from "react-router-dom";
 import "../css/RegisterUser.css";
 import dog1 from "../assets/images/dog1.png";
 import { useHistory } from "react-router-dom";
@@ -45,7 +46,7 @@ export default function RegisterUser() {
 			setRegisterMessage(data.message)
 			setEmail("")
 			setPassword("")
-			history.push("/registeruser")
+			history.push("/registeruser") 
 		} else 
 		{getUserData(dispatch, data); 
 			history.push("/login");}});
@@ -125,6 +126,11 @@ export default function RegisterUser() {
 					>
 						Submit Form
 					</button>
+					<Link className="register-link" to="/login">
+						<p>
+							Already have an account? Click here.
+						</p>
+					</Link>
 				</form>
 			</div>
 		</div>
