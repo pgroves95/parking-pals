@@ -52,8 +52,8 @@ router.post("/", async (req, res) => {
     const reservation = await db.Reservations.create({
       date: req.body.date,
       driveway_id: req.body.driveway_id,
-      end_request: req.body.end_request,
-      start_request: req.body.start_request,
+      end_req: req.body.end_request,
+      start_req: req.body.start_request,
       stripe_charge_id: req.body.stripe_charge_id,
       user_id: req.session.id,
     });
