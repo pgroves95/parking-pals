@@ -39,10 +39,10 @@ export default function Landing() {
 		);
 		const json = await response.json();
 		const coords = json.features[0].center.reverse();
-		drivewayResults(dispatch, coords)
+		drivewayResults(dispatch, coords);
 		console.log(json);
 		console.log(coords);
-		history.push("/searchresults")
+		history.push("/searchresults");
 	};
 	const submitLocation = (e) => {
 		e.preventDefault();
@@ -65,9 +65,7 @@ export default function Landing() {
 							onChange={(e) => setSearch(e.target.value)}
 							required
 						/>
-						<button id="main-search-button">
-							Search
-						</button>
+						<button id="main-search-button">Search</button>
 					</form>
 					<Link id="become-a-host" to="/RegisterHost">
 						<h3>
