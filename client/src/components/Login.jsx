@@ -1,4 +1,4 @@
-import React from "react";
+import {React, useState} from "react";
 import { Link, useHistory } from "react-router-dom";
 import "../css/Login.css";
 import "../css/RegisterHost.css";
@@ -19,10 +19,9 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Login() {
-	const [email, setEmail] = React.useState("");
-	const [password, setPassword] = React.useState("");
-	const [loginMessage, setLoginMessage] = React.useState("")
-	// const [error, setError] = useState("");
+	const [email, setEmail] = useState("");
+	const [password, setPassword] = useState("");
+	const [loginMessage, setLoginMessage] = useState("")
 	const history = useHistory();
 	const dispatch = useDispatch();
 	const classes = useStyles();
