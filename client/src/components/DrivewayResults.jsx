@@ -6,7 +6,7 @@ import emptyDriveway from "../assets/images/emptydriveway.png";
 import { Link, useHistory } from "react-router-dom";
 import mapboxgl from "!mapbox-gl"; // eslint-disable-line import/no-webpack-loader-syntax
 import "../css/DrivewayResults.css";
-import { searchCoordinates } from "../actions/search-actions";
+import { setSearchCoordinates } from "../actions/search-actions";
 import Footer from "./Footer";
 
 mapboxgl.accessToken =
@@ -56,7 +56,7 @@ export default function DrivewayResults() {
 		);
 		const json = await response.json();
 		const coords = json.features[0].center.reverse();
-		searchCoordinates(dispatch, coords);
+		setSearchCoordinates(dispatch, coords);
 		console.log(coords);
 	};
 	const submitNewLocation = (e) => {
