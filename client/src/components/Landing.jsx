@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import passengerdog from "../assets/images/passengerdog.jpg";
 import { Link, useHistory } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { drivewayResults } from "../actions/search-actions";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import phoneMap from "../assets/images/phoneMap.jpg";
@@ -27,6 +27,7 @@ const users = <FontAwesomeIcon icon={faUsers} size="2x" />;
 
 export default function Landing() {
 	const [search, setSearch] = useState("");
+	const profileData = useSelector((state) => state.profileData);
 	const history = useHistory();
 	const dispatch = useDispatch();
 
@@ -55,7 +56,7 @@ export default function Landing() {
 				<br />
 				<img src={passengerdog} alt="dog-passenger" />
 				<div id="secondary-landing">
-					<h3>Parking Puppy</h3>
+				{profileData.id ? <div><h3>Welcome to Parking Puppy, {profileData.first_name}!</h3></div>:<div><h3>Welcome to Parking Puppy!</h3></div>}
 					<form onSubmit={submitLocation} className="search-bar">
 						<input
 							id="landing-search-input"
@@ -69,7 +70,7 @@ export default function Landing() {
 							Search
 						</button>
 					</form>
-					<Link id="become-a-host" to="/RegisterHost">
+					<Link id="become-a-host" to="/registeruser">
 						<h3>
 							Click here to sign up and start parking or host your unused
 							driveway space!

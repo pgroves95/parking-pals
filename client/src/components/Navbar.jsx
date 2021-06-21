@@ -23,8 +23,7 @@ export default function Navbar() {
 			headers: {
 				"Content-Type": "application/json",
 			},
-		}).then((res) => res.json())
-		.then((data) => console.log(data))
+		}).then((data) => console.log(data))
 		getUserData(dispatch, {});;
 	}
 	return (
