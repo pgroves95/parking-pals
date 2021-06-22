@@ -1,3 +1,8 @@
+.driveway-results-div {
+	min-height: 100vh;
+	background-color: #e8eef1;
+}
+
 .info-card {
 	display: flex;
 	flex-direction: column;
