@@ -1,6 +1,6 @@
 .driveway-results-div {
-	min-height: 100vh;
-	background-color: #e8eef1;
+  min-height: 100vh;
+  background-color: #e8eef1;
 }
 
 .info-card {
@@ -21,9 +21,10 @@
   flex-wrap: wrap;
 }
 
-.search-bar {
+.results-search-bar {
   display: flex;
   flex-direction: row;
+  justify-content: center;
 }
 
 .map-of-spots {

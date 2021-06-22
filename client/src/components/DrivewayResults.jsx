@@ -201,7 +201,7 @@ export default function DrivewayResults() {
 	return (
 		<div>
 			<div className="driveway-results-div">
-				<form onSubmit={submitNewLocation} className="search-bar">
+				<form onSubmit={submitNewLocation} className="results-search-bar">
 					<input
 						id="landing-search-input"
 						type="search"
@@ -236,9 +236,8 @@ export default function DrivewayResults() {
 							<p>No results!</p>
 						)}
 					</div>
-		
-				</div>
 				<div id="map"></div>
+				</div>
 			</div>
 		</div>
 	);
