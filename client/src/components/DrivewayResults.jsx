@@ -228,7 +228,7 @@ export default function DrivewayResults() {
 										<br></br>
 										<p>${driveway.rate} / hour</p>
 										<br></br>
-										<Link to="/result">More</Link>
+										<Link to={`/driveway/${driveway.id}`}>More</Link>
 									</Paper>
 								</div>
 							))
