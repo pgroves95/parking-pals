@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { useSelector, useDispatch } from "react-redux";
+import {showOneDriveway} from "../actions/one-driveway-actions"
 import Paper from "@material-ui/core/Paper";
 import "../App.css";
 import emptyDriveway from "../assets/images/emptydriveway.png";
@@ -25,27 +26,39 @@ export default function DrivewayIndividual({ match }) {
 	const classes = useStyles();
 	const dispatch = useDispatch();
 	const dbDrivewayList = useSelector((state) => state.dbDrivewayList)
+	const oneDriveway = useSelector((state) => state.oneDriveway)
+	const drivewayNumber = parseInt(match.params.id)
+
+	// const calculateTotal = () => {
+	// 	const endTime = "" // convert to minutes
+	// 	const startTime = "" // convert to minutes
+	// 	const rate = ""
+	// 	const totalTime = endTime-startTime/60*rate
+	// }
+
+	useEffect(() => {
+		const getDriveway = () => {
+		  const drivewayToShow = dbDrivewayList.filter((driveway) => driveway.id === drivewayNumber);
+		  showOneDriveway(dispatch, drivewayToShow);
+		};
+		getDriveway();
+	  }, []);
 
 	return (
 		<div>
 			<div className="title">
-				<h1>Address</h1>
-				<p>1000ft from destination</p>
+				<h1>{oneDriveway[0].address}</h1>
 			</div>
 			<div className="info-and-reserve">
 				<div className="pic-and-desc">
 					<img src={emptyDriveway} alt="driveway" />
 					<p>
-						Located just 1000ft from Game Day Stadium, my driveway is the
-						perfect place for you to safely keep your car while enjoying the
-						game. The driveway faces east so your vehicle stays cool as the day
-						passes. Enjoy a complimentary bottle of water upon your return to
-						your vehicle.
+						{oneDriveway[0].description}
 					</p>
 				</div>
 				<div className={classes.root}>
 					<Paper elevation={3}>
-						<h2>$10 / hr</h2>
+						<h2>${oneDriveway[0].rate} / hr</h2>
 						<br></br>
 						<form action="/reserve" method="POST">
 							<p>Date:</p>
