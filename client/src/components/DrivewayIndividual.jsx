@@ -1,9 +1,10 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
+import { useSelector, useDispatch } from "react-redux";
 import Paper from "@material-ui/core/Paper";
 import "../App.css";
 import emptyDriveway from "../assets/images/emptydriveway.png";
-import Footer from "./Footer";
+
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -20,8 +21,10 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
-export default function DrivewayIndividual() {
+export default function DrivewayIndividual({ match }) {
 	const classes = useStyles();
+	const dispatch = useDispatch();
+	const dbDrivewayList = useSelector((state) => state.dbDrivewayList)
 
 	return (
 		<div>

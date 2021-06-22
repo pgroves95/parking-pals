@@ -67,7 +67,7 @@ export default function Navbar() {
 					<Route path="/profile" component={ProfileUser} />
 					<Route path="/payment" component={Payment} />
 					<Route path="/searchresults" component={DrivewayResults} />
-					<Route path="/result" component={DrivewayIndividual} />
+					<Route path="/driveway/:id" component={DrivewayIndividual} />
 					<Route path="*" component={Error} />
 				</Switch>
 			</Router>
