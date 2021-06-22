@@ -7,7 +7,7 @@ import { Link, useHistory } from "react-router-dom";
 import mapboxgl from "!mapbox-gl"; // eslint-disable-line import/no-webpack-loader-syntax
 import "../css/DrivewayResults.css";
 import { setSearchCoordinates } from "../actions/search-actions";
-import {dbDriveways} from "../actions/db-driveways-actions"
+import { dbDriveways } from "../actions/db-driveways-actions";
 import Footer from "./Footer";
 
 mapboxgl.accessToken =
@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function DrivewayResults() {
 	const searchCoordinates = useSelector((state) => state.searchCoordinates);
-	const dbDrivewayList = useSelector((state) => state.dbDrivewayList)
+	const dbDrivewayList = useSelector((state) => state.dbDrivewayList);
 	const [lng, setLng] = useState(-84.4);
 	const [lat, setLat] = useState(33.755);
 	const [zoom, setZoom] = useState(14);
@@ -38,12 +38,12 @@ export default function DrivewayResults() {
 	const history = useHistory();
 
 	const getDrivewayData = async () => {
-		const response= await fetch("http://localhost:3001/api/driveways", {
+		const response = await fetch("http://localhost:3001/api/driveways", {
 			method: "GET",
-			})
-		const parsedData = await response.json()
-		dbDriveways(dispatch, parsedData)
-	}
+		});
+		const parsedData = await response.json();
+		dbDriveways(dispatch, parsedData);
+	};
 
 	const getLocation = async () => {
 		const response = await fetch(
@@ -195,44 +195,51 @@ export default function DrivewayResults() {
 
 	useEffect(() => {
 		newLocation();
-		getDrivewayData()
+		getDrivewayData();
 	}, [searchCoordinates]);
 
 	return (
 		<div>
-			<form onSubmit={submitNewLocation} className="search-bar">
-				<input
-					id="landing-search-input"
-					type="search"
-					placeholder="Input new destination"
-					value={search}
-					onChange={(e) => setSearch(e.target.value)}
-					required
-				/>
-				<button id="main-search-button">Search</button>
-			</form>
-			<h1>Search Results</h1>
-			<div className="results-and-map">
-				<div className="search-results">
-					{dbDrivewayList.length > 1 ? dbDrivewayList.map((driveway) => (
-<div className={classes.root}>
-						<Paper elevation={3}>
-							<img
-								className="driveway-pic"
-								src={emptyDriveway}
-								alt="driveway"
-							/>
-							<h2>{driveway.address}</h2>
-							<br></br>
-							<p>${driveway.rate} / hour</p>
-							<br></br>
-							<Link to="/result">More</Link>
-						</Paper>
-					</div>)) : <p>No results!</p>}
+			<div className="driveway-results-div">
+				<form onSubmit={submitNewLocation} className="search-bar">
+					<input
+						id="landing-search-input"
+						type="search"
+						placeholder="Input new destination"
+						value={search}
+						onChange={(e) => setSearch(e.target.value)}
+						required
+					/>
+					<button id="main-search-button">Search</button>
+				</form>
+				<h1>Search Results</h1>
+				<div className="results-and-map">
+					<div className="search-results">
+						{dbDrivewayList.length > 1 ? (
+							dbDrivewayList.map((driveway) => (
+								<div className={classes.root}>
+									<Paper elevation={3}>
+										<img
+											className="driveway-pic"
+											src={emptyDriveway}
+											alt="driveway"
+										/>
+										<h2>{driveway.address}</h2>
+										<br></br>
+										<p>${driveway.rate} / hour</p>
+										<br></br>
+										<Link to="/result">More</Link>
+									</Paper>
+								</div>
+							))
+						) : (
+							<p>No results!</p>
+						)}
+					</div>
+		
 				</div>
 				<div id="map"></div>
 			</div>
-			<Footer />
 		</div>
 	);
 }
