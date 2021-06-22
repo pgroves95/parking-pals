@@ -27,8 +27,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function DrivewayResults() {
-	const mapContainer = useRef(null);
-	const map = useRef(null);
 	const searchCoordinates = useSelector((state) => state.searchCoordinates);
 	const dbDrivewayList = useSelector((state) => state.dbDrivewayList)
 	const [lng, setLng] = useState(-84.4);
@@ -70,9 +68,14 @@ export default function DrivewayResults() {
 			var map = new mapboxgl.Map({
 				container: 'map',
 				style: 'mapbox://styles/mapbox/streets-v11',
-				center: [-84.409680, 33.758490],
+				center: [-84.4008875
+					, 33.755288
+				],
 				zoom: 14.5
 				});
+				let marker1 = new mapboxgl.Marker()
+				.setLngLat([-84.4008875, 33.755288])
+				.addTo(map);
 				map.on('load', function () {
 					map.addSource('places', {
 					// This GeoJSON contains features that include an "icon"

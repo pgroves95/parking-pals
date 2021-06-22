@@ -16,6 +16,11 @@
   flex-wrap: wrap;
 }
 
+.search-bar {
+  display: flex;
+  flex-direction: row;
+}
+
 .map-of-spots {
   width: 470px;
   height: 350px;
@@ -58,6 +63,7 @@
 
 #map {
   margin: auto;
+  margin-right: 2%;
   height: 500px;
   width: 70%;
 }
