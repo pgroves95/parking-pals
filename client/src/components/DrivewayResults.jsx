@@ -65,7 +65,6 @@ export default function DrivewayResults() {
 	};
 
 	const newLocation = () => {
-		// console.log(`[${dbDrivewayList[0].lat_long[0]}, ${dbDrivewayList[0].lat_long[1]}]`)
 			var map = new mapboxgl.Map({
 				container: 'map',
 				style: 'mapbox://styles/mapbox/streets-v11',
@@ -77,6 +76,7 @@ export default function DrivewayResults() {
 				let marker1 = new mapboxgl.Marker()
 				.setLngLat([-84.4008875, 33.755288])
 				.addTo(map);
+				dbDrivewayList.map((one) => (console.log(one)))
 				map.on('load', function () {
 					map.addSource('places', {
 					// This GeoJSON contains features that include an "icon"
@@ -86,70 +86,19 @@ export default function DrivewayResults() {
 					'data': {
 					'type': 'FeatureCollection',
 					'features': [
-					// {
-					// 'type': 'Feature',
-					// 'properties': {
-					// 'description':
-					// `<strong>${dbDrivewayList[0].address}</strong><p><a href="http://www.mtpleasantdc.com/makeitmtpleasant" target="_blank" title="Opens in a new window">View More</a></p>`,
-					// 'icon': 'veterinary-15'
-					// },
-					// 'geometry': {
-					// 'type': 'Point',
-					// 'coordinates': `[${dbDrivewayList[0].lat_long[0]}, ${dbDrivewayList[0].lat_long[1]}]`
-					// }
-					// },
+						dbDrivewayList.map((driveway) => (
 					{
 					'type': 'Feature',
 					'properties': {
 					'description':
-					'<strong>603 Delbridge St NW, Atlanta, GA 30314</strong><p><a href="http://madmens5finale.eventbrite.com/" target="_blank" title="Opens in a new window">View More</a></p>',
+					`<strong>${driveway.address}</strong><p><a href="http://www.mtpleasantdc.com/makeitmtpleasant" target="_blank" title="Opens in a new window">View More</a></p>`,
 					'icon': 'veterinary-15'
 					},
 					'geometry': {
 					'type': 'Point',
-					'coordinates': [-84.407160, 33.757660]
+					'coordinates': [`${driveway.lat_long[0]}`, `${driveway.lat_long[1]}`]
 					}
-					},
-					{
-					'type': 'Feature',
-					'properties': {
-					'description':
-					'<strong>559 Magnolia St NW, Atlanta, GA 30314</strong><p><a href="http://madmens5finale.eventbrite.com/" target="_blank" title="Opens in a new window">View More</a></p>',
-					'icon': 'veterinary-15'
-					},
-					'geometry': {
-					'type': 'Point',
-					'coordinates': [-84.405807, 33.758228]
-					}
-					},
-					{
-					'type': 'Feature',
-					'properties': {
-					'description':
-					'<strong>671 Delbridge St NW, Atlanta, GA 30314</strong><p><a href="http://madmens5finale.eventbrite.com/" target="_blank" title="Opens in a new window">View More</a></p>',
-					'icon': 'veterinary-15'
-					},
-					'geometry': {
-					'type': 'Point',
-					'coordinates': [-84.40829, 33.7577]
-					}
-					},
-					{
-					'type': 'Feature',
-					'properties': {
-					'description':
-					'<strong>601 University Pl NW, Atlanta, GA 30314</strong><p><a href="http://madmens5finale.eventbrite.com/" target="_blank" title="Opens in a new window">View More</a></p>',
-					'icon': 'veterinary-15'
-					},
-					'geometry': {
-					'type': 'Point',
-					'coordinates': [-84.407378
-						, 33.755967
-					]
-					}
-					},
-					
-					]
+					}))],
 					}
 					});
 					// Add a layer showing the places.
