@@ -64,7 +64,6 @@ export default function DrivewayIndividual() {
 					</Paper>
 				</div>
 			</div>
-			<Footer />
 		</div>
 	);
 }

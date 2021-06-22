@@ -142,7 +142,6 @@ export default function RegisterUser() {
 					</Link>
 				</form>
 			</div>
-			<Footer />
 		</div>
 	);
 }

@@ -68,7 +68,6 @@ export default function ProfileUser() {
 					</div>
 				</div>
 			</div>
-			<Footer />
 		</div>
 	);
 }

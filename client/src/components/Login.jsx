@@ -87,7 +87,6 @@ export default function Login() {
 					</Link>
 				</form>
 			</div>
-			<Footer />
 		</div>
 	);
 }
