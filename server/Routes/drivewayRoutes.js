@@ -29,7 +29,9 @@ router.post("/", async (req, res) => {
   //   rate,
   //   converted_LL
   // }); // still need to add check if host to get host_id and assign host id based on user who is logged in
+  console.log(req.body)
   const createDriveway = await Driveways.create(req.body)
+  
   res.json(createDriveway);
 });
 
