@@ -20,6 +20,7 @@ module.exports = (sequelize, DataTypes) => {
       address: DataTypes.STRING,
       description: DataTypes.STRING(500),
       rate: DataTypes.FLOAT,
+      lat_long: DataTypes.ARRAY(DataTypes.FLOAT)
     },
     {
       sequelize,
