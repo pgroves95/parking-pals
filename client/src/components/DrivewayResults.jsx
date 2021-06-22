@@ -65,7 +65,6 @@ export default function DrivewayResults() {
 	};
 
 	const newLocation = () => {
-		// console.log(`[${dbDrivewayList[0].lat_long[0]}, ${dbDrivewayList[0].lat_long[1]}]`)
 			var map = new mapboxgl.Map({
 				container: 'map',
 				style: 'mapbox://styles/mapbox/streets-v11',
@@ -86,18 +85,18 @@ export default function DrivewayResults() {
 					'data': {
 					'type': 'FeatureCollection',
 					'features': [
-					// {
-					// 'type': 'Feature',
-					// 'properties': {
-					// 'description':
-					// `<strong>${dbDrivewayList[0].address}</strong><p><a href="http://www.mtpleasantdc.com/makeitmtpleasant" target="_blank" title="Opens in a new window">View More</a></p>`,
-					// 'icon': 'veterinary-15'
-					// },
-					// 'geometry': {
-					// 'type': 'Point',
-					// 'coordinates': `[${dbDrivewayList[0].lat_long[0]}, ${dbDrivewayList[0].lat_long[1]}]`
-					// }
-					// },
+					{
+					'type': 'Feature',
+					'properties': {
+					'description':
+					`<strong>${dbDrivewayList[0].address}</strong><p><a href="http://www.mtpleasantdc.com/makeitmtpleasant" target="_blank" title="Opens in a new window">View More</a></p>`,
+					'icon': 'veterinary-15'
+					},
+					'geometry': {
+					'type': 'Point',
+					'coordinates': [`${dbDrivewayList[0].lat_long[0]}`, `${dbDrivewayList[0].lat_long[1]}`]
+					}
+					},
 					{
 					'type': 'Feature',
 					'properties': {
