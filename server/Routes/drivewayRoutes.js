@@ -10,7 +10,26 @@ router.get("/", async (req, res) => {
 });
 
 router.post("/", async (req, res) => {
-  const createDriveway = await Driveways.create(req.body); // still need to add check if host to get host_id and assign host id based on user who is logged in
+  // const {
+  //   is_open,
+  //   address,
+  //   description,
+  //   rate,
+  //   lat_long
+  // } = req.body
+  // const converted_LL = lat_long.split(',')
+  // for(let string in converted_LL){
+  //   string = parseFloat(string)
+  // }
+  // console.log(converted_LL)
+  // const createDriveway = await Driveways.create({
+  //   is_open,
+  //   address,
+  //   description,
+  //   rate,
+  //   converted_LL
+  // }); // still need to add check if host to get host_id and assign host id based on user who is logged in
+  const createDriveway = await Driveways.create(req.body)
   res.json(createDriveway);
 });
 
