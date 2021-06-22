@@ -8,7 +8,6 @@ import mapboxgl from "!mapbox-gl"; // eslint-disable-line import/no-webpack-load
 import "../css/DrivewayResults.css";
 import { setSearchCoordinates } from "../actions/search-actions";
 import { dbDriveways } from "../actions/db-driveways-actions";
-import Footer from "./Footer";
 
 mapboxgl.accessToken =
 	"pk.eyJ1Ijoid3N2b2JvZGEiLCJhIjoiY2txMTE1cGl2MDVmZzJvcXVibjViMGliaCJ9.13cxlIO8hYUtM1rQuvlbBw";
@@ -76,7 +75,18 @@ export default function DrivewayResults() {
 				let marker1 = new mapboxgl.Marker()
 				.setLngLat([-84.4008875, 33.755288])
 				.addTo(map);
-				dbDrivewayList.map((one) => (console.log(one)))
+				const allPoints = dbDrivewayList.map(point => ({
+					type: 'Feature',
+					properties: {
+					description:
+						`<strong>${point.address}</strong><p><a href="http://www.mtpleasantdc.com/makeitmtpleasant" target="_blank" title="Opens in a new window">View More</a></p>`,
+						'icon': 'veterinary-15'
+						},
+						geometry: {
+						type: 'Point',
+						coordinates: point.lat_long
+						}
+				}))
 				map.on('load', function () {
 					map.addSource('places', {
 					// This GeoJSON contains features that include an "icon"
@@ -85,20 +95,7 @@ export default function DrivewayResults() {
 					'type': 'geojson',
 					'data': {
 					'type': 'FeatureCollection',
-					'features': [
-						dbDrivewayList.map((driveway) => (
-					{
-					'type': 'Feature',
-					'properties': {
-					'description':
-					`<strong>${driveway.address}</strong><p><a href="http://www.mtpleasantdc.com/makeitmtpleasant" target="_blank" title="Opens in a new window">View More</a></p>`,
-					'icon': 'veterinary-15'
-					},
-					'geometry': {
-					'type': 'Point',
-					'coordinates': [`${driveway.lat_long[0]}`, `${driveway.lat_long[1]}`]
-					}
-					}))],
+					'features': allPoints
 					}
 					});
 					// Add a layer showing the places.
