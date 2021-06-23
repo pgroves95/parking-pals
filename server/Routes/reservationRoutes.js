@@ -1,5 +1,6 @@
 const express = require("express");
 const db = require("../../models");
+const { convertTime } = require('../convertTime')
 const { Reservations } = require("../../models");
 
 const router = express.Router();
@@ -52,12 +53,15 @@ router.delete("/:id", async (req, res) => {
 
 //make a new reservation
 router.post("/new", async (req, res) => {
+  convertedStart = convertTime(req.body.start_req)
+  convertedEnd = convertTime(req.body.end_req)
+  
   try {
     const reservation = await Reservations.create({
       date: req.body.date,
       driveway_id: req.body.driveway_id,
-      end_req: req.body.end_req,
-      start_req: req.body.start_req,
+      end_req: convertedEnd,
+      start_req: convertedStart,
       stripe_charge_id: req.body.stripe_charge_id,
       user_id: req.session.id,
     });
