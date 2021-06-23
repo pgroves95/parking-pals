@@ -187,7 +187,7 @@ export default function DrivewayResults() {
 								</div>
 							))
 						) : (
-							<p>No results!</p>
+							<p>Loading...</p>
 						)}
 					</div>
 					<div id="map"></div>
