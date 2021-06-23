@@ -59,7 +59,6 @@ export default function DrivewayResults() {
 	const submitNewLocation = (e) => {
 		e.preventDefault();
 		getLocation();
-		newLocation();
 		setSearch("");
 	};
 
@@ -75,7 +74,7 @@ export default function DrivewayResults() {
 				let marker1 = new mapboxgl.Marker()
 				.setLngLat([-84.4008875, 33.755288])
 				.addTo(map);
-				const allPoints = dbDrivewayList.map(point => ({
+				const allPoints = dbDrivewayList.filter((dlist) => dlist.lat_long).map(point => ({
 					type: 'Feature',
 					properties: {
 					description:
@@ -217,9 +216,11 @@ export default function DrivewayResults() {
 // };
 
 	useEffect(() => {
-		newLocation();
 		getDrivewayData();
 	}, [searchCoordinates]);
+	useEffect(()=> {
+		newLocation();
+	},[dbDrivewayList])
 
 	return (
 		<div>
