@@ -55,100 +55,98 @@ export default function DrivewayResults() {
 
 	const newLocation = () => {
 		if (searchCoordinates[1]) {
-						var map = new mapboxgl.Map({
-						container: 'map',
-						style: 'mapbox://styles/mapbox/streets-v11',
-						center: [searchCoordinates[0], searchCoordinates[1]],
-						zoom: 14.5
-						});
-						let marker1 = new mapboxgl.Marker()
-						.setLngLat([searchCoordinates[0], searchCoordinates[1]])
-						.addTo(map);
-					} else 		{
-				var map = new mapboxgl.Map({
-				container: 'map',
-				style: 'mapbox://styles/mapbox/streets-v11',
-				center: [-84.4008875
-					, 33.755288
-				],
-				zoom: 14.5
-				});
-				let marker1 = new mapboxgl.Marker()
+			var map = new mapboxgl.Map({
+				container: "map",
+				style: "mapbox://styles/mapbox/streets-v11",
+				center: [searchCoordinates[0], searchCoordinates[1]],
+				zoom: 14.5,
+			});
+			let marker1 = new mapboxgl.Marker()
+				.setLngLat([searchCoordinates[0], searchCoordinates[1]])
+				.addTo(map);
+		} else {
+			var map = new mapboxgl.Map({
+				container: "map",
+				style: "mapbox://styles/mapbox/streets-v11",
+				center: [-84.4008875, 33.755288],
+				zoom: 14.5,
+			});
+			let marker1 = new mapboxgl.Marker()
 				.setLngLat([-84.4008875, 33.755288])
 				.addTo(map);
-			}
-				const allPoints = dbDrivewayList.filter((dlist) => dlist.lat_long).map(point => ({
-					type: 'Feature',
-					properties: {
-					description:
-						`<strong>${point.address}</strong><p><Link to="/driveway/${point.id}">
+		}
+		const allPoints = dbDrivewayList
+			.filter((dlist) => dlist.lat_long)
+			.map((point) => ({
+				type: "Feature",
+				properties: {
+					description: `<strong>${point.address}</strong><p><Link to="/driveway/${point.id}">
 						<p>View More</p>
 					</Link></p>`,
-						'icon': 'veterinary-15'
-						},
-						geometry: {
-						type: 'Point',
-						coordinates: point.lat_long
-						}
-				}))
-				map.on('load', function () {
-					map.addSource('places', {
-					'type': 'geojson',
-					'data': {
-					'type': 'FeatureCollection',
-					'features': allPoints
-					}
-					});
-					map.addLayer({
-					'id': 'places',
-					'type': 'symbol',
-					'source': 'places',
-					'layout': {
-					'icon-image': '{icon}',
-					'icon-allow-overlap': true
-					}
-					});
-					map.on('click', 'places', function (e) {
-					var coordinates = e.features[0].geometry.coordinates.slice();
-					var description = e.features[0].properties.description;
+					icon: "veterinary-15",
+				},
+				geometry: {
+					type: "Point",
+					coordinates: point.lat_long,
+				},
+			}));
+		map.on("load", function () {
+			map.addSource("places", {
+				type: "geojson",
+				data: {
+					type: "FeatureCollection",
+					features: allPoints,
+				},
+			});
+			map.addLayer({
+				id: "places",
+				type: "symbol",
+				source: "places",
+				layout: {
+					"icon-image": "{icon}",
+					"icon-allow-overlap": true,
+				},
+			});
+			map.on("click", "places", function (e) {
+				var coordinates = e.features[0].geometry.coordinates.slice();
+				var description = e.features[0].properties.description;
 
-					while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+				while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
 					coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
-					}
-					 
-					new mapboxgl.Popup()
+				}
+
+				new mapboxgl.Popup()
 					.setLngLat(coordinates)
 					.setHTML(description)
 					.addTo(map);
-					});
-					 
-					map.on('mouseenter', 'places', function () {
-					map.getCanvas().style.cursor = 'pointer';
-					});
-					 
-					map.on('mouseleave', 'places', function () {
-					map.getCanvas().style.cursor = '';
-					});
-					});	
+			});
+
+			map.on("mouseenter", "places", function () {
+				map.getCanvas().style.cursor = "pointer";
+			});
+
+			map.on("mouseleave", "places", function () {
+				map.getCanvas().style.cursor = "";
+			});
+		});
 	};
-	
+
 	const submitNewLocation = (e) => {
 		e.preventDefault();
 		getLocation();
 		setSearch("");
 	};
-	
-	useEffect(()=> {
+
+	useEffect(() => {
 		newLocation();
-	},[dbDrivewayList])
+	}, [dbDrivewayList]);
 
 	useEffect(() => {
 		getDrivewayData();
 	}, [searchCoordinates]);
-	useEffect(()=> {
+	useEffect(() => {
 		newLocation();
-	},[dbDrivewayList])
-
+	}, [dbDrivewayList]);
 
 	return (
 		<div>
@@ -157,7 +155,7 @@ export default function DrivewayResults() {
 					<input
 						id="landing-search-input"
 						type="search"
-						placeholder="Input new destination"
+						placeholder="Going somewhere else?"
 						value={search}
 						onChange={(e) => setSearch(e.target.value)}
 						required
@@ -188,7 +186,7 @@ export default function DrivewayResults() {
 							<p>No results!</p>
 						)}
 					</div>
-				<div id="map"></div>
+					<div id="map"></div>
 				</div>
 			</div>
 		</div>
