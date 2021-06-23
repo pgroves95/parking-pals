@@ -20,6 +20,7 @@ router.post("/login", async (req, res) => {
     );
     if (passedAuth) {
       req.session.id = userLogin.id;
+      console.log(userLogin)
       res.send(userLogin);
       return;
     }

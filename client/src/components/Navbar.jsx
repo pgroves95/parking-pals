@@ -21,6 +21,7 @@ export default function Navbar() {
 	const logout = () => {
 		fetch("http://localhost:3001/api/users/logout", {
 			method: "GET",
+			credentials: 'include',
 			headers: {
 				"Content-Type": "application/json",
 			},

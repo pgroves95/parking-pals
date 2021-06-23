@@ -7,7 +7,8 @@ const pg = require("pg");
 pg.defaults.ssl = true;
 const cookieSession = require("cookie-session");
 const bcrypt = require("bcrypt");
-app.use(cors());
+
+app.use(cors({ origin: (orig, cb) => cb(null, true), credentials: true }));
 
 //cookie-session middlewear
 app.use(
@@ -15,8 +16,10 @@ app.use(
     name: "session",
     keys: ["secret"],
     maxAge: 24 * 60 * 60 * 1000,
+    
   })
 );
+
 
 app.use(express.json());
 

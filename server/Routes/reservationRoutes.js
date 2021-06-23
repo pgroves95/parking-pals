@@ -51,13 +51,13 @@ router.delete("/:id", async (req, res) => {
 });
 
 //make a new reservation
-router.post("/", async (req, res) => {
+router.post("/new", async (req, res) => {
   try {
     const reservation = await Reservations.create({
       date: req.body.date,
       driveway_id: req.body.driveway_id,
-      end_req: req.body.end_request,
-      start_req: req.body.start_request,
+      end_req: req.body.end_req,
+      start_req: req.body.start_req,
       stripe_charge_id: req.body.stripe_charge_id,
       user_id: req.session.id,
     });
