@@ -56,7 +56,9 @@ router.post("/new", async (req, res) => {
   convertedStart = convertTime(req.body.start_req)
   convertedEnd = convertTime(req.body.end_req)
   
-  if(!req.session.id){
+  console.log(req)
+  if(!req.body.user_id){
+    console.log("hi")
     res.status(400).json({ message: "this doesnt work" });
   }
 
@@ -67,7 +69,7 @@ router.post("/new", async (req, res) => {
       end_req: convertedEnd,
       start_req: convertedStart,
       stripe_charge_id: req.body.stripe_charge_id,
-      user_id: req.session.id,
+      user_id: req.body.user_id
     });
 
     res.json(reservation);
