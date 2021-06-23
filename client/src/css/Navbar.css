@@ -56,6 +56,12 @@
   width: 22px;
 }
 
+#simple-menu a {
+  color: #e8eef1;
+  text-decoration: none;
+  font-weight: bold;
+}
+
 @media screen and (min-width: 768px) {
   .logo-div {
     display: flex;

@@ -10,6 +10,7 @@ import Login from "./Login";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { useSelector, useDispatch} from "react-redux";
 import { getUserData } from "../actions/profile-actions";
+import { makeStyles } from "@material-ui/core/styles";
 import icon from "../assets/images/final-color.png";
 import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
@@ -17,7 +18,17 @@ import MenuItem from '@material-ui/core/MenuItem';
 import pawIcon from "../assets/images/orange-paw.png"
 import "../css/Navbar.css";
 
+const useStyles = makeStyles((theme) => ({
+	root: {
+		"& .MuiPaper-root": {
+			backgroundColor: "#1E3D58",
+			boxShadow: "1px 1px 7px #E8EEF1",
+		  },
+	}}
+));
+
 export default function Navbar() {
+	const classes = useStyles();
 	const [anchorEl, setAnchorEl] = useState(null);
   
 	const handleClick = (event) => {
@@ -89,6 +100,7 @@ export default function Navbar() {
         keepMounted
         open={Boolean(anchorEl)}
         onClose={handleClose}
+		className={classes.root}
       >
         <MenuItem onClick={handleClose}><Link to="/faq">
 							FAQ
