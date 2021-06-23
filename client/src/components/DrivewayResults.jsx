@@ -145,6 +145,9 @@ export default function DrivewayResults() {
 	useEffect(() => {
 		getDrivewayData();
 	}, [searchCoordinates]);
+	useEffect(()=> {
+		newLocation();
+	},[dbDrivewayList])
 
 
 	return (
