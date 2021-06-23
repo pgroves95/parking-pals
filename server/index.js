@@ -9,6 +9,7 @@ const cookieSession = require("cookie-session");
 const bcrypt = require("bcrypt");
 app.use(cors());
 
+//cookie-session middlewear
 app.use(
   cookieSession({
     name: "session",
@@ -16,20 +17,16 @@ app.use(
     maxAge: 24 * 60 * 60 * 1000,
   })
 );
-// app.use((error, req, res, next) => {
-// console.error(error);
-// res.status(500).json({message: e.message});
-// }); // if we are adventorous a error handling middle wear otherwise we will just do try catches everywhere
 
 app.use(express.json());
 
+//require and import all routes
 const drivewayRoutes = require("./Routes/drivewayRoutes");
 app.use("/api/driveways", drivewayRoutes);
 
 const reservationRoutes = require("./Routes/reservationRoutes");
 app.use("/api/reservations", reservationRoutes);
 
-// import and user routes
 const userRoutes = require("./Routes/userRoutes");
 app.use("/api/users", userRoutes);
 

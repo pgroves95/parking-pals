@@ -1,5 +1,3 @@
-//need to add express session
-
 const bcrypt = require("bcrypt");
 const express = require("express");
 const db = require("../../models");
@@ -7,16 +5,14 @@ const { Users } = require("../../models");
 
 const router = express.Router();
 
-// needs bcrypt
+// authenticated login route
 router.post("/login", async (req, res) => {
-
-    const userLogin = await Users.findOne({
-      where: {
-        email: req.body.email,
+  const userLogin = await Users.findOne({
+    where: {
+      email: req.body.email,
     },
   });
-  
-  
+
   if (userLogin) {
     const passedAuth = await bcrypt.compare(
       req.body.password,
@@ -29,8 +25,9 @@ router.post("/login", async (req, res) => {
     }
   }
   res.status(401).send({ message: "Unauthenticated" });
-})
+});
 
+//register if email not in use
 router.post("/register", async (req, res) => {
   if (await Users.findOne({ where: { email: req.body.email } })) {
     res.send({ message: "email in use" });
@@ -60,40 +57,26 @@ router.post("/register", async (req, res) => {
     });
     console.log(newUser.id, newUser.first_name);
     res.send(newUser);
-  } catch(e) {
-    res.status(400).json({ message: e.message })
+  } catch (e) {
+    res.status(400).json({ message: e.message });
   }
 });
 
+//logout sets session to null
 router.get("/logout", (req, res) => {
   req.session.id = null;
   res.send("logged out");
 });
 
-router.get("/logout", (req, res) => {
-	req.session.id = null;
-	res.send("logged out");
-});
-
-
+//find a user in the db by id
 router.get("/:id", async (req, res) => {
-	const { id } = req.params;
-	const userData = await Users.findByPk(id);
-	if (userData === null) {
-		return res.send("user not found");
-	} else {
-		return res.json(userData);
-	}
-
+  const { id } = req.params;
+  const userData = await Users.findByPk(id);
+  if (userData === null) {
+    return res.send("user not found");
+  } else {
+    return res.json(userData);
+  }
 });
-
-// /updateuser (PUT) route needs:
-// * conditionals for grabbing form-fields (if changed, update, else (aka "") don't)
-// * if driveway added for driver-user, update access and profile-view routing on
-// front-end to "both"
-// * if license_plate added for host-user, update access and profile
-// to "both"
-// * can the "both" type user undo driveway or license_plate and become single-access user?
-// *
 
 module.exports = router;

@@ -1,13 +1,14 @@
-
 const express = require("express");
 const db = require("../../models");
+const { Reservations } = require("../../models");
 
 const router = express.Router();
 
+//route to get all reservations for authorized user
 router.get("/", async (req, res) => {
   try {
     const { id } = req.session;
-    const reservationsData = await db.Reservations.findAll({
+    const reservationsData = await Reservations.findAll({
       where: { user_id: id },
     });
     res.json(reservationsData);
@@ -16,9 +17,10 @@ router.get("/", async (req, res) => {
   }
 });
 
+//route to ferch a single reservation
 router.get("/:id", async (req, res) => {
   try {
-    const reservation = await db.Reservations.findOne({
+    const reservation = await Reservations.findOne({
       where: {
         id: req.params.id,
         user_id: req.session.id,
@@ -31,9 +33,10 @@ router.get("/:id", async (req, res) => {
   }
 });
 
+//delete reservation by id
 router.delete("/:id", async (req, res) => {
   try {
-    const reservation = await db.Reservations.findOne({
+    const reservation = await Reservations.findOne({
       where: {
         id: req.params.id,
         user_id: req.session.id,
@@ -47,9 +50,10 @@ router.delete("/:id", async (req, res) => {
   }
 });
 
+//make a new reservation
 router.post("/", async (req, res) => {
   try {
-    const reservation = await db.Reservations.create({
+    const reservation = await Reservations.create({
       date: req.body.date,
       driveway_id: req.body.driveway_id,
       end_req: req.body.end_request,
@@ -63,6 +67,5 @@ router.post("/", async (req, res) => {
     res.status(400).json({ message: e.message });
   }
 });
-
 
 module.exports = router;
