@@ -14,6 +14,7 @@ import icon from "../assets/images/final-color.png";
 import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
+import pawIcon from "../assets/images/orange-paw.png"
 import "../css/Navbar.css";
 
 export default function Navbar() {
@@ -80,7 +81,7 @@ export default function Navbar() {
 					</div>
 					<div className="mobile-link-div">
 					<Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
-        Menu
+        <img className="menu-paw" src={pawIcon} alt="paw"/>
       </Button>
       <Menu
         id="simple-menu"
