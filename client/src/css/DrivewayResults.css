@@ -1,82 +1,7 @@
-.driveway-results-div {
-  min-height: 100vh;
-  background-color: #e8eef1;
-}
-
-.info-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 50px;
-}
-
-.driveway-pic {
-  width: 225px;
-  height: 120px;
-}
-
-.search-results {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-
 .results-search-bar {
   display: flex;
   flex-direction: row;
   justify-content: center;
-}
-
-.map-of-spots {
-  width: 470px;
-  height: 350px;
-  margin: auto;
-  margin-right: 10px;
-  align-items: center;
-  justify-content: center;
-}
-
-.info-and-reserve {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin-top: 75px;
-}
-
-.results-and-map {
-  display: flex;
-  flex-direction: row;
-}
-
-.title {
-  text-align: left;
-  margin: 20px 10px;
-}
-
-.pic-and-desc {
-  margin: 0 10%;
-}
-
-.pic-and-desc img {
-  height: 220px;
-  width: 410px;
-}
-
-.map-div {
-  display: flex;
-  justify-content: center;
-}
-
-#map {
-  margin: auto;
-  margin-right: 2%;
-  height: 500px;
-  width: 70%;
-}
-
-.mapboxgl-popup {
-  max-width: 400px;
-  font: 12px/20px "Helvetica Neue", Arial, Helvetica, sans-serif;
 }
 
 #results-search-input {
@@ -110,6 +35,77 @@
 #results-search-button:hover {
   color: #1e3d58;
   background-color: #fd7f20;
+}
+
+.driveway-results-div {
+  min-height: 100vh;
+  background-color: #e8eef1;
+}
+
+.driveway-pic {
+  width: 112px;
+  height: 60px;
+}
+
+.search-results {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.pic-and-address {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.pic-and-address h2 {
+  padding-top: 3px;
+}
+
+.info-and-reserve {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.results-and-map {
+  display: flex;
+  flex-direction: row;
+}
+
+.card-contents {
+  display: flex;
+  flex-direction: column;
+}
+
+.price-and-link {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 5px;
+  gap: 10px;
+}
+
+.price-and-link a {
+  text-decoration: none;
+  color: black;
+}
+
+.price-and-link a:hover {
+  color: #fd7f20;
+}
+
+#map {
+  height: 70vh;
+  width: 90%;
+  margin: 5px 50px;
+}
+
+.mapboxgl-popup {
+  max-width: 400px;
+  font: 12px/20px "Helvetica Neue", Arial, Helvetica, sans-serif;
 }
 
 @media screen and (max-width: 768px) {

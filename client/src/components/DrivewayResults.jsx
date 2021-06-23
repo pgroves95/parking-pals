@@ -18,10 +18,11 @@ const useStyles = makeStyles((theme) => ({
 		flexWrap: "wrap",
 		"& > *": {
 			margin: theme.spacing(1),
-			width: theme.spacing(32),
-			height: theme.spacing(32),
+			width: theme.spacing(64),
+			height: theme.spacing(12),
 		},
 		margin: "auto",
+		
 	},
 }));
 
@@ -169,16 +170,19 @@ export default function DrivewayResults() {
 							dbDrivewayList.map((driveway) => (
 								<div className={classes.root}>
 									<Paper elevation={3}>
+										<div className="card-contents">
+											<div className="pic-and-address">
 										<img
 											className="driveway-pic"
 											src={emptyDriveway}
 											alt="driveway"
 										/>
 										<h2>{driveway.address}</h2>
-										<br></br>
-										<p>${driveway.rate} / hour</p>
-										<br></br>
-										<Link to={`/driveway/${driveway.id}`}>More</Link>
+										</div>
+										<div className="price-and-link">
+										<h4>${driveway.rate} / hour</h4>
+										<Link to={`/driveway/${driveway.id}`}>View More</Link></div>
+										</div>
 									</Paper>
 								</div>
 							))
