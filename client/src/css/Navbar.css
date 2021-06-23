@@ -22,18 +22,12 @@
   height: 4rem;
 }
 
-.navbar-links:hover {
+.navbar-links a:hover {
   color: #fd7f20;
 }
 
 .logo-div {
-  display: flex;
   align-items: center;
-}
-
-#main-navbar {
-  flex-direction: row;
-  height: 5rem;
 }
 
 .main-links {
@@ -78,6 +72,6 @@
     text-decoration: none;
   }
   .navbar-links a:hover {
-    color: #e8eef1;
+    color: #fd7f20;
   }
 }
