@@ -89,7 +89,9 @@ export default function DrivewayResults() {
 					type: 'Feature',
 					properties: {
 					description:
-						`<strong>${point.address}</strong><p><a href="http://www.mtpleasantdc.com/makeitmtpleasant" target="_blank" title="Opens in a new window">View More</a></p>`,
+						`<strong>${point.address}</strong><p><Link to="/driveway/${point.id}">
+						<p>View More</p>
+					</Link></p>`,
 						'icon': 'veterinary-15'
 						},
 						geometry: {

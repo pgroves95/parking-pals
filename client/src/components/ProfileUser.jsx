@@ -1,12 +1,11 @@
-import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import React from "react";
+import { useSelector } from "react-redux";
 import { makeStyles } from "@material-ui/core/styles";
 // import { getUserData } from "../actions/profile-actions";
 import Avatar from "@material-ui/core/Avatar";
 import Paper from "@material-ui/core/Paper";
 import avatar from "../assets/images/avatar.png";
 import "../App.css";
-import Footer from "./Footer";
 
 const useStyles = makeStyles((theme) => ({
 	root: {
