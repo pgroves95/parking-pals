@@ -73,8 +73,7 @@ export default function DrivewayIndividual({ match }) {
 								<b>Total:</b> $90
 							</p>
 							<br></br>
-							<input type="hidden" name="driver_id" value="params.driver_id" />
-							<input type="hidden" name="host_id" value="params.host_id" />
+							<input type="hidden" name="driveway_id" value={oneDriveway[0].id} />
 							<button>Reserve</button>
 						</form>
 					</Paper>
