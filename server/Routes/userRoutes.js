@@ -1,4 +1,3 @@
-//need to add express session
 
 const bcrypt = require("bcrypt");
 const express = require("express");
@@ -7,7 +6,7 @@ const { Users } = require("../../models");
 
 const router = express.Router();
 
-// needs bcrypt
+// authenticated login route
 router.post("/login", async (req, res) => {
 
     const userLogin = await Users.findOne({
@@ -31,6 +30,7 @@ router.post("/login", async (req, res) => {
   res.status(401).send({ message: "Unauthenticated" });
 })
 
+//register if email not in use
 router.post("/register", async (req, res) => {
   if (await Users.findOne({ where: { email: req.body.email } })) {
     res.send({ message: "email in use" });
@@ -65,17 +65,13 @@ router.post("/register", async (req, res) => {
   }
 });
 
+//logout sets session to null
 router.get("/logout", (req, res) => {
   req.session.id = null;
   res.send("logged out");
 });
 
-router.get("/logout", (req, res) => {
-	req.session.id = null;
-	res.send("logged out");
-});
-
-
+//find a user in the db by id
 router.get("/:id", async (req, res) => {
 	const { id } = req.params;
 	const userData = await Users.findByPk(id);
@@ -86,14 +82,5 @@ router.get("/:id", async (req, res) => {
 	}
 
 });
-
-// /updateuser (PUT) route needs:
-// * conditionals for grabbing form-fields (if changed, update, else (aka "") don't)
-// * if driveway added for driver-user, update access and profile-view routing on
-// front-end to "both"
-// * if license_plate added for host-user, update access and profile
-// to "both"
-// * can the "both" type user undo driveway or license_plate and become single-access user?
-// *
 
 module.exports = router;

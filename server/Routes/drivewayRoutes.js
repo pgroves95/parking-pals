@@ -4,17 +4,21 @@ const { Driveways } = require("../../models");
 
 const router = express.Router();
 
+
+//client side use to fetch all driveways from db.
 router.get("/", async (req, res) => {
   const drivewaysData = await Driveways.findAll()
   res.send(drivewaysData);
 });
 
+
+//not available client side dev use for test/seeding data
 router.post("/", async (req, res) => {
-  const createDriveway = await Driveways.create(req.body); // still need to add check if host to get host_id and assign host id based on user who is logged in
+  const createDriveway = await Driveways.create(req.body); 
   res.json(createDriveway);
 });
 
-// not available client side
+// not available client side dev use for postman
 router.put("/:id", async (req, res) => {
   try {
     const id = req.params.id;
@@ -28,7 +32,7 @@ router.put("/:id", async (req, res) => {
   }
 });
 
-//not available client side
+//not available client side dev use
 router.delete("/:id", async (req, res) => {
   try {  
     const id = req.params.id;
