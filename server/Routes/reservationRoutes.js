@@ -56,6 +56,10 @@ router.post("/new", async (req, res) => {
   convertedStart = convertTime(req.body.start_req)
   convertedEnd = convertTime(req.body.end_req)
   
+  if(!req.session.id){
+    res.status(400).json({ message: "this doesnt work" });
+  }
+
   try {
     const reservation = await Reservations.create({
       date: req.body.date,
