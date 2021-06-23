@@ -62,6 +62,13 @@
 }
 
 @media screen and (min-width: 768px) {
+  .logo-div {
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    text-align: left;
+  }
+
   #main-navbar {
     flex-direction: row;
     height: 5rem;
@@ -72,9 +79,15 @@
     background-color: #1e3d58;
     margin: 0;
     width: 100%;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
     height: 5rem;
+  }
+
+  .main-link-div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
   }
   .main-link {
     color: #e8eef1;

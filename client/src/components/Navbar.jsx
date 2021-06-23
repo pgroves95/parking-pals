@@ -10,6 +10,7 @@ import Login from "./Login";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { getUserData } from "../actions/profile-actions";
+import icon from "../assets/images/final-color.png"
 import "../App.css";
 import Payment from "./Payment";
 
@@ -30,9 +31,11 @@ export default function Navbar() {
 		<div id="main-navbar">
 			<Router>
 				<div className="navbar-links">
+					<div className="logo-div">
 					<Link className="main-link" to="/">
-						Home
-					</Link>
+						<img src={icon} alt="logo"/>
+					</Link></div>
+					<div className="main-link-div">
 					<Link className="main-link" to="/faq">
 						FAQ
 					</Link>
@@ -44,7 +47,7 @@ export default function Navbar() {
 						User Registration
 					</Link><Link className="main-link" to="/login">
 						Log In
-					</Link></div>}
+					</Link></div>}</div>
 					
 					
 					{/* <Link className="main-link" to="/searchresults">
