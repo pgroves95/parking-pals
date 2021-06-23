@@ -1,4 +1,3 @@
-
 const bcrypt = require("bcrypt");
 const express = require("express");
 const db = require("../../models");
@@ -8,14 +7,12 @@ const router = express.Router();
 
 // authenticated login route
 router.post("/login", async (req, res) => {
-
-    const userLogin = await Users.findOne({
-      where: {
-        email: req.body.email,
+  const userLogin = await Users.findOne({
+    where: {
+      email: req.body.email,
     },
   });
-  
-  
+
   if (userLogin) {
     const passedAuth = await bcrypt.compare(
       req.body.password,
@@ -28,7 +25,7 @@ router.post("/login", async (req, res) => {
     }
   }
   res.status(401).send({ message: "Unauthenticated" });
-})
+});
 
 //register if email not in use
 router.post("/register", async (req, res) => {
@@ -60,8 +57,8 @@ router.post("/register", async (req, res) => {
     });
     console.log(newUser.id, newUser.first_name);
     res.send(newUser);
-  } catch(e) {
-    res.status(400).json({ message: e.message })
+  } catch (e) {
+    res.status(400).json({ message: e.message });
   }
 });
 
@@ -73,14 +70,13 @@ router.get("/logout", (req, res) => {
 
 //find a user in the db by id
 router.get("/:id", async (req, res) => {
-	const { id } = req.params;
-	const userData = await Users.findByPk(id);
-	if (userData === null) {
-		return res.send("user not found");
-	} else {
-		return res.json(userData);
-	}
-
+  const { id } = req.params;
+  const userData = await Users.findByPk(id);
+  if (userData === null) {
+    return res.send("user not found");
+  } else {
+    return res.json(userData);
+  }
 });
 
 module.exports = router;

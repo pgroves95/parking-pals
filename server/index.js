@@ -27,7 +27,6 @@ app.use("/api/driveways", drivewayRoutes);
 const reservationRoutes = require("./Routes/reservationRoutes");
 app.use("/api/reservations", reservationRoutes);
 
-
 const userRoutes = require("./Routes/userRoutes");
 app.use("/api/users", userRoutes);
 

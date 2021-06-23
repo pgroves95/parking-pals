@@ -1,4 +1,3 @@
-
 const express = require("express");
 const db = require("../../models");
 const { Reservations } = require("../../models");
@@ -18,7 +17,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-//route to ferch a single reservation 
+//route to ferch a single reservation
 router.get("/:id", async (req, res) => {
   try {
     const reservation = await Reservations.findOne({
@@ -68,6 +67,5 @@ router.post("/", async (req, res) => {
     res.status(400).json({ message: e.message });
   }
 });
-
 
 module.exports = router;
