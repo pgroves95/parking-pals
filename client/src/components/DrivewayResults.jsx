@@ -51,14 +51,6 @@ export default function DrivewayResults() {
 		const coords = json.features[0].center;
 		setSearchCoordinates(dispatch, coords);
 		console.log(coords);
-		
-
-	};
-	const submitNewLocation = (e) => {
-		e.preventDefault();
-		getLocation();
-		newLocation();
-		setSearch("");
 	};
 
 	const newLocation = () => {
@@ -85,7 +77,7 @@ export default function DrivewayResults() {
 				.setLngLat([-84.4008875, 33.755288])
 				.addTo(map);
 			}
-				const allPoints = dbDrivewayList.map(point => ({
+				const allPoints = dbDrivewayList.filter((dlist) => dlist.lat_long).map(point => ({
 					type: 'Feature',
 					properties: {
 					description:
@@ -139,11 +131,21 @@ export default function DrivewayResults() {
 					});
 					});	
 	};
+	
+	const submitNewLocation = (e) => {
+		e.preventDefault();
+		getLocation();
+		setSearch("");
+	};
+	
+	useEffect(()=> {
+		newLocation();
+	},[dbDrivewayList])
 
 	useEffect(() => {
-		newLocation();
 		getDrivewayData();
 	}, [searchCoordinates]);
+
 
 	return (
 		<div>
