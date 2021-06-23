@@ -1,9 +1,9 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import emptyDriveway from "../assets/images/emptydriveway.png";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import mapboxgl from "!mapbox-gl"; // eslint-disable-line import/no-webpack-loader-syntax
 import "../css/DrivewayResults.css";
 import { setSearchCoordinates } from "../actions/search-actions";
@@ -51,6 +51,8 @@ export default function DrivewayResults() {
 		const coords = json.features[0].center;
 		setSearchCoordinates(dispatch, coords);
 		console.log(coords);
+		
+
 	};
 	const submitNewLocation = (e) => {
 		e.preventDefault();
