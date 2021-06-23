@@ -39,7 +39,7 @@ export default function Landing() {
 			}
 		);
 		const json = await response.json();
-		const coords = json.features[0].center.reverse();
+		const coords = json.features[0].center;
 		setSearchCoordinates(dispatch, coords);
 		console.log(json);
 		console.log(coords);
