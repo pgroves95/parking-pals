@@ -14,6 +14,7 @@
 .navbar-links {
   display: flex;
   flex-direction: row;
+  flex-wrap: nowrap;
   background-color: #1e3d58;
   margin: 0;
   width: 100%;
@@ -30,10 +31,18 @@
   align-items: center;
 }
 
-.main-links {
+.main-link-div {
   display: flex;
   flex-direction: row;
-  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.side-links {
+  align-items: center;
+}
+
+.main-link {
+  align-items: center;
 }
 
 @media screen and (min-width: 768px) {

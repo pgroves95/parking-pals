@@ -41,7 +41,7 @@ export default function Navbar() {
 							FAQ
 						</Link>
 						{profileData.id ? (
-							<div className="main-links">
+							<div className="side-links">
 								<Link className="main-link" to="/profile">
 									Profile
 								</Link>
@@ -56,7 +56,7 @@ export default function Navbar() {
 								</Link>
 							</div>
 						) : (
-							<div className="main-links">
+							<div className="side-links">
 								<Link className="main-link" to="/registeruser">
 									User Registration
 								</Link>
