@@ -11,7 +11,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { getUserData } from "../actions/profile-actions";
 import icon from "../assets/images/final-color.png";
-import "../App.css";
+import "../css/Navbar.css";
 
 export default function Navbar() {
 	const dispatch = useDispatch();
@@ -41,7 +41,7 @@ export default function Navbar() {
 							FAQ
 						</Link>
 						{profileData.id ? (
-							<div>
+							<div className="main-links">
 								<Link className="main-link" to="/profile">
 									Profile
 								</Link>
@@ -56,7 +56,7 @@ export default function Navbar() {
 								</Link>
 							</div>
 						) : (
-							<div>
+							<div className="main-links">
 								<Link className="main-link" to="/registeruser">
 									User Registration
 								</Link>
