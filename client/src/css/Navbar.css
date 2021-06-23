@@ -32,9 +32,7 @@
 }
 
 .main-link-div {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+  display: none;
 }
 
 .side-links {
@@ -43,6 +41,14 @@
 
 .main-link {
   align-items: center;
+}
+
+.mobile-link-div {
+  visibility: visible;
+}
+
+.mobile-link-div button {
+  color: #e8eef1;
 }
 
 @media screen and (min-width: 768px) {
@@ -82,5 +88,9 @@
   }
   .navbar-links a:hover {
     color: #fd7f20;
+  }
+
+  .mobile-link-div {
+    display: none;
   }
 }
