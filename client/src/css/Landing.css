@@ -4,6 +4,7 @@
 	background-color: #e8eef1;
 	color: #1e3d58;
 	min-height: 50vh;
+	border: none;
 }
 
 #main-landing p {
@@ -247,10 +248,10 @@
 	border: 1px solid #1e3d58;
 }
 
-#map-img {
-	display: none;
-	height: 200px;
-	width: 200px;
+#dog-rider-img {
+	/* display: none; */
+	height: 500px;
+	width: 400px;
 }
 
 @media screen and (min-width: 768px) {
@@ -325,4 +326,6 @@
 	#phone-map {
 		display: none;
 	}
+}
+@media screen and (min-width: 1360px) {
 }

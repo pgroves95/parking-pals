@@ -4,26 +4,26 @@ import { Link, useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { setSearchCoordinates } from "../actions/search-actions";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import phoneMap from "../assets/images/phoneMap.jpg";
-import maps from "../assets/images/maps.jpg";
+import dogMan from "../assets/images/manwithdogs.jpg";
+import dogRider from "../assets/images/dogrider.jpg";
 import {
-	faCar,
-	faClock,
-	faDirections,
-	faStar,
-	faCreditCard,
-	faUsers,
+	faDog,
+	faBone,
+	faPaw,
+	faDrumstickBite,
+	faBaseballBall,
+	faPoop,
 } from "@fortawesome/free-solid-svg-icons";
 import Footer from "./Footer";
 import "../css/Landing.css";
 import "../css/Navbar.css";
 
-const car = <FontAwesomeIcon icon={faCar} size="2x" />;
-const clock = <FontAwesomeIcon icon={faClock} size="2x" />;
-const directions = <FontAwesomeIcon icon={faDirections} size="2x" />;
-const star = <FontAwesomeIcon icon={faStar} size="2x" />;
-const creditCard = <FontAwesomeIcon icon={faCreditCard} size="2x" />;
-const users = <FontAwesomeIcon icon={faUsers} size="2x" />;
+const dog = <FontAwesomeIcon icon={faDog} size="2x" />;
+const bone = <FontAwesomeIcon icon={faBone} size="2x" />;
+const paw = <FontAwesomeIcon icon={faPaw} size="2x" />;
+const drumstick = <FontAwesomeIcon icon={faDrumstickBite} size="2x" />;
+const baseball = <FontAwesomeIcon icon={faBaseballBall} size="2x" />;
+const poop = <FontAwesomeIcon icon={faPoop} size="2x" />;
 
 export default function Landing() {
 	const [search, setSearch] = useState("");
@@ -56,73 +56,93 @@ export default function Landing() {
 				<br />
 				<img src={passengerdog} alt="dog-passenger" />
 				<div id="secondary-landing">
-				{profileData.id ? <div><h3>Welcome to Parking Puppy, {profileData.first_name}!</h3></div>:<div><h3>Welcome to Parking Puppy!</h3></div>}
+					{profileData.id ? (
+						<div>
+							<h3>Welcome to Parking Puppy, {profileData.first_name}!</h3>
+						</div>
+					) : (
+						<div>
+							<h3>Welcome to Parking Puppy!</h3>
+						</div>
+					)}
 					<form onSubmit={submitLocation} className="search-bar">
 						<input
 							id="landing-search-input"
 							type="search"
-							placeholder="Input destination"
+							placeholder="Where are you going?"
 							value={search}
 							onChange={(e) => setSearch(e.target.value)}
 							required
 						/>
 						<button id="main-search-button">Search</button>
 					</form>
-					{profileData.id ? <div><h3>Thanks for being a loyal customer!</h3></div>:<div><Link id="become-a-host" to="/registeruser">
-						<h3>
-							Click here to sign up and start parking or host your unused
-							driveway space!
-						</h3>
-					</Link><p>
-						Perfect for those close to popular areas where parking is becoming
-						increasingly difficult to find. Whether it's during concerts, a
-						night out, sporting events or more! Book immediately or ahead of
-						time.
-					</p></div>}
+					{profileData.id ? (
+						<div>
+							<h3>Search for your destination and book a nearby driveway!</h3>
+							<p>
+								Perfect for those close driving to popular areas where parking
+								is becoming increasingly difficult to find. Whether it's during
+								concerts, a night out, sporting events or more! Book ahead and
+								secure your spot!
+							</p>
+						</div>
+					) : (
+						<div>
+							<Link id="become-a-host" to="/registeruser">
+								<h3>Click here to sign up and start parking!</h3>
+							</Link>
+							<p>
+								Perfect for those close driving to popular areas where parking
+								is becoming increasingly difficult to find. Whether it's during
+								concerts, a night out, sporting events or more! Book ahead and
+								secure your spot!
+							</p>
+						</div>
+					)}
 				</div>
 			</div>
 			<div className="features-div">
-				<h1 id="features-title">Features</h1>
+				<h1 id="features-title">Parking doesn't have to be ruff!</h1>
 				<div className="features-section">
 					<div>
 						<div className="main-features">
-							<div className="features-icon-reverse">{car}</div>
+							<div className="features-icon-reverse">{dog}</div>
 							<div className="features-info">
 								<h1>Quick and Easy Parking</h1>
 								<p>Book ahead or while you're on your way</p>
 							</div>
-							<div className="features-icon">{car}</div>
+							<div className="features-icon">{dog}</div>
 						</div>
 						<div className="main-features">
-							<div className="features-icon-reverse">{clock}</div>
+							<div className="features-icon-reverse">{bone}</div>
 							<div className="features-info">
 								<h1>Park on your time</h1>
 								<p>Select how long you need it for and it's all yours</p>
 							</div>
-							<div className="features-icon">{clock}</div>
+							<div className="features-icon">{bone}</div>
 						</div>
 						<div className="main-features">
-							<div className="features-icon-reverse">{directions}</div>
+							<div className="features-icon-reverse">{paw}</div>
 							<div className="features-info">
 								<h1>Navigate to your spot</h1>
 								<p>Once selected you will be directed to your reserved spot</p>
 							</div>
-							<div className="features-icon">{directions}</div>
+							<div className="features-icon">{paw}</div>
 						</div>
 					</div>
 					<div>
-						<img id="map-img" src={maps} alt="phone maps" />
+						<img id="dog-rider-img" src={dogRider} alt="dog rider" />
 					</div>
 					<div>
 						<div className="main-features-reverse">
-							<div className="features-icon-right">{star}</div>
+							<div className="features-icon-right">{drumstick}</div>
 							<div className="features-info">
 								<h1>Rate and Review</h1>
 								<p>Review driveway ratings and rate after parking</p>
 							</div>
 						</div>
 						<div className="main-features-reverse">
-							<div className="features-icon-right">{creditCard}</div>
+							<div className="features-icon-right">{baseball}</div>
 							<div className="features-info">
 								<h1>Pay by card</h1>
 								<p>
@@ -131,14 +151,14 @@ export default function Landing() {
 							</div>
 						</div>
 						<div className="main-features-reverse">
-							<div className="features-icon-right">{users}</div>
+							<div className="features-icon-right">{poop}</div>
 							<div className="features-info">
 								<h1>Parking Pal support</h1>
 								<p>Let us know if you have any questions or feedback</p>
 							</div>
 						</div>
 					</div>
-					<img id="phone-map" src={phoneMap} alt="maps" />
+					<img id="phone-map" src={dogMan} alt="man with dogs" />
 				</div>
 			</div>
 			<Footer />

@@ -10,9 +10,8 @@ import Login from "./Login";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { getUserData } from "../actions/profile-actions";
-import icon from "../assets/images/final-color.png"
+import icon from "../assets/images/final-color.png";
 import "../App.css";
-import Payment from "./Payment";
 
 export default function Navbar() {
 	const dispatch = useDispatch();
@@ -24,43 +23,48 @@ export default function Navbar() {
 			headers: {
 				"Content-Type": "application/json",
 			},
-		}).then((data) => console.log(data))
-		getUserData(dispatch, {});;
-	}
+		}).then((data) => console.log(data));
+		getUserData(dispatch, {});
+	};
 	return (
 		<div id="main-navbar">
 			<Router>
 				<div className="navbar-links">
 					<div className="logo-div">
-					<Link className="main-link" to="/">
-						<img src={icon} alt="logo"/>
-					</Link></div>
+						<Link className="main-link" to="/">
+							<img src={icon} alt="logo" />
+						</Link>
+					</div>
 					<div className="main-link-div">
-					<Link className="main-link" to="/faq">
-						FAQ
-					</Link>
-					{profileData.id ? <div><Link className="main-link" to="/profile">
-						Profile
-					</Link><Link className="main-link" to="/" onClick={()=>{logout()}}>
-						Log Out 
-					</Link></div>:<div><Link className="main-link" to="/registeruser">
-						User Registration
-					</Link><Link className="main-link" to="/login">
-						Log In
-					</Link></div>}</div>
-					
-					
-					{/* <Link className="main-link" to="/searchresults">
-						SearchResults
-					</Link>
-					<Link className="main-link" to="/result">
-						OneDriveway
-					</Link>
-					<Link className="main-link" to="/payment">
-						Make Payment
-					</Link> */}
-					
-					
+						<Link className="main-link" to="/faq">
+							FAQ
+						</Link>
+						{profileData.id ? (
+							<div>
+								<Link className="main-link" to="/profile">
+									Profile
+								</Link>
+								<Link
+									className="main-link"
+									to="/"
+									onClick={() => {
+										logout();
+									}}
+								>
+									Log Out
+								</Link>
+							</div>
+						) : (
+							<div>
+								<Link className="main-link" to="/registeruser">
+									User Registration
+								</Link>
+								<Link className="main-link" to="/login">
+									Log In
+								</Link>
+							</div>
+						)}
+					</div>
 				</div>
 				<Switch>
 					<Route exact path="/" component={Landing} />
@@ -68,7 +72,6 @@ export default function Navbar() {
 					<Route path="/login" component={Login} />
 					<Route path="/registeruser" component={RegisterUser} />
 					<Route path="/profile" component={ProfileUser} />
-					<Route path="/payment" component={Payment} />
 					<Route path="/searchresults" component={DrivewayResults} />
 					<Route path="/driveway/:id" component={DrivewayIndividual} />
 					<Route path="*" component={Error} />

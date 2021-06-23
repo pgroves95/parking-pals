@@ -1,7 +1,6 @@
-import {React, useState} from "react";
+import { React, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import "../css/Login.css";
-import "../css/RegisterHost.css";
 import dog from "../assets/images/dog.png";
 import { useDispatch } from "react-redux";
 import { getUserData } from "../actions/profile-actions";
@@ -21,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Login() {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
-	const [loginMessage, setLoginMessage] = useState("")
+	const [loginMessage, setLoginMessage] = useState("");
 	const history = useHistory();
 	const dispatch = useDispatch();
 	const classes = useStyles();
@@ -81,7 +80,7 @@ export default function Login() {
 					<button className="login-button" type="submit">
 						Log In
 					</button>
-					<Link className="register-link" to="/RegisterUser">
+					<Link className="login-link" to="/RegisterUser">
 						<p>Not signed up? Click here to make an account!</p>
 					</Link>
 				</form>
