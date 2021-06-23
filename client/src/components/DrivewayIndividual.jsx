@@ -60,13 +60,13 @@ export default function DrivewayIndividual({ match }) {
 					<Paper elevation={3}>
 						<h2>${oneDriveway[0].rate} / hr</h2>
 						<br></br>
-						<form action="/reserve" method="POST">
+						<form action="http://localhost:3001/api/reservations/new" method="POST">
 							<p>Date:</p>
 							<input name="date" type="date" required />
 							<p>Drop Off:</p>
-							<input step="900" name="start_request" type="time" required />
+							<input step="900" name="start_req" type="time" required />
 							<p>Pick Up:</p>
-							<input step="900" name="end_request" type="time" required />
+							<input step="900" name="end_req" type="time" required />
 							<br></br>
 							<br></br>
 							<p>

@@ -20,8 +20,8 @@ module.exports = (sequelize, DataTypes) => {
       user_id: DataTypes.INTEGER,
       driveway_id: DataTypes.INTEGER,
       date: DataTypes.DATE,
-      start_request: DataTypes.TIME,
-      end_request: DataTypes.TIME,
+      start_req: DataTypes.TIME,
+      end_req: DataTypes.TIME,
       stripe_charge_id: DataTypes.STRING,
     },
     {
