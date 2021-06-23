@@ -1,13 +1,19 @@
 #login-section {
 	min-height: 90vh;
+	max-height: 100vh;
+	width: 100vw;
 	display: flex;
-	flex-direction: column;
-	align-items: center;
-	background-color: #e8eef1;
+	/* align-items: center; */
+	background-image: url(../assets/images/oceandogs.jpeg);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 
 .login-form {
-	margin-top: 30px;
+	margin-top: 50px;
+	margin-left: 180px;
+	height: 500px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -43,7 +49,7 @@
 	width: 22rem;
 	height: 2.5rem;
 	border-radius: 0px 0px 10px 10px;
-	border: solid black;
+	border: 1px solid black;
 	border-width: 0px 1px 1px 1px;
 	margin: 0px 5px 10px 5px;
 	padding-left: 10px;
@@ -53,8 +59,7 @@
 
 .login-input-1:hover,
 .login-input-2:hover {
-	/* background-color: #e8eef1; */
-	border: 1px solid #fd7f20;
+	background-color: #e8eef1;
 }
 
 .login-button {

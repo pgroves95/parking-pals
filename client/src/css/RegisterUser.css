@@ -1,13 +1,18 @@
 #register-section {
 	min-height: 90vh;
+	max-height: 100vh;
+	width: 100vw;
 	display: flex;
-	flex-direction: column;
 	align-items: center;
-	background-color: #e8eef1;
+	background-image: url(../assets/images/oceandogs.jpeg);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 
 #user-form {
-	margin-top: 30px;
+	margin-top: 25px;
+	margin-left: 180px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -64,6 +69,12 @@
 	font-size: 15px;
 }
 
+.register-input:hover,
+#top-input:hover,
+#bottom-input:hover {
+	background-color: #e8eef1;
+}
+
 .register-button {
 	width: 22rem;
 	height: 2rem;
@@ -112,5 +123,8 @@
 	}
 	.login-header {
 		margin: 0 !important;
+	}
+	#register-section {
+		background-color: #fff;
 	}
 }

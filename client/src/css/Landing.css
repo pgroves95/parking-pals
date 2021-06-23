@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Bubblegum+Sans&display=swap");
+
 /* MAIN SECTION OF LANDING PAGE */
 
 #main-landing {
@@ -33,13 +35,17 @@
 	padding-left: 10px;
 	outline: none;
 	border-radius: 10px;
-	border: 1px solid #057dcd;
+	border: 1px solid #1e3d58;
+	color: #1e3d58;
 	background-color: #fff;
 	margin: 1rem;
 }
+#landing-search-input:hover {
+	border: 1px solid #fd7f20;
+}
 
 #main-search-button {
-	background-color: #057dcd;
+	background-color: #1e3d58;
 	color: #e8eef1;
 	width: 12rem;
 	height: 3rem;
@@ -51,7 +57,7 @@
 	margin: 20px;
 	border-radius: 10px;
 	cursor: pointer;
-	border: 1px solid #057dcd;
+	border: 1px solid #1e3d58;
 }
 
 #main-search-button:hover {
@@ -68,12 +74,16 @@
 	margin-bottom: 15px;
 }
 
+#intro-details p {
+	font-size: 20px;
+}
+
 @media screen and (min-width: 768px) {
 	#main-landing img {
 		height: 580px;
 		width: 700px;
 	}
-	#main-landing h3 {
+	#main-welcome-intro {
 		padding: 1.5rem;
 	}
 
@@ -98,16 +108,19 @@
 		background-size: cover;
 		background-position: center;
 		height: 85vh;
-		color: #e8eef1;
 	}
 	#main-landing img {
 		display: none;
 	}
-	#main-landing h3 {
+	#main-welcome-intro {
 		padding: 1.5rem;
-		font-size: 20px;
+		font-size: 32px;
 		margin: 0;
 		color: #1e3d58;
+		font-family: "Bubblegum Sans", cursive;
+	}
+	#intro-details p {
+		font-size: 16px;
 	}
 	#main-buttons-section {
 		display: flex;

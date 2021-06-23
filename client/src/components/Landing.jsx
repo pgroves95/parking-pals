@@ -58,11 +58,13 @@ export default function Landing() {
 				<div id="secondary-landing">
 					{profileData.id ? (
 						<div>
-							<h3>Welcome to Parking Puppy, {profileData.first_name}!</h3>
+							<h3 id="main-welcome-intro">
+								Welcome to Parking Puppy, {profileData.first_name}!
+							</h3>
 						</div>
 					) : (
 						<div>
-							<h3>Welcome to Parking Puppy!</h3>
+							<h3 id="main-welcome-intro">Welcome to Parking Puppy!</h3>
 						</div>
 					)}
 					<form onSubmit={submitLocation} className="search-bar">
@@ -77,23 +79,23 @@ export default function Landing() {
 						<button id="main-search-button">Search</button>
 					</form>
 					{profileData.id ? (
-						<div>
+						<div id="intro-details">
 							<h3>Search for your destination and book a nearby driveway!</h3>
 							<p>
-								Perfect for those close driving to popular areas where parking
-								is becoming increasingly difficult to find. Whether it's during
+								Perfect for those driving to popular areas where parking is
+								becoming increasingly difficult to find. Whether it's during
 								concerts, a night out, sporting events or more! Book ahead and
 								secure your spot!
 							</p>
 						</div>
 					) : (
-						<div>
+						<div id="intro-details">
 							<Link id="become-a-host" to="/registeruser">
 								<h3>Click here to sign up and start parking!</h3>
 							</Link>
 							<p>
-								Perfect for those close driving to popular areas where parking
-								is becoming increasingly difficult to find. Whether it's during
+								Perfect for those driving to popular areas where parking is
+								becoming increasingly difficult to find. Whether it's during
 								concerts, a night out, sporting events or more! Book ahead and
 								secure your spot!
 							</p>
@@ -102,7 +104,7 @@ export default function Landing() {
 				</div>
 			</div>
 			<div className="features-div">
-				<h1 id="features-title">Parking doesn't have to be ruff!</h1>
+				<h1 id="features-title">Parking Doesn't Have to Be Ruff!</h1>
 				<div className="features-section">
 					<div>
 						<div className="main-features">
