@@ -7,7 +7,6 @@ import { useDispatch } from "react-redux";
 import { getUserData } from "../actions/profile-actions.js";
 import { makeStyles } from '@material-ui/core/styles';
 import Alert from '@material-ui/lab/Alert';
-import Footer from "./Footer";
 
 const useStyles = makeStyles((theme) => ({
   root: {

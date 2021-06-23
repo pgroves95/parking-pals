@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import passengerdog from "../assets/images/passengerdog.jpg";
 import { Link, useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
@@ -39,7 +39,7 @@ export default function Landing() {
 			}
 		);
 		const json = await response.json();
-		const coords = json.features[0].center.reverse();
+		const coords = json.features[0].center;
 		setSearchCoordinates(dispatch, coords);
 		console.log(json);
 		console.log(coords);
