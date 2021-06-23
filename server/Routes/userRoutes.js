@@ -20,7 +20,6 @@ router.post("/login", async (req, res) => {
     );
     if (passedAuth) {
       req.session.id = userLogin.id;
-      console.log(userLogin)
       res.send(userLogin);
       return;
     }
@@ -65,7 +64,7 @@ router.post("/register", async (req, res) => {
 
 //logout sets session to null
 router.get("/logout", (req, res) => {
-  req.session.id = null;
+  req.session = null;
   res.send("logged out");
 });
 
