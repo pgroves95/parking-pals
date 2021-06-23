@@ -78,3 +78,48 @@
   max-width: 400px;
   font: 12px/20px "Helvetica Neue", Arial, Helvetica, sans-serif;
 }
+
+#results-search-input {
+  width: 30rem;
+  height: 2rem;
+  font-size: 17px;
+  padding-left: 10px;
+  outline: none;
+  border-radius: 10px;
+  border: 1px solid #1e3d58;
+  color: #1e3d58;
+  background-color: #fff;
+  margin: 20px;
+}
+
+#results-search-button {
+  background-color: #1e3d58;
+  color: #e8eef1;
+  width: 6rem;
+  height: 2rem;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  border: none;
+}
+
+#results-search-button:hover {
+  color: #1e3d58;
+  background-color: #fd7f20;
+}
+
+@media screen and (max-width: 768px) {
+  .results-search-bar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #results-search-button {
+    margin: 0 0 10px 0;
+  }
+}

@@ -153,14 +153,14 @@ export default function DrivewayResults() {
 			<div className="driveway-results-div">
 				<form onSubmit={submitNewLocation} className="results-search-bar">
 					<input
-						id="landing-search-input"
+						id="results-search-input"
 						type="search"
 						placeholder="Going somewhere else?"
 						value={search}
 						onChange={(e) => setSearch(e.target.value)}
 						required
 					/>
-					<button id="main-search-button">Search</button>
+					<button id="results-search-button">Search</button>
 				</form>
 				<h1>Search Results</h1>
 				<div className="results-and-map">
