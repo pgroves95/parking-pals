@@ -20,6 +20,10 @@ const useStyles = makeStyles((theme) => ({
 			margin: theme.spacing(1),
 			width: theme.spacing(64),
 			height: theme.spacing(12),
+			[theme.breakpoints.only('xs')]: {
+				width: theme.spacing(42),
+				height: theme.spacing(12),
+			  },
 		},
 		margin: "auto",
 		

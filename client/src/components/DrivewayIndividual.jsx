@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { useSelector, useDispatch } from "react-redux";
 import {showOneDriveway} from "../actions/one-driveway-actions"
+import { Link } from "react-router-dom";
 import Paper from "@material-ui/core/Paper";
 import "../css/DrivewayIndividual.css";
 import emptyDriveway from "../assets/images/emptydriveway.png";
@@ -16,6 +17,10 @@ const useStyles = makeStyles((theme) => ({
 			width: theme.spacing(32),
 			height: theme.spacing(36),
 			paddingTop: "5%",
+			[theme.breakpoints.between('xs', 'sm')]: {
+				width: theme.spacing(28),
+				height: theme.spacing(36),
+			  },
 		},
 		margin: "auto",
 	},
@@ -47,6 +52,7 @@ export default function DrivewayIndividual({ match }) {
 		<div>
 			<div className="title">
 				<h1>{oneDriveway[0].address}</h1>
+				<p><Link to="/searchresults">Return to Search Results</Link></p>
 			</div>
 			<div className="info-and-reserve">
 				<div className="pic-and-desc">
@@ -67,13 +73,13 @@ export default function DrivewayIndividual({ match }) {
 							<p>Pick Up:</p>
 							<input step="900" name="end_req" type="time" required />
 							<br></br>
-							<br></br>
+							{/* <br></br>
 							<p>
 								<b>Total:</b> $90
-							</p>
+							</p> */}
 							<br></br>
 							<input type="hidden" name="driveway_id" value={oneDriveway[0].id} />
-							<button>Reserve</button>
+							<button id="reserve-button">Reserve</button>
 						</form>
 					</Paper>
 				</div>
