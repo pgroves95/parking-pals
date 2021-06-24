@@ -1,0 +1,11 @@
+#footer-div {
+	background-color: #1e3d58;
+	color: #e8eef1;
+	padding: 1rem;
+}
+
+@media screen and (min-width: 992px) {
+	#footer-div {
+		margin: 0;
+	}
+}

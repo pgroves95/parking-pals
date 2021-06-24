@@ -1,0 +1,98 @@
+.title {
+  margin-top: 1%;
+}
+
+.title a {
+  text-decoration: none;
+  color: black;
+}
+
+.title a:hover {
+  color: #fd7f20;
+}
+
+.pic-and-desc img {
+  height: 220px;
+  width: 410px;
+}
+
+.pic-and-desc {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+
+.info-and-reserve {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 2% 15%;
+}
+
+#reserve-button {
+  background-color: #1e3d58;
+  width: 60px;
+  height: 25px;
+  color: #e8eef1;
+  border-radius: 10px;
+  cursor: pointer;
+  border: none;
+}
+
+#reserve-button:hover {
+  color: #1e3d58;
+  font-weight: bold;
+  background-color: #fd7f20;
+}
+
+#reroute-link {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+}
+#reroute-link a {
+  text-decoration: none;
+  color: black;
+}
+
+#reroute-link a:hover {
+  text-decoration: none;
+  color: #fd7f20;
+}
+
+#sad-dog-img {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 580px;
+  height: 310px;
+}
+
+@media screen and (max-width: 800px) {
+  .pic-and-desc img {
+    height: 110px;
+    width: 205px;
+  }
+
+  .pic-and-desc {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .info-and-reserve {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+  }
+
+  #sad-dog-img {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 290px;
+    height: 155px;
+  }
+}

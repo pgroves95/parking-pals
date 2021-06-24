@@ -1,0 +1,24 @@
+#main-faq-div {
+	min-height: 90vh;
+	background-color: #e8eef1;
+}
+
+.faq-header {
+	margin: 1.5rem;
+}
+
+.faq-section {
+	margin: 1.5rem;
+}
+
+.faq-sub-section {
+	margin: 1.5rem;
+}
+
+.faq-sub-section h1 {
+	margin: 1.5rem;
+}
+
+.faq-sub-section p {
+	margin: 1.5rem;
+}
