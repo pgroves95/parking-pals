@@ -116,7 +116,7 @@ export default function RegisterUser() {
 						type="text"
 						placeholder="License Plate Number"
 						pattern="[a-zA-Z0-9!@#$%^*_|]{0,8}"
-						maxlength="8"
+						maxLength="8"
 						required
 						onChange={(e) => setLicense(e.target.value)}
 					/>
@@ -126,7 +126,7 @@ export default function RegisterUser() {
 						type="text"
 						placeholder="Phone Number"
 						pattern="[0-9!@#$%^*_|]{0,10}"
-						maxlength="10"
+						maxLength="10"
 						required
 						onChange={(e) => setPhone(e.target.value)}
 					/>
