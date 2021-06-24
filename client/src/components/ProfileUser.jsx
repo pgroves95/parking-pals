@@ -82,7 +82,7 @@ export default function ProfileUser() {
 					</div>
 				</div>
 			<div className="newRes">
-				{dbReservationsList.length > 1 ? (
+				{dbReservationsList.length > 0 ? (
 					dbReservationsList.map((reservation) => (
 						<div className="info-card">
 				<div className={classes.rootCard}>
