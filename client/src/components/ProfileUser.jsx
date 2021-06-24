@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
 		"& > *": {
 			margin: theme.spacing(1),
 			width: theme.spacing(32),
-			height: theme.spacing(56),
+			height: theme.spacing(40),
 			paddingTop: "5%",
 		},
 	},
@@ -53,12 +53,12 @@ export default function ProfileUser() {
 						<p>{profileData.license_plate.toUpperCase()}</p>
 						<p>{profileData.phone}</p>
 					</Paper>
+					</div>
+					</div>
 					<div className="history">
 						<h2>Hi, {profileData.first_name}</h2>
 					</div>
 				</div>
 			</div>
-			</div>
-		</div>
 	);
 }
