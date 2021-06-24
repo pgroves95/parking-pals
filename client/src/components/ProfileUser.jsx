@@ -8,8 +8,6 @@ import sad from "../assets/images/lostdog.png";
 import { dbReservations } from "../actions/db-reservations-actions";
 import React, { useEffect} from "react";
 
-
-
 import "../App.css";
 
 const useStyles = makeStyles((theme) => ({
@@ -34,6 +32,16 @@ const useStyles = makeStyles((theme) => ({
 			paddingTop: "5%",
 		},
 	},
+	reservCard: {
+		display: "flex",
+		flexWrap: "wrap",
+		"& > *": {
+			margin: theme.spacing(1),
+			width: theme.spacing(42),
+			height: theme.spacing(16),
+			paddingTop: "5%",
+		},
+	},
 }));
 
 export default function ProfileUser() {
@@ -50,8 +58,23 @@ export default function ProfileUser() {
 		});
 		const parsedData = await response.json();
 		dbReservations(dispatch, parsedData);
-		
 	};
+
+	const deleteReservation = async (id) => {
+		const response = await fetch(`http://localhost:3001/api/reservations/${profileData.id}`, {
+			method: "DELETE",
+			body: JSON.stringify({
+				id: id
+			}),
+		});
+		const parsedData = await response.json();
+		getReservationsData()
+	};
+
+	const formatDate = (date) => {
+		let newDate = date.substring(0,10)
+		return <p><b>{newDate}</b></p>
+		}
 
 	useEffect(() => {
 		getReservationsData();
@@ -69,34 +92,38 @@ export default function ProfileUser() {
 						<h3>
 							{profileData.first_name} {profileData.last_name}
 						</h3>
-						<p>{profileData.email}</p>
-						<p>{profileData.access}</p>
-						<p>{profileData.license_plate.toUpperCase()}</p>
-						<p>{profileData.phone}</p>
+						<br></br>
+						<p><b>Email</b><br></br>
+						{profileData.email}</p>
+						<br></br>
+						<div id="license-and-phone">
+						<p><b>Lincense Plate</b><br></br> 
+						{profileData.license_plate.toUpperCase()}</p>
+						<br></br>
+						<p><b>Phone</b><br></br>
+						{profileData.phone}</p>
+						</div>
 					</Paper>
 					</div>
 					</div>
 					<div className="history">
 						<h2>Hi, {profileData.first_name}</h2>
-
-					</div>
-				</div>
+						<br></br>
+						<h3><u>Your Reservations</u></h3>
 			<div className="newRes">
 				{dbReservationsList.length > 0 ? (
 					dbReservationsList.map((reservation) => (
 						<div className="info-card">
-				<div className={classes.rootCard}>
+				<div className={classes.reservCard}>
 					<Paper elevation={3}>
-						<div className={classes.root}>
-							<Avatar alt="avatar" src={avatar} className={classes.large} />
-						</div>
 						<h3>
 							{reservation.Driveway.address}
 						</h3>
-						<p>{reservation.date}</p>
-						<p>{reservation.start_req}</p>
-						<p>{reservation.end_req}</p>
+						{formatDate(`${reservation.date}`)}
+						<p>Start: {reservation.start_req}</p>
+						<p>End: {reservation.end_req}</p>
 						<p>{reservation.rate}</p>
+						<button onClick={()=>{deleteReservation(reservation.id)}}>Cancel Reservation</button>
 					</Paper>
 					</div>
 					</div>
@@ -105,6 +132,9 @@ export default function ProfileUser() {
 					<p>Loading...</p>
 				)}
 			</div>
+
+					</div>
+				</div>
 				
 		</div>
 	);
