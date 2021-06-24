@@ -34,6 +34,16 @@ const useStyles = makeStyles((theme) => ({
 			paddingTop: "5%",
 		},
 	},
+	reservCard: {
+		display: "flex",
+		flexWrap: "wrap",
+		"& > *": {
+			margin: theme.spacing(1),
+			width: theme.spacing(42),
+			height: theme.spacing(16),
+			paddingTop: "1%",
+		},
+	},
 }));
 
 export default function ProfileUser() {
@@ -69,27 +79,29 @@ export default function ProfileUser() {
 						<h3>
 							{profileData.first_name} {profileData.last_name}
 						</h3>
-						<p>{profileData.email}</p>
-						<p>{profileData.access}</p>
-						<p>{profileData.license_plate.toUpperCase()}</p>
-						<p>{profileData.phone}</p>
+						<br></br>
+						<p><b>Email</b><br></br>
+						{profileData.email}</p>
+						<br></br>
+						<div id="license-and-phone">
+						<p><b>Lincense Plate</b><br></br> 
+						{profileData.license_plate.toUpperCase()}</p>
+						<br></br>
+						<p><b>Phone</b><br></br>
+						{profileData.phone}</p>
+						</div>
 					</Paper>
 					</div>
 					</div>
 					<div className="history">
 						<h2>Hi, {profileData.first_name}</h2>
-
-					</div>
-				</div>
+						<h3><u>Your Reservations</u></h3>
 			<div className="newRes">
 				{dbReservationsList.length > 1 ? (
 					dbReservationsList.map((reservation) => (
 						<div className="info-card">
-				<div className={classes.rootCard}>
+				<div className={classes.reservCard}>
 					<Paper elevation={3}>
-						<div className={classes.root}>
-							<Avatar alt="avatar" src={avatar} className={classes.large} />
-						</div>
 						<h3>
 							{reservation.address}
 						</h3>
@@ -97,6 +109,7 @@ export default function ProfileUser() {
 						<p>{reservation.start_req}</p>
 						<p>{reservation.end_req}</p>
 						<p>{reservation.rate}</p>
+						<button>Cancel Reservation</button>
 					</Paper>
 					</div>
 					</div>
@@ -105,6 +118,9 @@ export default function ProfileUser() {
 					<p>Loading...</p>
 				)}
 			</div>
+
+					</div>
+				</div>
 				
 		</div>
 	);
