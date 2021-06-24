@@ -1,3 +1,8 @@
+.driveway-results-div {
+  min-height: 100vh;
+  background-color: #e8eef1;
+}
+
 .results-search-bar {
   display: flex;
   flex-direction: row;
@@ -6,6 +11,7 @@
 
 #results-search-input {
   width: 30rem;
+  max-width: 450px;
   height: 2rem;
   font-size: 17px;
   padding-left: 10px;
@@ -35,11 +41,6 @@
 #results-search-button:hover {
   color: #1e3d58;
   background-color: #fd7f20;
-}
-
-.driveway-results-div {
-  min-height: 100vh;
-  background-color: #e8eef1;
 }
 
 .driveway-pic {
