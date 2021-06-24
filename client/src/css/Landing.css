@@ -301,6 +301,20 @@
 		width: 200px;
 	}
 
+	.main-features-reverse {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		/* padding: 1.2rem;
+		padding-right: 0.6rem;
+		margin: 0.2rem 1.2rem;
+		margin-left: 0.6rem; */
+		align-items: center;
+		height: 16rem;
+		text-align: center;
+		width: 200px;
+	}
+
 	.features-section {
 		display: flex;
 		flex-direction: column;
@@ -369,8 +383,48 @@
 		margin-right: 0.6rem;
 		align-items: center;
 		height: 8rem;
+		width: 27rem;
 		text-align: right;
 	}
+
+	.main-features-reverse {
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-start;
+		padding: 1.2rem;
+		padding-right: 0.6rem;
+		margin: 0.2rem 1.2rem;
+		margin-left: 0.6rem;
+		align-items: center;
+		height: 8rem;
+		width: 27rem;
+		text-align: left;
+	}
+
+	.features-sub-section-1,
+	.features-sub-section-2 {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: space-around;
+		height: 500px;
+		width: 500px;
+	}
+	.main-features h1,
+	.main-features p {
+		text-align: right;
+	}
+
+	.main-features-reverse h1,
+	.main-features-reverse p {
+		text-align: left;
+	}
+
+	.features-info {
+		display: flex;
+		justify-content: flex-start;
+	}
+
 	.features-icon {
 		display: flex;
 	}
@@ -383,12 +437,21 @@
 		display: flex;
 		border-radius: 5px;
 	}
-	#man-with-dogs {
-		display: none;
-	}
+
 	#dog-rider-img {
 		display: flex;
 	}
 }
+@media (min-width: 992px) and (max-width: 1360px) {
+	#dog-rider-img {
+		display: none;
+		height: 400px;
+		width: 200px;
+	}
+}
+
 @media screen and (min-width: 1360px) {
+	#man-with-dogs {
+		display: none;
+	}
 }
