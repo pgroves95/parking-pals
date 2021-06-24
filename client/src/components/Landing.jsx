@@ -160,9 +160,9 @@ export default function Landing() {
 							</div>
 						</div>
 					</div>
-					<div id="man-with-dogs-div">
-						<img id="man-with-dogs" src={dogMan} alt="man with dogs" />
-					</div>
+				</div>
+				<div id="man-with-dogs-div">
+					<img id="man-with-dogs" src={dogMan} alt="man with dogs" />
 				</div>
 			</div>
 			<Footer />
