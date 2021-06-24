@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { useSelector, useDispatch } from "react-redux";
 import {showOneDriveway} from "../actions/one-driveway-actions"
 import Paper from "@material-ui/core/Paper";
-import "../App.css";
+import "../css/DrivewayIndividual.css";
 import emptyDriveway from "../assets/images/emptydriveway.png";
 
 
@@ -18,7 +18,6 @@ const useStyles = makeStyles((theme) => ({
 			paddingTop: "5%",
 		},
 		margin: "auto",
-		paddingRight: "10%",
 	},
 }));
 

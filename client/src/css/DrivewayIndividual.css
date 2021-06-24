@@ -1,0 +1,21 @@
+.title {
+  margin-top: 1%;
+}
+
+.pic-and-desc img {
+  height: 220px;
+  width: 410px;
+}
+
+.pic-and-desc {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+
+.info-and-reserve {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 2% 15%;
+}
