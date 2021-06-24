@@ -1,10 +1,14 @@
-import React from "react";
-import { useSelector } from "react-redux";
+
+import { useSelector, useDispatch  } from "react-redux";
 import { makeStyles } from "@material-ui/core/styles";
 import Avatar from "@material-ui/core/Avatar";
 import Paper from "@material-ui/core/Paper";
 import avatar from "../assets/images/avatar.png";
-import sad from "../assets/images/lostdog.png"
+import sad from "../assets/images/lostdog.png";
+import { dbDriveways } from "../actions/db-driveways-actions";
+import React, { useEffect} from "react";
+
+
 
 import "../App.css";
 
@@ -33,9 +37,25 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function ProfileUser() {
+	const dbDrivewayList = useSelector((state) => state.dbDrivewayList);
+	const dispatch = useDispatch();
 	const classes = useStyles();
 	const profileData = useSelector((state) => state.profileData);
+	
+	// reuse of driveway function
+	
+	const getReservationsData = async () => {
+		const response = await fetch(`http://localhost:3001/api/reservations/${profileData.id}`, {
+			method: "GET",
+		});
+		const parsedData = await response.json();
+		dbDriveways(dispatch, parsedData);
+		console.log(dbDrivewayList)
+	};
 
+	useEffect(() => {
+		getReservationsData();
+	}, []);
 	return (
 		<div>
 			<div className="card-and-history">
@@ -57,8 +77,36 @@ export default function ProfileUser() {
 					</div>
 					<div className="history">
 						<h2>Hi, {profileData.first_name}</h2>
+
 					</div>
 				</div>
-			</div>
+				<div className="results-and-map">
+					<div className="search-results">
+						{dbDrivewayList.length > 1 ? (
+							dbDrivewayList.map((driveway) => (
+								<div className={classes.root}>
+									<Paper elevation={3}>
+										<div className="card-contents">
+											<div className="pic-and-address">
+										{/* <img
+											className="driveway-pic"
+											// src={emptyDriveway}
+											alt="driveway"
+										/> */}
+										<h2>{driveway.address}</h2>
+										</div>
+										<div className="price-and-link">
+										<h4>${driveway.rate} / hour</h4>
+										</div>
+										</div>
+									</Paper>
+								</div>
+							))
+						) : (
+							<p>Loading...</p>
+						)}
+				</div>
+			</div>	
+		</div>
 	);
 }
