@@ -5,7 +5,7 @@ import Avatar from "@material-ui/core/Avatar";
 import Paper from "@material-ui/core/Paper";
 import avatar from "../assets/images/avatar.png";
 import sad from "../assets/images/lostdog.png";
-import { dbDriveways } from "../actions/db-driveways-actions";
+import { dbReservations } from "../actions/db-reservations-actions";
 import React, { useEffect} from "react";
 
 
@@ -49,13 +49,14 @@ export default function ProfileUser() {
 			method: "GET",
 		});
 		const parsedData = await response.json();
-		dbDriveways(dispatch, parsedData);
+		dbReservations(dispatch, parsedData);
 		console.log(dbDrivewayList)
 	};
 
 	useEffect(() => {
 		getReservationsData();
 	}, []);
+	
 	return (
 		<div>
 			<div className="card-and-history">
@@ -97,6 +98,7 @@ export default function ProfileUser() {
 										</div>
 										<div className="price-and-link">
 										<h4>${driveway.rate} / hour</h4>
+	
 										</div>
 										</div>
 									</Paper>
