@@ -117,7 +117,7 @@ export default function ProfileUser() {
 				<div className={classes.reservCard}>
 					<Paper elevation={3}>
 						<h3>
-							{reservation.address}
+							{reservation.Driveway.address}
 						</h3>
 						{formatDate(`${reservation.date}`)}
 						<p>Start: {reservation.start_req}</p>
