@@ -64,7 +64,7 @@ export default function RegisterUser() {
 	return (
 		<div id="register-section">
 			{registerMessage ? (
-				<div className={classes.root}>
+				<div id="register-toast" className={classes.root}>
 					<Alert severity="error">
 						Email is already in use. Please use a different email or try logging
 						in if think you have an account

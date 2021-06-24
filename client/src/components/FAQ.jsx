@@ -1,5 +1,4 @@
 import React from "react";
-import Footer from "./Footer";
 import "../css/FAQ.css";
 
 export default function FAQ() {
@@ -50,7 +49,6 @@ export default function FAQ() {
 					</div>
 				</div>
 			</div>
-			<Footer />
 		</div>
 	);
 }
