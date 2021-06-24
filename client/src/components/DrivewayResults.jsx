@@ -64,7 +64,7 @@ export default function DrivewayResults() {
 				container: "map",
 				style: "mapbox://styles/mapbox/streets-v11",
 				center: [searchCoordinates[0], searchCoordinates[1]],
-				zoom: 14.5,
+				zoom: 14,
 			});
 			let marker1 = new mapboxgl.Marker()
 				.setLngLat([searchCoordinates[0], searchCoordinates[1]])
