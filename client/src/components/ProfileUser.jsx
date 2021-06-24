@@ -4,6 +4,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import Avatar from "@material-ui/core/Avatar";
 import Paper from "@material-ui/core/Paper";
 import avatar from "../assets/images/avatar.png";
+import sad from "../assets/images/lostdog.png"
+
 import "../App.css";
 
 const useStyles = makeStyles((theme) => ({
@@ -36,6 +38,7 @@ export default function ProfileUser() {
 
 	return (
 		<div>
+			<div className="card-and-history">
 			<div className="info-card">
 				<div className={classes.rootCard}>
 					<Paper elevation={3}>
@@ -54,6 +57,7 @@ export default function ProfileUser() {
 						<h2>Hi, {profileData.first_name}</h2>
 					</div>
 				</div>
+			</div>
 			</div>
 		</div>
 	);
