@@ -2,10 +2,11 @@ import { React, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import "../css/Login.css";
 import dog from "../assets/images/dog.png";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getUserData } from "../actions/profile-actions";
 import { makeStyles } from "@material-ui/core/styles";
 import Alert from "@material-ui/lab/Alert";
+import { getLoginStatus } from "../actions/login-actions";
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -21,6 +22,7 @@ export default function Login() {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [loginMessage, setLoginMessage] = useState("");
+	const errorMessage = useSelector((state) => state.loginStatus)
 	const history = useHistory();
 	const dispatch = useDispatch();
 	const classes = useStyles();
@@ -41,9 +43,17 @@ export default function Login() {
 			.then((data) => {
 				if (data.message) {
 					setLoginMessage(data.message);
+					getLoginStatus(dispatch, "")
 					setPassword("");
 					history.push("/login");
-				} else {
+				} 
+				if (errorMessage) {
+					getLoginStatus(dispatch, "")
+					getUserData(dispatch, data);
+					history.goBack();
+				}
+				else {
+					getLoginStatus(dispatch, "")
 					getUserData(dispatch, data);
 					history.push("/");
 				}
@@ -54,6 +64,14 @@ export default function Login() {
 	return (
 		<div>
 			<div id="login-section">
+			{errorMessage ? (
+					<div className={classes.root}>
+						<Alert severity="error">
+							Please login to make a reservation						</Alert>
+					</div>
+				) : (
+					<div></div>
+				)}
 				{loginMessage ? (
 					<div className={classes.root}>
 						<Alert severity="error">

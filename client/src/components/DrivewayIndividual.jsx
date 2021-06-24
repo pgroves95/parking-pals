@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { useSelector, useDispatch } from "react-redux";
 import {showOneDriveway} from "../actions/one-driveway-actions"
+import {getLoginStatus} from "../actions/login-actions"
 import { Link, useHistory } from "react-router-dom";
 import Paper from "@material-ui/core/Paper";
 import "../css/DrivewayIndividual.css";
@@ -32,6 +33,7 @@ export default function DrivewayIndividual({ match }) {
 	const dbDrivewayList = useSelector((state) => state.dbDrivewayList)
 	const oneDriveway = useSelector((state) => state.oneDriveway)
 	const profileData = useSelector((state) => state.profileData)
+	const errorMessage = useSelector((state) => state.loginStatus)
 	const drivewayNumber = parseInt(match.params.id)
 	const history = useHistory();
 	const [date,setDate] = useState("")
@@ -68,6 +70,7 @@ export default function DrivewayIndividual({ match }) {
 			.then((data) => {
 				if (data.message) {
 					history.push("/login");
+					getLoginStatus(dispatch, "Please login to reserve driveways")
 				} else {
 					history.push("/profile");
 				}
