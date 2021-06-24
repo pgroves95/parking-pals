@@ -106,7 +106,7 @@ export default function Landing() {
 			<div className="features-div">
 				<h1 id="features-title">Parking Doesn't Have to Be Ruff!</h1>
 				<div className="features-section">
-					<div>
+					<div className="features-sub-section-1">
 						<div className="main-features">
 							<div className="features-icon-reverse">{dog}</div>
 							<div className="features-info">
@@ -135,7 +135,7 @@ export default function Landing() {
 					<div>
 						<img id="dog-rider-img" src={dogRider} alt="dog rider" />
 					</div>
-					<div>
+					<div className="features-sub-section-2">
 						<div className="main-features-reverse">
 							<div className="features-icon-right">{drumstick}</div>
 							<div className="features-info">
@@ -160,7 +160,9 @@ export default function Landing() {
 							</div>
 						</div>
 					</div>
-					<img id="phone-map" src={dogMan} alt="man with dogs" />
+				</div>
+				<div id="man-with-dogs-div">
+					<img id="man-with-dogs" src={dogMan} alt="man with dogs" />
 				</div>
 			</div>
 			<Footer />
