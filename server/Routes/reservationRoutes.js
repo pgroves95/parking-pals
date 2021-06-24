@@ -18,7 +18,7 @@ const router = express.Router();
 //   }
 // });
 
-//route to ferch a single reservation
+//route to ferch all reservation reservation
 router.get("/:id", async (req, res) => {
    const { id } = req.params;
   try {
