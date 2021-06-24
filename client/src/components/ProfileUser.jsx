@@ -82,7 +82,7 @@ export default function ProfileUser() {
 					</div>
 				</div>
 			<div className="newRes">
-				{dbReservationsList.length > 1 ? (
+				{dbReservationsList.length > 0 ? (
 					dbReservationsList.map((reservation) => (
 						<div className="info-card">
 				<div className={classes.rootCard}>
@@ -91,7 +91,7 @@ export default function ProfileUser() {
 							<Avatar alt="avatar" src={avatar} className={classes.large} />
 						</div>
 						<h3>
-							{reservation.address}
+							{reservation.Driveway.address}
 						</h3>
 						<p>{reservation.date}</p>
 						<p>{reservation.start_req}</p>
