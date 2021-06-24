@@ -4,7 +4,6 @@ import { Link, useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { setSearchCoordinates } from "../actions/search-actions";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import dogMan from "../assets/images/manwithdogs.jpg";
 import dogRider from "../assets/images/dogrider.jpg";
 import {
 	faDog,
@@ -160,9 +159,6 @@ export default function Landing() {
 						</div>
 					</div>
 				</div>
-				{/* <div id="man-with-dogs-div">
-					<img id="man-with-dogs" src={dogMan} alt="man with dogs" />
-				</div> */}
 			</div>
 		</div>
 	);
