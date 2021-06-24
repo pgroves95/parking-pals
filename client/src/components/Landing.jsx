@@ -132,7 +132,7 @@ export default function Landing() {
 							<div className="features-icon">{paw}</div>
 						</div>
 					</div>
-					<div>
+					<div id="dog-rider-div">
 						<img id="dog-rider-img" src={dogRider} alt="dog rider" />
 					</div>
 					<div className="features-sub-section-2">
