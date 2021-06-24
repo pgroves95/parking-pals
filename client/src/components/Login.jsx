@@ -56,10 +56,6 @@ export default function Login() {
 		return false;
 	};
 
-	useEffect(() => {
-		setLoginMessage("")
-	}, []);
-
 	return (
 		<div>
 			<div id="login-section">
