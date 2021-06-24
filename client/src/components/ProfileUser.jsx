@@ -81,35 +81,33 @@ export default function ProfileUser() {
 
 					</div>
 				</div>
-				<div className="results-and-map">
-					<div className="search-results">
-						{dbReservationsList.length > 1 ? (
-							dbReservationsList.map((reservations) => (
-								<div><h1>{reservations.address}</h1></div>
-								// <div className={classes.root}>
-								// 	<Paper elevation={3}>
-								// 		<div className="card-contents">
-								// 			<div className="pic-and-address">
-								// 		{/* <img
-								// 			className="driveway-pic"
-								// 			// src={emptyDriveway}
-								// 			alt="driveway"
-								// 		/> */}
-								// 		<h2>{reservations.address}</h2>
-								// 		</div>
-								// 		<div className="price-and-link">
-								// 		<h4>${reservations.rate} / hour</h4>
-	
-								// 		</div>
-								// 		</div>
-								// 	</Paper>
-								// </div>
-							))
-						) : (
-							<p>Loading...</p>
-						)}
-				</div>
-			</div>	
+			<div className="newRes">
+				{dbReservationsList.length > 1 ? (
+					dbReservationsList.map((reservations) => (
+						<div className={classes.root}>
+							<Paper elevation={3}>
+								<div className="card-contents">
+									<div className="pic-and-address">
+								{/* <img
+									className="driveway-pic"
+									// src={emptyDriveway}
+									alt="driveway"
+								/> */}
+								<h2>{reservations.address}</h2>
+								</div>
+								<div className="price-and-link">
+								<h4>${reservations.rate} / hour</h4>
+
+								</div>
+								</div>
+							</Paper>
+						</div>
+					))
+				) : (
+					<p>Loading...</p>
+				)}
+			</div>
+				
 		</div>
 	);
 }
