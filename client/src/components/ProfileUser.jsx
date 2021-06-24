@@ -1,10 +1,14 @@
-import React from "react";
-import { useSelector } from "react-redux";
+
+import { useSelector, useDispatch  } from "react-redux";
 import { makeStyles } from "@material-ui/core/styles";
 import Avatar from "@material-ui/core/Avatar";
 import Paper from "@material-ui/core/Paper";
 import avatar from "../assets/images/avatar.png";
-import sad from "../assets/images/lostdog.png"
+import sad from "../assets/images/lostdog.png";
+import { dbReservations } from "../actions/db-reservations-actions";
+import React, { useEffect} from "react";
+
+
 
 import "../App.css";
 
@@ -33,9 +37,26 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function ProfileUser() {
+	const dbReservationsList = useSelector((state) => state.dbReservationsList);
+	const dispatch = useDispatch();
 	const classes = useStyles();
 	const profileData = useSelector((state) => state.profileData);
+	
+	// reuse of driveway function
+	
+	const getReservationsData = async () => {
+		const response = await fetch(`http://localhost:3001/api/reservations/${profileData.id}`, {
+			method: "GET",
+		});
+		const parsedData = await response.json();
+		dbReservations(dispatch, parsedData);
+		
+	};
 
+	useEffect(() => {
+		getReservationsData();
+	}, []);
+	
 	return (
 		<div>
 			<div className="card-and-history">
@@ -57,8 +78,34 @@ export default function ProfileUser() {
 					</div>
 					<div className="history">
 						<h2>Hi, {profileData.first_name}</h2>
+
 					</div>
 				</div>
+			<div className="newRes">
+				{dbReservationsList.length > 1 ? (
+					dbReservationsList.map((reservation) => (
+						<div className="info-card">
+				<div className={classes.rootCard}>
+					<Paper elevation={3}>
+						<div className={classes.root}>
+							<Avatar alt="avatar" src={avatar} className={classes.large} />
+						</div>
+						<h3>
+							{reservation.address}
+						</h3>
+						<p>{reservation.date}</p>
+						<p>{reservation.start_req}</p>
+						<p>{reservation.end_req}</p>
+						<p>{reservation.rate}</p>
+					</Paper>
+					</div>
+					</div>
+					))
+				) : (
+					<p>Loading...</p>
+				)}
 			</div>
+				
+		</div>
 	);
 }

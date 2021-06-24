@@ -4,6 +4,7 @@ import searchCoordinates from "./searchReducer";
 import loginStatus from "./loginReducer";
 import dbDrivewayList from "./dbDrivewayReducer";
 import oneDriveway from "./oneDrivewayReducer";
+import dbReservationsList from "./dbReservationsReducer";
 
 const rootReducer = combineReducers({
   profileData,
@@ -11,6 +12,7 @@ const rootReducer = combineReducers({
   loginStatus,
   dbDrivewayList,
   oneDriveway,
+  dbReservationsList,
 });
 
 export default rootReducer;

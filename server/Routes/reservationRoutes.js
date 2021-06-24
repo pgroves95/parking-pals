@@ -20,11 +20,11 @@ router.get("/", async (req, res) => {
 
 //route to ferch a single reservation
 router.get("/:id", async (req, res) => {
+   const { id } = req.params;
   try {
-    const reservation = await Reservations.findOne({
+    const reservation = await Reservations.findAll({
       where: {
-        id: req.params.id,
-        user_id: req.session.id,
+        user_id: id,
       },
     });
 
