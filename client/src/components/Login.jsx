@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
 import "../css/Login.css";
 import dog from "../assets/images/dog.png";
@@ -22,7 +22,7 @@ export default function Login() {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [loginMessage, setLoginMessage] = useState("");
-	const errorMessage = useSelector((state) => state.loginStatus)
+	const loginStatus = useSelector((state) => state.loginStatus)
 	const history = useHistory();
 	const dispatch = useDispatch();
 	const classes = useStyles();
@@ -43,28 +43,27 @@ export default function Login() {
 			.then((data) => {
 				if (data.message) {
 					setLoginMessage(data.message);
-					getLoginStatus(dispatch, "")
 					setPassword("");
 					history.push("/login");
-				} 
-				if (errorMessage) {
-					getLoginStatus(dispatch, "")
+				} else {
+					if (loginStatus && loginStatus.length > 1) {
 					getUserData(dispatch, data);
 					history.goBack();
-				}
-				else {
-					getLoginStatus(dispatch, "")
+					} else {
 					getUserData(dispatch, data);
 					history.push("/");
-				}
-			});
+				}}});
 		return false;
 	};
+
+	useEffect(() => {
+		setLoginMessage("")
+	}, []);
 
 	return (
 		<div>
 			<div id="login-section">
-			{errorMessage ? (
+			{loginStatus ? (
 					<div className={classes.root}>
 						<Alert severity="error">
 							Please login to make a reservation						</Alert>
