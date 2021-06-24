@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import Paper from "@material-ui/core/Paper";
 import "../css/DrivewayIndividual.css";
 import emptyDriveway from "../assets/images/emptydriveway.png";
+import sad from "../assets/images/lostdog.png"
 
 
 const useStyles = makeStyles((theme) => ({
@@ -33,13 +34,6 @@ export default function DrivewayIndividual({ match }) {
 	const oneDriveway = useSelector((state) => state.oneDriveway)
 	const drivewayNumber = parseInt(match.params.id)
 
-	// const calculateTotal = () => {
-	// 	const endTime = "" // convert to minutes
-	// 	const startTime = "" // convert to minutes
-	// 	const rate = ""
-	// 	const totalTime = endTime-startTime/60*rate
-	// }
-
 	useEffect(() => {
 		const getDriveway = () => {
 		  const drivewayToShow = dbDrivewayList.filter((driveway) => driveway.id === drivewayNumber);
@@ -50,7 +44,9 @@ export default function DrivewayIndividual({ match }) {
 
 	return (
 		<div>
-			<div className="title">
+			{oneDriveway[0] === undefined ? <div id="reroute-link"><Link to="/searchresults">Something went wrong! Return to search page and try again</Link><img id="sad-dog-img" src={sad} alt="sad-puppy"/></div> : 
+			<div>
+			 <div className="title">
 				<h1>{oneDriveway[0].address}</h1>
 				<p><Link to="/searchresults">Return to Search Results</Link></p>
 			</div>
@@ -73,17 +69,13 @@ export default function DrivewayIndividual({ match }) {
 							<p>Pick Up:</p>
 							<input step="900" name="end_req" type="time" required />
 							<br></br>
-							{/* <br></br>
-							<p>
-								<b>Total:</b> $90
-							</p> */}
 							<br></br>
 							<input type="hidden" name="driveway_id" value={oneDriveway[0].id} />
 							<button id="reserve-button">Reserve</button>
 						</form>
 					</Paper>
 				</div>
-			</div>
+			</div> </div>}
 		</div>
 	);
 }

@@ -45,6 +45,29 @@
   background-color: #fd7f20;
 }
 
+#reroute-link {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+}
+#reroute-link a {
+  text-decoration: none;
+  color: black;
+}
+
+#reroute-link a:hover {
+  text-decoration: none;
+  color: #fd7f20;
+}
+
+#sad-dog-img {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 580px;
+  height: 310px;
+}
+
 @media screen and (max-width: 800px) {
   .pic-and-desc img {
     height: 110px;
@@ -63,5 +86,13 @@
     flex-direction: column;
     align-items: center;
     margin: auto;
+  }
+
+  #sad-dog-img {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 290px;
+    height: 155px;
   }
 }
