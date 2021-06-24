@@ -8,8 +8,6 @@ import sad from "../assets/images/lostdog.png";
 import { dbReservations } from "../actions/db-reservations-actions";
 import React, { useEffect} from "react";
 
-
-
 import "../App.css";
 
 const useStyles = makeStyles((theme) => ({
@@ -41,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
 			margin: theme.spacing(1),
 			width: theme.spacing(42),
 			height: theme.spacing(16),
-			paddingTop: "1%",
+			paddingTop: "5%",
 		},
 	},
 }));
@@ -60,8 +58,12 @@ export default function ProfileUser() {
 		});
 		const parsedData = await response.json();
 		dbReservations(dispatch, parsedData);
-		
 	};
+
+	const formatDate = (date) => {
+		let newDate = date.substring(0,10)
+		return <p><b>{newDate}</b></p>
+		}
 
 	useEffect(() => {
 		getReservationsData();
@@ -95,6 +97,7 @@ export default function ProfileUser() {
 					</div>
 					<div className="history">
 						<h2>Hi, {profileData.first_name}</h2>
+						<br></br>
 						<h3><u>Your Reservations</u></h3>
 			<div className="newRes">
 				{dbReservationsList.length > 1 ? (
@@ -105,9 +108,9 @@ export default function ProfileUser() {
 						<h3>
 							{reservation.address}
 						</h3>
-						<p>{reservation.date}</p>
-						<p>{reservation.start_req}</p>
-						<p>{reservation.end_req}</p>
+						{formatDate(`${reservation.date}`)}
+						<p>Start: {reservation.start_req}</p>
+						<p>End: {reservation.end_req}</p>
 						<p>{reservation.rate}</p>
 						<button>Cancel Reservation</button>
 					</Paper>
