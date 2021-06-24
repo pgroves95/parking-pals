@@ -1,6 +1,7 @@
 
 import { useSelector, useDispatch  } from "react-redux";
 import { makeStyles } from "@material-ui/core/styles";
+import {Link} from "react-router-dom"
 import Avatar from "@material-ui/core/Avatar";
 import Paper from "@material-ui/core/Paper";
 import avatar from "../assets/images/avatar.png";
@@ -128,8 +129,8 @@ export default function ProfileUser() {
 					</div>
 					</div>
 					))
-				) : (
-					<p>Loading...</p>
+				) : (<div id="no-reservations">
+					<p>No Reservations!</p><Link to="/"><button id="back-button">Start Your Search</button></Link></div>
 				)}
 			</div>
 

@@ -1,38 +1,59 @@
 @import url("https://fonts.googleapis.com/css2?family=Karla:ital@1&display=swap");
 
 * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	font-family: "Karla", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Karla", sans-serif;
 }
 
 .App {
-	text-align: center;
-	min-height: 100vh;
-	max-width: 100vw;
-	background-color: #e8eef1;
+  text-align: center;
+  min-height: 100vh;
+  max-width: 100vw;
+  background-color: #e8eef1;
 }
 
 .card-and-history {
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	margin-top: 1%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 1%;
 }
 
 .history {
-	display: flex;
-	flex-direction: column;
-	padding: 1% 3% 0 3%;
+  display: flex;
+  flex-direction: column;
+  padding: 1% 3% 0 3%;
+}
+
+#no-reservations {
+  margin-top: 10px;
+}
+
+#back-button {
+  background-color: #1e3d58;
+  width: 115px;
+  height: 25px;
+  color: #e8eef1;
+  border-radius: 10px;
+  cursor: pointer;
+  border: none;
+  margin: 10px;
+}
+
+#back-button:hover {
+  color: #1e3d58;
+  font-weight: bold;
+  background-color: #fd7f20;
 }
 
 @media screen and (max-width: 768px) {
-	.card-and-history {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		margin-top: 1%;
-	}
+  .card-and-history {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1%;
+  }
 }
