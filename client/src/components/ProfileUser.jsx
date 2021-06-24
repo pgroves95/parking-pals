@@ -83,25 +83,23 @@ export default function ProfileUser() {
 				</div>
 			<div className="newRes">
 				{dbReservationsList.length > 1 ? (
-					dbReservationsList.map((reservations) => (
+					dbReservationsList.map((reservation) => (
+						<div className="info-card">
+				<div className={classes.rootCard}>
+					<Paper elevation={3}>
 						<div className={classes.root}>
-							<Paper elevation={3}>
-								<div className="card-contents">
-									<div className="pic-and-address">
-								{/* <img
-									className="driveway-pic"
-									// src={emptyDriveway}
-									alt="driveway"
-								/> */}
-								<h2>{reservations.address}</h2>
-								</div>
-								<div className="price-and-link">
-								<h4>${reservations.rate} / hour</h4>
-
-								</div>
-								</div>
-							</Paper>
+							<Avatar alt="avatar" src={avatar} className={classes.large} />
 						</div>
+						<h3>
+							{reservation.address}
+						</h3>
+						<p>{reservation.date}</p>
+						<p>{reservation.start_req}</p>
+						<p>{reservation.end_req}</p>
+						<p>{reservation.rate}</p>
+					</Paper>
+					</div>
+					</div>
 					))
 				) : (
 					<p>Loading...</p>
