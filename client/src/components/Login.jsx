@@ -72,6 +72,7 @@ export default function Login() {
 						placeholder="Email"
 						onChange={(e) => setEmail(e.target.value)}
 						value={email}
+						required
 					/>
 					<input
 						className="login-input-2"
@@ -79,6 +80,7 @@ export default function Login() {
 						placeholder="Password"
 						onChange={(e) => setPassword(e.target.value)}
 						value={password}
+						required
 					/>
 					<button className="login-button" type="submit">
 						Log In

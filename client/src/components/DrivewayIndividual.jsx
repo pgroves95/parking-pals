@@ -35,7 +35,6 @@ export default function DrivewayIndividual({ match }) {
 	const drivewayNumber = parseInt(match.params.id)
 	const history = useHistory();
 	const [date,setDate] = useState("")
-	const [driveway_id,setDriveway_id] = useState("")
 	const [end_req,setEnd_req] = useState("")
 	const [start_req,setStart_req] = useState("")
 
@@ -79,7 +78,7 @@ export default function DrivewayIndividual({ match }) {
 
 	return (
 		<div>
-			{oneDriveway[0] === undefined ? <div id="reroute-link"><Link to="/searchresults">Something went wrong! Return to search page and try again</Link><img id="sad-dog-img" src={sad} alt="sad-puppy"/></div> : 
+			{oneDriveway[0] === undefined ? <div id="reroute-link"><Link to="/searchresults">Something went wrong! Click here to return to the search page and try again</Link><img id="sad-dog-img" src={sad} alt="sad-puppy"/></div> : 
 			<div>
 			 <div className="title">
 				<h1>{oneDriveway[0].address}</h1>
