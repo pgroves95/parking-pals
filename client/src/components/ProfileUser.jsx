@@ -91,7 +91,7 @@ export default function ProfileUser() {
 							<Avatar alt="avatar" src={avatar} className={classes.large} />
 						</div>
 						<h3>
-							{reservation.address}
+							{reservation.Driveway.address}
 						</h3>
 						<p>{reservation.date}</p>
 						<p>{reservation.start_req}</p>

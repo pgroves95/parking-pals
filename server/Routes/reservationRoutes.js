@@ -1,31 +1,34 @@
 const express = require("express");
 const db = require("../../models");
 const { convertTime } = require('../convertTime')
-const { Reservations } = require("../../models");
+const { Reservations, Driveways } = require("../../models");
 
 const router = express.Router();
 
 //route to get all reservations for authorized user
-router.get("/", async (req, res) => {
-  try {
-    const { id } = req.session;
-    const reservationsData = await Reservations.findAll({
-      where: { user_id: id },
-    });
-    res.json(reservationsData);
-  } catch (e) {
-    res.status(400).json({ message: e.message });
-  }
-});
+// router.get("/", async (req, res) => {
+//   try {
+//     const { id } = req.session;
+//     const reservationsData = await Reservations.findAll({
+//       where: { user_id: id },
+//     });
+//     res.json(reservationsData, null, 2);
+//   } catch (e) {
+//     res.status(400).json({ message: e.message });
+//   }
+// });
 
 //route to ferch a single reservation
 router.get("/:id", async (req, res) => {
    const { id } = req.params;
   try {
     const reservation = await Reservations.findAll({
-      where: {
-        user_id: id,
-      },
+      include: [
+        {
+          model: Driveways,
+        },
+      ],
+      where: { user_id: id },
     });
 
     res.json(reservation);
