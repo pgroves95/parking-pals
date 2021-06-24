@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function ProfileUser() {
-	const dbDrivewayList = useSelector((state) => state.dbDrivewayList);
+	const dbReservationsList = useSelector((state) => state.dbReservationsList);
 	const dispatch = useDispatch();
 	const classes = useStyles();
 	const profileData = useSelector((state) => state.profileData);
@@ -50,7 +50,7 @@ export default function ProfileUser() {
 		});
 		const parsedData = await response.json();
 		dbReservations(dispatch, parsedData);
-		console.log(dbDrivewayList)
+		
 	};
 
 	useEffect(() => {
@@ -83,26 +83,27 @@ export default function ProfileUser() {
 				</div>
 				<div className="results-and-map">
 					<div className="search-results">
-						{dbDrivewayList.length > 1 ? (
-							dbDrivewayList.map((driveway) => (
-								<div className={classes.root}>
-									<Paper elevation={3}>
-										<div className="card-contents">
-											<div className="pic-and-address">
-										{/* <img
-											className="driveway-pic"
-											// src={emptyDriveway}
-											alt="driveway"
-										/> */}
-										<h2>{driveway.address}</h2>
-										</div>
-										<div className="price-and-link">
-										<h4>${driveway.rate} / hour</h4>
+						{dbReservationsList.length > 1 ? (
+							dbReservationsList.map((reservations) => (
+								<div><h1>{reservations.address}</h1></div>
+								// <div className={classes.root}>
+								// 	<Paper elevation={3}>
+								// 		<div className="card-contents">
+								// 			<div className="pic-and-address">
+								// 		{/* <img
+								// 			className="driveway-pic"
+								// 			// src={emptyDriveway}
+								// 			alt="driveway"
+								// 		/> */}
+								// 		<h2>{reservations.address}</h2>
+								// 		</div>
+								// 		<div className="price-and-link">
+								// 		<h4>${reservations.rate} / hour</h4>
 	
-										</div>
-										</div>
-									</Paper>
-								</div>
+								// 		</div>
+								// 		</div>
+								// 	</Paper>
+								// </div>
 							))
 						) : (
 							<p>Loading...</p>
