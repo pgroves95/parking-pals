@@ -124,7 +124,7 @@ export default function ProfileUser() {
 						<p>Start: {reservation.start_req}</p>
 						<p>End: {reservation.end_req}</p>
 						<p>{reservation.rate}</p>
-						<button onClick={()=>{deleteReservation(reservation.id)}}>Cancel Reservation</button>
+						<button id="cancel-button" onClick={()=>{deleteReservation(reservation.id)}}>Cancel Reservation</button>
 					</Paper>
 					</div>
 					</div>

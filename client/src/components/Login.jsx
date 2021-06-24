@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getUserData } from "../actions/profile-actions";
 import { makeStyles } from "@material-ui/core/styles";
 import Alert from "@material-ui/lab/Alert";
-import { getLoginStatus } from "../actions/login-actions";
+import { dbReservations } from "../actions/db-reservations-actions";
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -23,6 +23,7 @@ export default function Login() {
 	const [password, setPassword] = useState("");
 	const [loginMessage, setLoginMessage] = useState("");
 	const loginStatus = useSelector((state) => state.loginStatus)
+	const profileData = useSelector((state) => state.profileData);
 	const history = useHistory();
 	const dispatch = useDispatch();
 	const classes = useStyles();
@@ -48,12 +49,22 @@ export default function Login() {
 				} else {
 					if (loginStatus && loginStatus.length > 1) {
 					getUserData(dispatch, data);
+					getReservationsData();
 					history.goBack();
 					} else {
 					getUserData(dispatch, data);
+					getReservationsData();
 					history.push("/");
 				}}});
 		return false;
+	};
+
+	const getReservationsData = async () => {
+		const response = await fetch(`http://localhost:3001/api/reservations/${profileData.id}`, {
+			method: "GET",
+		});
+		const parsedData = await response.json();
+		dbReservations(dispatch, parsedData);
 	};
 
 	return (

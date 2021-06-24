@@ -31,6 +31,14 @@
   margin-top: 10px;
 }
 
+#cancel-button:hover {
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 2px;
+}
+
 #back-button {
   background-color: #1e3d58;
   width: 115px;
