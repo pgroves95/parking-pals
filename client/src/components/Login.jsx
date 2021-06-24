@@ -30,12 +30,10 @@ export default function Login() {
 		fetch("http://localhost:3001/api/users/login", {
 			method: "POST",
 			body: JSON.stringify({ email, password }),
-			credentials: 'include',
+			credentials: "include",
 			headers: {
 				"Content-Type": "application/json",
-				
 			},
-			
 		})
 			.then((res) => res.json())
 			.then((data) => {
@@ -55,7 +53,7 @@ export default function Login() {
 		<div>
 			<div id="login-section">
 				{loginMessage ? (
-					<div className={classes.root}>
+					<div id="login-toast" className={classes.root}>
 						<Alert severity="error">
 							Unable to login. Please check your credentials and try again!
 						</Alert>
@@ -63,6 +61,7 @@ export default function Login() {
 				) : (
 					<div></div>
 				)}
+				<br />
 				<form className="login-form" onSubmit={(e) => sendForm(e)}>
 					<h1 className="login-header">Log In to Find Parking</h1>
 					<img id="dog-icon" src={dog} alt="dog" />

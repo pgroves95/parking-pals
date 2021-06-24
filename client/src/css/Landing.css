@@ -1,7 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Bubblegum+Sans&display=swap");
 
 /* MAIN SECTION OF LANDING PAGE */
-
+#main {
+	display: flex;
+	flex-direction: column;
+}
 #main-landing {
 	background-color: #e8eef1;
 	color: #1e3d58;
@@ -11,8 +14,8 @@
 }
 
 #main-landing img {
-	height: 290px;
-	width: 350px;
+	height: 80%;
+	width: 80%;
 	border-radius: 5px;
 }
 
@@ -88,8 +91,8 @@
 
 @media screen and (min-width: 768px) {
 	#main-landing img {
-		height: 580px;
-		width: 700px;
+		height: 80%;
+		width: 80%;
 	}
 
 	#main-welcome-intro {
@@ -122,11 +125,14 @@
 
 @media screen and (min-width: 992px) {
 	#main-landing {
-		background: linear-gradient(rgba(67, 176, 241, 0.35), rgba(0, 0, 0, 0.5)),
+		background: linear-gradient(
+				rgba(67, 176, 241, 0.25),
+				rgba(67, 176, 241, 0.25)
+			),
 			url(../assets/images/passengerdog.jpg);
 		background-size: cover;
 		background-position: center;
-		height: 85vh;
+		min-height: 85vh;
 	}
 
 	#main-landing img {
@@ -189,6 +195,7 @@
 .features-div {
 	background-color: #e8eef1;
 	max-width: 100vw;
+	min-height: 100vh;
 }
 
 #features-title {
@@ -303,10 +310,6 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
-		/* padding: 1.2rem;
-		padding-right: 0.6rem;
-		margin: 0.2rem 1.2rem;
-		margin-left: 0.6rem; */
 		align-items: center;
 		height: 16rem;
 		text-align: center;
@@ -317,10 +320,6 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
-		/* padding: 1.2rem;
-		padding-right: 0.6rem;
-		margin: 0.2rem 1.2rem;
-		margin-left: 0.6rem; */
 		align-items: center;
 		height: 16rem;
 		text-align: center;
@@ -332,6 +331,7 @@
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
+		margin-bottom: 2%;
 	}
 
 	.features-sub-section-1,
@@ -367,7 +367,7 @@
 	}
 
 	#features-title {
-		border-top: none;
+		border: 0;
 		padding: 50px 0 0 0;
 		margin-bottom: 3%;
 		font-size: 50px;
@@ -383,7 +383,7 @@
 		display: grid;
 		grid-template-columns: 1fr 1fr 1fr;
 		place-items: center;
-		height: 85vh;
+		min-height: 50vh;
 	}
 	.main-features {
 		display: flex;
@@ -455,12 +455,15 @@
 	}
 }
 @media (min-width: 992px) and (max-width: 1360px) {
+	#main-landing {
+		min-height: 80vh;
+	}
 	#dog-rider-img {
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		height: 80%;
-		width: 80%;
+		max-width: 310px;
+		max-height: 468px;
 	}
 	.main-features,
 	.main-features-reverse {
@@ -474,18 +477,37 @@
 	}
 
 	#man-with-dogs {
-		margin-top: 20px;
 		height: 80%;
 		width: 80%;
+		padding-top: 8%;
+	}
+	#man-with-dogs-div {
+		display: flex;
+		justify-content: center;
+		justify-content: center;
+		padding-top: 5%;
+	}
+	.features-div {
+		min-height: 80vh;
 	}
 }
 
 @media screen and (min-width: 1360px) {
+	#main-landing {
+		min-height: 80vh;
+	}
+	#man-with-dogs-div {
+		padding-top: 10%;
+	}
 	#man-with-dogs {
-		display: none;
+		height: 70%;
+		width: 70%;
 	}
 	#dog-rider-img {
 		height: 80%;
 		width: 80%;
+	}
+	.features-div {
+		min-height: 90vh;
 	}
 }
