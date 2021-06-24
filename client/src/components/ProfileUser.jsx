@@ -60,6 +60,17 @@ export default function ProfileUser() {
 		dbReservations(dispatch, parsedData);
 	};
 
+	const deleteReservation = async (id) => {
+		const response = await fetch(`http://localhost:3001/api/reservations/${profileData.id}`, {
+			method: "DELETE",
+			body: JSON.stringify({
+				id: id
+			}),
+		});
+		const parsedData = await response.json();
+		getReservationsData()
+	};
+
 	const formatDate = (date) => {
 		let newDate = date.substring(0,10)
 		return <p><b>{newDate}</b></p>
@@ -100,7 +111,7 @@ export default function ProfileUser() {
 						<br></br>
 						<h3><u>Your Reservations</u></h3>
 			<div className="newRes">
-				{dbReservationsList.length > 1 ? (
+				{dbReservationsList.length > 0 ? (
 					dbReservationsList.map((reservation) => (
 						<div className="info-card">
 				<div className={classes.reservCard}>
@@ -112,7 +123,7 @@ export default function ProfileUser() {
 						<p>Start: {reservation.start_req}</p>
 						<p>End: {reservation.end_req}</p>
 						<p>{reservation.rate}</p>
-						<button>Cancel Reservation</button>
+						<button onClick={()=>{deleteReservation(reservation.id)}}>Cancel Reservation</button>
 					</Paper>
 					</div>
 					</div>

@@ -1,6 +1,6 @@
 const express = require("express");
 const db = require("../../models");
-const { convertTime } = require('../convertTime')
+const { convertTime } = require("../convertTime");
 const { Reservations } = require("../../models");
 
 const router = express.Router();
@@ -20,7 +20,7 @@ router.get("/", async (req, res) => {
 
 //route to ferch a single reservation
 router.get("/:id", async (req, res) => {
-   const { id } = req.params;
+  const { id } = req.params;
   try {
     const reservation = await Reservations.findAll({
       where: {
@@ -36,11 +36,11 @@ router.get("/:id", async (req, res) => {
 
 //delete reservation by id
 router.delete("/:id", async (req, res) => {
+  const { id } = req.params;
   try {
     const reservation = await Reservations.findOne({
       where: {
-        id: req.params.id,
-        user_id: req.session.id,
+        user_id: id,
       },
     });
 
@@ -53,12 +53,12 @@ router.delete("/:id", async (req, res) => {
 
 //make a new reservation
 router.post("/new", async (req, res) => {
-  convertedStart = convertTime(req.body.start_req)
-  convertedEnd = convertTime(req.body.end_req)
-  
-  console.log(req)
-  if(!req.body.user_id){
-    console.log("hi")
+  convertedStart = convertTime(req.body.start_req);
+  convertedEnd = convertTime(req.body.end_req);
+
+  console.log(req);
+  if (!req.body.user_id) {
+    console.log("hi");
     res.status(400).json({ message: "this doesnt work" });
   }
 
@@ -69,7 +69,7 @@ router.post("/new", async (req, res) => {
       end_req: convertedEnd,
       start_req: convertedStart,
       stripe_charge_id: req.body.stripe_charge_id,
-      user_id: req.body.user_id
+      user_id: req.body.user_id,
     });
 
     res.json(reservation);
