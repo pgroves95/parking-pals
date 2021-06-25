@@ -110,7 +110,7 @@ export default function ProfileUser() {
 							<br></br>
 							<div id="license-and-phone">
 								<p>
-									<b>Lincense Plate</b>
+									<b>License Plate</b>
 									<br></br>
 									{profileData.license_plate.toUpperCase()}
 								</p>
