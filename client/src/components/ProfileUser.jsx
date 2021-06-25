@@ -67,12 +67,16 @@ export default function ProfileUser() {
 			`http://localhost:3001/api/reservations/${profileData.id}`,
 			{
 				method: "DELETE",
+				headers: {
+					"Content-Type": "application/json",
+				},
 				body: JSON.stringify({
 					id: id,
 				}),
 			}
 		);
 		const parsedData = await response.json();
+		console.log(parsedData)
 		getReservationsData();
 	};
 
