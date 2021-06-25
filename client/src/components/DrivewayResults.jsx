@@ -85,9 +85,7 @@ export default function DrivewayResults() {
 			.map((point) => ({
 				type: "Feature",
 				properties: {
-					description: `<strong>${point.address}</strong><p><Link to="/driveway/${point.id}">
-						<p>View More</p>
-					</Link></p>`,
+					description: `<strong>${point.address}</strong>`,
 					icon: "veterinary-15",
 				},
 				geometry: {
