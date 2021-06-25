@@ -79,7 +79,7 @@ export default function DrivewayIndividual({ match }) {
 	
 
 	return (
-		<div>
+		<div className="individual-drive">
 			{oneDriveway[0] === undefined ? <div id="reroute-link"><Link to="/searchresults">Something went wrong! Click here to return to the search page and try again</Link><img id="sad-dog-img" src={sad} alt="sad-puppy"/></div> : 
 			<div>
 			 <div className="title">

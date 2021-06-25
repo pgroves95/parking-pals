@@ -121,7 +121,7 @@ export default function ProfileUser() {
 	}, []);
 
 	return (
-		<div>
+		<div className = "profile-user">
 			{profileData.license_plate === undefined ? <div id="reroute-link"><Link to="/login">Something went wrong! Click here to login again</Link><img id="sad-dog-img" src={sad} alt="sad-puppy"/></div> : 
 			<div className="card-and-history">
 			<div className="info-card">

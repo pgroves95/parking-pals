@@ -2,11 +2,13 @@
 	min-height: 90vh;
 	background-color: #e8eef1;
 	padding-bottom: 3%;
+	margin-top: 5%;
 }
 
 .faq-header {
 	margin: 1.5rem;
 	font-weight: bolder;
+	color:#1e3d58;
 }
 
 .faq-section {
@@ -19,6 +21,9 @@
 
 .faq-sub-section h1 {
 	margin: 1.5rem;
+}
+h3 {
+	color:#1e3d58;
 }
 
 .faq-sub-section p {
