@@ -1,14 +1,12 @@
-
 import { useSelector, useDispatch  } from "react-redux";
 import { makeStyles } from "@material-ui/core/styles";
 import {Link} from "react-router-dom"
 import Avatar from "@material-ui/core/Avatar";
 import Paper from "@material-ui/core/Paper";
 import avatar from "../assets/images/avatar.png";
-import sad from "../assets/images/lostdog.png";
 import { dbReservations } from "../actions/db-reservations-actions";
 import React, { useEffect} from "react";
-
+import sad from "../assets/images/lostdog.png"
 import "../App.css";
 
 const useStyles = makeStyles((theme) => ({
@@ -83,6 +81,7 @@ export default function ProfileUser() {
 	
 	return (
 		<div>
+			{profileData.license_plate === undefined ? <div id="reroute-link"><Link to="/login">Something went wrong! Click here to login again</Link><img id="sad-dog-img" src={sad} alt="sad-puppy"/></div> : 
 			<div className="card-and-history">
 			<div className="info-card">
 				<div className={classes.rootCard}>
@@ -136,7 +135,7 @@ export default function ProfileUser() {
 
 					</div>
 				</div>
-				
+}
 		</div>
 	);
 }
