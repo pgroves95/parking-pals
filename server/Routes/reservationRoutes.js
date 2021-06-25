@@ -1,6 +1,6 @@
 const express = require("express");
 const db = require("../../models");
-const { convertTime } = require('../convertTime')
+const { convertTime } = require("../convertTime");
 const { Reservations, Driveways } = require("../../models");
 
 const router = express.Router();
@@ -26,11 +26,12 @@ router.get("/:id", async (req, res) => {
 
 //delete reservation by id
 router.delete("/:id", async (req, res) => {
-  const { id } = req.params;
+  console.log(req.body.id);
+  const res_id = req.body.id;
   try {
     const reservation = await Reservations.findOne({
       where: {
-        user_id: id,
+        id: res_id,
       },
     });
 
