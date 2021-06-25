@@ -1,11 +1,11 @@
 
-# Parking Puppy: 
+# Parking Puppy
 An app to make parking a little bit easier.  
 You can Register, login and begin exploring our range of driveways. Then Reserve the parking spot directly on the app! All of your upcoming reservations will be saved on your driver profile.
 
 <img width="1440" alt="Screen Shot 2021-06-25 at 8 00 51 AM" src="https://user-images.githubusercontent.com/78625574/123483088-10a85500-d5bb-11eb-9eeb-7e01bb52bad9.png">
 
-## Stack: 
+## Stack
 
 
 ### Front End: 
@@ -21,7 +21,7 @@ You can Register, login and begin exploring our range of driveways. Then Reserve
 
 
 
-### Features: 
+### Features
 * User Authentication
 * Reservations 
 * Search by location
@@ -39,7 +39,7 @@ When you arrive at the landing page you are free to explore driveways by locatio
 * Directions to your driveway
 
 
-### Additional Images:
+### Additional Images
 ## Login
 
 <img width="600" alt="Screen Shot 2021-06-25 at 8 03 24 AM" src="https://user-images.githubusercontent.com/78625574/123483106-17cf6300-d5bb-11eb-9888-b35d875cfb74.png">
