@@ -1,5 +1,4 @@
 import React from "react";
-import Footer from "./Footer";
 import "../css/FAQ.css";
 
 export default function FAQ() {
@@ -9,48 +8,58 @@ export default function FAQ() {
 				<h1 className="faq-header">Frequently Asked Questions</h1>
 				<div className="faq-section">
 					<div className="faq-sub-section">
-						<h3>How to request a driveway?</h3>
+						<h3>How do I use Parking Puppy?</h3>
 						<p>
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil
-							corporis quam, aspernatur voluptatum porro est sapiente laudantium
-							ducimus impedit accusantium?
+							Input your destination on the homepage to find open driveways near
+							the designated location. Log in or register an account to book
+							that parking spot for an allotted time.
 						</p>
 					</div>
 					<div className="faq-sub-section">
-						<h3>How is the pricing calculated?</h3>
+						<h3>Where is the home menu located?</h3>
 						<p>
-							Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolores
-							quaerat vero aperiam optio harum et minima doloribus inventore
-							doloremque numquam!
+							The home menu button is the Parking Puppy icon in the top left of
+							the screen. On a mobile device, click the orange paw in the top
+							right to navigate between other pages.
 						</p>
 					</div>
 					<div className="faq-sub-section">
-						<h3>Can I cancel a request?</h3>
+						<h3>How do I view my reservation history?</h3>
 						<p>
-							Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae
-							exercitationem accusamus nesciunt assumenda quis ad facilis rem
-							aliquid laudantium eligendi?
+							Reservation history is located on your profile page once you
+							register an account.
 						</p>
 					</div>
 					<div className="faq-sub-section">
-						<h3>What is the cancellation fee?</h3>
+						<h3>Can I park multiple cars?</h3>
 						<p>
-							Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-							Exercitationem dolores recusandae libero ipsa similique eaque?
-							Dolorum dolor obcaecati ipsum in!
+							You may only register one car per account. If you have reserved a
+							driveway spot and there is another opening, the other spot can be
+							reserved from the second car account.
 						</p>
 					</div>
 					<div className="faq-sub-section">
-						<h3>How can I pay for the driveway?</h3>
+						<h3>How do I find my parking spot?</h3>
 						<p>
-							Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit
-							iusto quam exercitationem? Nulla aspernatur fugit ipsa rerum, vero
-							dicta inventore!
+							Driveway addresses can be found when making your reservation or
+							afterwards on your profile page.
+						</p>
+					</div>
+					<div className="faq-sub-section">
+						<h3>Can I end my parking session while it’s in progress?</h3>
+						<p>
+							The reservation will end once the selected stay has come to an
+							end, so there’s no need to stop it early.
+						</p>
+					</div>
+					<div className="faq-sub-section">
+						<h3>How do I enter my license plate number?</h3>
+						<p>
+							Enter your license plate alphanumeric only, no special characters.
 						</p>
 					</div>
 				</div>
 			</div>
-			<Footer />
 		</div>
 	);
 }

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { useSelector, useDispatch } from "react-redux";
 import {showOneDriveway} from "../actions/one-driveway-actions"
+import {getLoginStatus} from "../actions/login-actions"
 import { Link, useHistory } from "react-router-dom";
 import Paper from "@material-ui/core/Paper";
 import "../css/DrivewayIndividual.css";
@@ -32,10 +33,10 @@ export default function DrivewayIndividual({ match }) {
 	const dbDrivewayList = useSelector((state) => state.dbDrivewayList)
 	const oneDriveway = useSelector((state) => state.oneDriveway)
 	const profileData = useSelector((state) => state.profileData)
+	const errorMessage = useSelector((state) => state.loginStatus)
 	const drivewayNumber = parseInt(match.params.id)
 	const history = useHistory();
 	const [date,setDate] = useState("")
-	const [driveway_id,setDriveway_id] = useState("")
 	const [end_req,setEnd_req] = useState("")
 	const [start_req,setStart_req] = useState("")
 
@@ -69,6 +70,7 @@ export default function DrivewayIndividual({ match }) {
 			.then((data) => {
 				if (data.message) {
 					history.push("/login");
+					getLoginStatus(dispatch, "Please login to reserve driveways")
 				} else {
 					history.push("/profile");
 				}
@@ -79,7 +81,7 @@ export default function DrivewayIndividual({ match }) {
 
 	return (
 		<div>
-			{oneDriveway[0] === undefined ? <div id="reroute-link"><Link to="/searchresults">Something went wrong! Return to search page and try again</Link><img id="sad-dog-img" src={sad} alt="sad-puppy"/></div> : 
+			{oneDriveway[0] === undefined ? <div id="reroute-link"><Link to="/searchresults">Something went wrong! Click here to return to the search page and try again</Link><img id="sad-dog-img" src={sad} alt="sad-puppy"/></div> : 
 			<div>
 			 <div className="title">
 				<h1>{oneDriveway[0].address}</h1>

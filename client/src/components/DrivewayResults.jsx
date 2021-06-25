@@ -142,9 +142,7 @@ export default function DrivewayResults() {
 		setSearch("");
 	};
 
-	useEffect(() => {
-		newLocation();
-	}, [dbDrivewayList]);
+	
 
 	useEffect(() => {
 		getDrivewayData();

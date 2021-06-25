@@ -4,7 +4,6 @@ import { Link, useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { setSearchCoordinates } from "../actions/search-actions";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import dogMan from "../assets/images/manwithdogs.jpg";
 import dogRider from "../assets/images/dogrider.jpg";
 import {
 	faDog,
@@ -14,7 +13,6 @@ import {
 	faBaseballBall,
 	faPoop,
 } from "@fortawesome/free-solid-svg-icons";
-import Footer from "./Footer";
 import "../css/Landing.css";
 import "../css/Navbar.css";
 
@@ -51,7 +49,7 @@ export default function Landing() {
 	};
 
 	return (
-		<div>
+		<div id="main">
 			<div id="main-landing">
 				<br />
 				<img src={passengerdog} alt="dog-passenger" />
@@ -132,7 +130,7 @@ export default function Landing() {
 							<div className="features-icon">{paw}</div>
 						</div>
 					</div>
-					<div>
+					<div id="dog-rider-div">
 						<img id="dog-rider-img" src={dogRider} alt="dog rider" />
 					</div>
 					<div className="features-sub-section-2">
@@ -161,11 +159,7 @@ export default function Landing() {
 						</div>
 					</div>
 				</div>
-				<div id="man-with-dogs-div">
-					<img id="man-with-dogs" src={dogMan} alt="man with dogs" />
-				</div>
 			</div>
-			<Footer />
 		</div>
 	);
 }

@@ -1,11 +1,12 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
 import "../css/Login.css";
 import dog from "../assets/images/dog.png";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getUserData } from "../actions/profile-actions";
 import { makeStyles } from "@material-ui/core/styles";
 import Alert from "@material-ui/lab/Alert";
+import { dbReservations } from "../actions/db-reservations-actions";
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -21,6 +22,8 @@ export default function Login() {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [loginMessage, setLoginMessage] = useState("");
+	const loginStatus = useSelector((state) => state.loginStatus)
+	const profileData = useSelector((state) => state.profileData);
 	const history = useHistory();
 	const dispatch = useDispatch();
 	const classes = useStyles();
@@ -30,12 +33,10 @@ export default function Login() {
 		fetch("http://localhost:3001/api/users/login", {
 			method: "POST",
 			body: JSON.stringify({ email, password }),
-			credentials: 'include',
+			credentials: "include",
 			headers: {
 				"Content-Type": "application/json",
-				
 			},
-			
 		})
 			.then((res) => res.json())
 			.then((data) => {
@@ -44,18 +45,39 @@ export default function Login() {
 					setPassword("");
 					history.push("/login");
 				} else {
+					if (loginStatus && loginStatus.length > 1) {
 					getUserData(dispatch, data);
+					getReservationsData();
+					history.goBack();
+					} else {
+					getUserData(dispatch, data);
+					getReservationsData();
 					history.push("/");
-				}
-			});
+				}}});
 		return false;
+	};
+
+	const getReservationsData = async () => {
+		const response = await fetch(`http://localhost:3001/api/reservations/${profileData.id}`, {
+			method: "GET",
+		});
+		const parsedData = await response.json();
+		dbReservations(dispatch, parsedData);
 	};
 
 	return (
 		<div>
 			<div id="login-section">
-				{loginMessage ? (
+			{loginStatus ? (
 					<div className={classes.root}>
+						<Alert severity="error">
+							Please login to make a reservation						</Alert>
+					</div>
+				) : (
+					<div></div>
+				)}
+				{loginMessage ? (
+					<div id="login-toast" className={classes.root}>
 						<Alert severity="error">
 							Unable to login. Please check your credentials and try again!
 						</Alert>
@@ -63,6 +85,7 @@ export default function Login() {
 				) : (
 					<div></div>
 				)}
+				<br />
 				<form className="login-form" onSubmit={(e) => sendForm(e)}>
 					<h1 className="login-header">Log In to Find Parking</h1>
 					<img id="dog-icon" src={dog} alt="dog" />
@@ -72,6 +95,7 @@ export default function Login() {
 						placeholder="Email"
 						onChange={(e) => setEmail(e.target.value)}
 						value={email}
+						required
 					/>
 					<input
 						className="login-input-2"
@@ -79,6 +103,7 @@ export default function Login() {
 						placeholder="Password"
 						onChange={(e) => setPassword(e.target.value)}
 						value={password}
+						required
 					/>
 					<button className="login-button" type="submit">
 						Log In
