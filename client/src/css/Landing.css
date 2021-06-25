@@ -453,6 +453,9 @@
 	#dog-rider-img {
 		display: flex;
 	}
+	#secondary-landing {
+		margin-top: 25px;
+	}
 }
 @media (min-width: 992px) and (max-width: 1360px) {
 	#main-landing {
