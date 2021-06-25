@@ -376,6 +376,9 @@
 		height: 520px;
 		width: 700px;
 	}
+	.features-div {
+		min-height: 60vh;
+	}
 }
 
 @media screen and (min-width: 992px) {
