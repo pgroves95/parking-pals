@@ -7,6 +7,7 @@ import { getUserData } from "../actions/profile-actions";
 import { makeStyles } from "@material-ui/core/styles";
 import Alert from "@material-ui/lab/Alert";
 import { dbReservations } from "../actions/db-reservations-actions";
+import { getLoginStatus } from "../actions/login-actions";
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -48,10 +49,12 @@ export default function Login() {
 					if (loginStatus && loginStatus.length > 1) {
 					getUserData(dispatch, data);
 					getReservationsData();
+					getLoginStatus(dispatch, "")
 					history.goBack();
 					} else {
 					getUserData(dispatch, data);
 					getReservationsData();
+					getLoginStatus(dispatch, "")
 					history.push("/");
 				}}});
 		return false;
