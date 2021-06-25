@@ -64,7 +64,7 @@ export default function DrivewayResults() {
 				container: "map",
 				style: "mapbox://styles/mapbox/streets-v11",
 				center: [searchCoordinates[0], searchCoordinates[1]],
-				zoom: 14.5,
+				zoom: 14,
 			});
 			let marker1 = new mapboxgl.Marker()
 				.setLngLat([searchCoordinates[0], searchCoordinates[1]])
@@ -85,9 +85,7 @@ export default function DrivewayResults() {
 			.map((point) => ({
 				type: "Feature",
 				properties: {
-					description: `<strong>${point.address}</strong><p><Link to="/driveway/${point.id}">
-						<p>View More</p>
-					</Link></p>`,
+					description: `<strong>${point.address}</strong>`,
 					icon: "veterinary-15",
 				},
 				geometry: {

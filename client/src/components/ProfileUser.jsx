@@ -5,8 +5,8 @@ import Avatar from "@material-ui/core/Avatar";
 import Paper from "@material-ui/core/Paper";
 import avatar from "../assets/images/avatar.png";
 import { dbReservations } from "../actions/db-reservations-actions";
-import React, { useEffect } from "react";
-
+import React, { useEffect} from "react";
+import sad from "../assets/images/lostdog.png"
 import "../App.css";
 
 const useStyles = makeStyles((theme) => ({
@@ -77,13 +77,44 @@ export default function ProfileUser() {
 	};
 
 	const formatDate = (date) => {
-		let newDate = date.substring(0, 10);
-		return (
-			<p>
-				<b>{newDate}</b>
-			</p>
-		);
-	};
+		let newDate = date.substring(0, 10).split("-");
+  if (newDate[1] === "01") {
+    return <p><b>January {newDate[2]}, {newDate[0]}</b></p>;
+  }
+  if (newDate[1] === "02") {
+    return <p><b>February {newDate[2]}, {newDate[0]}</b></p>;
+  }
+  if (newDate[1] === "03") {
+    return <p><b>March {newDate[2]}, {newDate[0]}</b></p>;
+  }
+  if (newDate[1] === "04") {
+    return <p><b>April {newDate[2]}, {newDate[0]}</b></p>;
+  }
+  if (newDate[1] === "05") {
+    return <p><b>May {newDate[2]}, {newDate[0]}</b></p>;
+  }
+  if (newDate[1] === "06") {
+    return <p><b>June {newDate[2]}, {newDate[0]}</b></p>;
+  }
+  if (newDate[1] === "07") {
+    return <p><b>July {newDate[2]}, {newDate[0]}</b></p>;
+  }
+  if (newDate[1] === "08") {
+    return <p><b>August {newDate[2]}, {newDate[0]}</b></p>;
+  }
+  if (newDate[1] === "09") {
+    return <p><b>September {newDate[2]}, {newDate[0]}</b></p>;
+  }
+  if (newDate[1] === "10") {
+    return <p><b>October {newDate[2]}, {newDate[0]}</b></p>;
+  }
+  if (newDate[1] === "11") {
+    return <p><b>November {newDate[2]}, {newDate[0]}</b></p>;
+  }
+  if (newDate[1] === "12") {
+    return <p><b>December {newDate[2]}, {newDate[0]}</b></p>;
+  } else return <p><b>{newDate}</b></p>
+		}
 
 	useEffect(() => {
 		getReservationsData();
@@ -91,6 +122,7 @@ export default function ProfileUser() {
 
 	return (
 		<div>
+			{profileData.license_plate === undefined ? <div id="reroute-link"><Link to="/login">Something went wrong! Click here to login again</Link><img id="sad-dog-img" src={sad} alt="sad-puppy"/></div> : 
 			<div className="card-and-history">
 				<div className="info-card">
 					<div className={classes.rootCard}>
@@ -163,7 +195,7 @@ export default function ProfileUser() {
 						)}
 					</div>
 				</div>
-			</div>
+}
 		</div>
 	);
 }

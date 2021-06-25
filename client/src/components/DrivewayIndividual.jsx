@@ -33,7 +33,6 @@ export default function DrivewayIndividual({ match }) {
 	const dbDrivewayList = useSelector((state) => state.dbDrivewayList)
 	const oneDriveway = useSelector((state) => state.oneDriveway)
 	const profileData = useSelector((state) => state.profileData)
-	const errorMessage = useSelector((state) => state.loginStatus)
 	const drivewayNumber = parseInt(match.params.id)
 	const history = useHistory();
 	const [date,setDate] = useState("")
