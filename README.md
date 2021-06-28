@@ -60,4 +60,4 @@ https://parking-puppy.netlify.app/
 ## Color Palette
 
 ![Screen Shot 2021-06-28 at 10 50 07 AM](https://user-images.githubusercontent.com/71455657/123657205-99630300-d7fe-11eb-812d-7f3d4df8a8df.png) <br>
-#1E3D58 &nbsp;&nbsp;&nbsp;&nbsp; - &nbsp;&nbsp;&nbsp;&nbsp; #057DCD - #43B0F1 - #E8EEF1 - #FD7F20
+&nbsp;&nbsp; #1E3D58 &nbsp;&nbsp;&nbsp;&nbsp; - &nbsp;&nbsp;&nbsp;&nbsp; #057DCD - #43B0F1 - #E8EEF1 - #FD7F20
