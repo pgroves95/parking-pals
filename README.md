@@ -20,7 +20,6 @@ You can Register, login and begin exploring our range of driveways. Then Reserve
 * Sequelize
 
 
-
 ### Features
 * User Authentication
 * Reservations 
@@ -38,8 +37,11 @@ When you arrive at the landing page you are free to explore driveways by locatio
 * Stripe Integration
 * Directions to your driveway
 
+### Parking Puppy Live
+https://parking-puppy.netlify.app/
 
 ### Additional Images
+
 ## Login
 
 <img width="600" alt="Screen Shot 2021-06-25 at 8 03 24 AM" src="https://user-images.githubusercontent.com/78625574/123483106-17cf6300-d5bb-11eb-9888-b35d875cfb74.png">
@@ -47,6 +49,9 @@ When you arrive at the landing page you are free to explore driveways by locatio
 ## Search
 
 <img width="600" alt="Screen Shot 2021-06-25 at 8 02 02 AM" src="https://user-images.githubusercontent.com/78625574/123483321-611fb280-d5bb-11eb-9272-9e1672175852.png">
+
+## Profile 
+<img width="600" alt="Screen Shot 2021-06-25 at 8 08 44 AM" src="https://user-images.githubusercontent.com/78625574/123650450-77a65380-d7df-11eb-815a-e821acace648.png">
 
 ## Mobile Responsive
 
